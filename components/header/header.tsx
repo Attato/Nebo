@@ -5,9 +5,16 @@ const Header = () => {
     return (
         <header className={styles.header}>
             <div className={styles.header__content}>
-                <Link href=""><a>Главная</a></Link>
-                <Link href=""><a>Фильмы</a></Link>
-                <Link href=""><a>Сериалы</a></Link>
+                <div className={styles.right__side}>
+                    <Link href="/"><a>Главная</a></Link>
+                    <Link href="/movies"><a>Фильмы</a></Link>
+                    <Link href="/series"><a>Сериалы</a></Link>
+
+                </div>
+
+                <div className={styles.left__side}>
+                    <Link href=""><a>Профиль</a></Link>
+                </div>
             </div>
         </header>
     )
