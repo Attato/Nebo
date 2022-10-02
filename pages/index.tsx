@@ -6,6 +6,9 @@ import styles from 'styles/Home.module.scss';
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
 
+import movies from 'json/movies.json';
+import series from 'json/series.json';
+
 const Home: NextPage = () => {
 	return (
 		<div className="container">
@@ -34,6 +37,7 @@ const Home: NextPage = () => {
 						метро, в гостях у любимой бабули — онлайн или без интернета.
 					</p>
 				</div>
+				{/* <Image src="" width={400} height={500}></Image> */}
 			</main>
 
 			<Footer />

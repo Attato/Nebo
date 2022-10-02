@@ -1,86 +1,17 @@
 [
     {
-        "id": 0,
-        "score": 9.1,
-        "name": "Зелёная миля",
-        "euName": "The Green Mile",
-        "age": "16",
-        "duration": "3 часа 9 минут",
-        "release": "1999",
-        "country": "США",
-        "genre": "драма",
-        "trailer": "",
-        "image": "/images/movies/Зелёная_миля.webp",
-        "url": "/movies/"
+        "id": 0
     },
     {
-        "id": 1,
-        "score": 9.1,
-        "name": "Побег из Шоушенка",
-        "euName": "The Shawshank Redemption",
-        "age": "16",
-        "duration": "2 часа 22 минуты",
-        "release": "1994",
-        "country": "США",
-        "genre": "драма",
-        "trailer": "",
-        "image": "/images/movies/Побег_из_Шоушенка.webp",
-        "url": "/movies/"
+        "id": 0
     },
     {
-        "id": 2,
-        "score": 8.9,
-        "name": "Форрест Гамп",
-        "euName": "Forrest Gump",
-        "age": "16",
-        "duration": "2 часа 22 минуты",
-        "release": "1994",
-        "country": "США",
-        "genre": "драма",
-        "trailer": "",
-        "image": "/images/movies/Форест_гамп.webp",
-        "url": "/movies/"
+        "id": 0
     },
     {
-        "id": 3,
-        "score": 8.7,
-        "name": "Властелин колец: Возвращение короля",
-        "euName": "The Lord of the Rings: The Return of the King",
-        "age": "12",
-        "duration": "3 часа 21 минута",
-        "release": "2003",
-        "country": "Новая Зеландия",
-        "genre": "фэнтези",
-        "trailer": "",
-        "image": "/images/movies/Властелин_колец_Возвращение_короля.webp",
-        "url": "/movies/"
+        "id": 0
     },
-       {
-        "id": 4,
-        "score": 8.6,
-        "name": "Властелин колец: Братство Кольца",
-        "euName": "The Lord of the Rings: The Fellowship of the Ring",
-        "age": "12",
-        "duration": "2 часа 58 минут",
-        "release": "2001",
-        "country": "Новая Зеландия",
-        "genre": "фэнтези",
-        "trailer": "",
-        "image": "/images/movies/Властелин_колец_Братство_кольца.webp",
-        "url": "/movies/"
-    },
-       {
-        "id": 5,
-        "score": 8.6,
-        "name": "Властелин колец: Две крепости",
-        "euName": "The Lord of the Rings: The Two Towers",
-        "age": "16",
-        "duration": "2 часа 59 минут",
-        "release": "2002",
-        "country": "Новая Зеландия",
-        "genre": "фэнтези",
-        "trailer": "",
-        "image": "/images/movies/Властелин_колец_Две_крепости.webp",
-        "url": "/movies/"
+    {
+        "id": 0
     }
 ]

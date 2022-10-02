@@ -8,7 +8,7 @@ const Header = () => {
                 <div className={styles.right__side}>
                     <Link href="/"><a>Главная</a></Link>
                     <Link href="/movies"><a>Фильмы</a></Link>
-                    <Link href="/cartoons"><a>Мультфильмы</a></Link>
+                    <Link href="/series"><a>Сериалы</a></Link>
 
                 </div>
 
