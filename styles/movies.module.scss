@@ -1,0 +1,115 @@
+.main {
+    max-width: 1330px;
+    margin: 60px auto;
+    background: rgb(255 255 255 / 12%);
+    padding: 28px 20px;
+    border: 2px solid #edece8;
+    border-radius: 6px;
+    min-height: 77vh;
+
+	h1 {
+		margin: 0 0 30px;
+		color: #222;
+	}
+
+	p {
+		color: #222;
+		max-width: 640px;
+		margin-bottom: 40px;
+	}
+}
+
+.card__wrap {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	justify-content: space-between;
+
+	.card {
+		display: flex;
+		flex-direction: row;
+		position: relative;
+		max-width: 630px;
+		width: 100%;
+
+		a {
+			span {
+				height: 100% !important;
+			}
+		}
+
+		.card__score {
+			background-color: #32ba43;
+			padding: 2px 6px;
+			font-weight: 500;
+			color: #fff;
+			border-radius: 4px;
+			user-select: none;
+		}
+
+		.card__content {
+			gap: 10px;
+			padding: 20px;
+			display: flex;
+			flex-direction: column;
+			border-top-right-radius: 5px;
+			border-bottom-right-radius: 5px;
+			align-items: baseline;
+			width: 100%;
+
+			.card__content__row {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				width: 100%;
+
+				h2 {
+					font-size: 16px;
+					display: flex;
+					align-items: center;
+					font-weight: 400;
+					width: 100%;
+					color: #222;
+					padding: 5px 0;
+				}
+			}
+
+			.card__content__column {
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+				width: 100%;
+
+				p {
+					margin: 0;
+					height: 100%;
+					color: #222;
+					padding: 5px 0;
+				}
+			}
+
+			button {
+				padding: 5px 10px;
+				background-color: transparent;
+				color: #222;
+				border: 1px solid #d1d1d1;
+				border-radius: 6px;
+				display: flex;
+				gap: 5px;
+				user-select: none;
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+.image {
+	border-radius: 6px;
+	user-select: none;
+}
+
+@keyframes shine {
+	to {
+		background-position-x: -200%;
+	}
+}

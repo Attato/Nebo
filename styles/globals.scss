@@ -1,4 +1,23 @@
 .container {
-    max-width: 2500px;
-    margin: auto;
+	max-width: 2500px;
+	margin: auto;
+    background-color: #eae9e5;
+
+	.main {
+		max-width: 1330px;
+		margin: auto;
+		padding: 0 15px;
+		min-height: 77vh;
+
+		h1 {
+			margin: 60px 0 30px;
+			color: #222;
+		}
+
+		p {
+			color: #222;
+			max-width: 640px;
+			margin-bottom: 40px;
+		}
+	}
 }

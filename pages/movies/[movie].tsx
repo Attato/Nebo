@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { NextPage } from 'next';
 import Head from 'next/head';
