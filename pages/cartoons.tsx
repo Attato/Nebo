@@ -19,7 +19,7 @@ const Сartoons: NextPage = () => {
 
 			<Header />
 
-			<main className={styles.main}>
+			<main className="main">
 				<h1>Мультфильмы</h1>
 				<div className={styles.card__wrap}>
 					{cartoons.map((cartoon, id) => {
