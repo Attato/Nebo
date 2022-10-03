@@ -40,3 +40,23 @@ a {
 		background: #eae9e5;
 	}
 }
+
+@media (prefers-color-scheme: dark) {
+	html {
+		color-scheme: dark;
+	}
+	body {
+		color: white;
+		background: #eae9e5;
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	html {
+		color-scheme: light;
+	}
+	body {
+		color: white;
+		background: #eae9e5;
+	}
+}
