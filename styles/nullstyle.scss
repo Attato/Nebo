@@ -37,6 +37,17 @@ a {
 	}
 	body {
 		color: white;
-		background: #eae9e5;
+		background: #121212;
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	html {
+		color-scheme: light;
+	}
+
+	body {
+		color: white;
+		background: white;
 	}
 }
