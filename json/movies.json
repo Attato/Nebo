@@ -1,7 +1,7 @@
 [
     {
         "id": 0,
-        "score": 9.1,
+        "score": 9.2,
         "name": "Зелёная миля",
         "euName": "The Green Mile",
         "age": "16",
@@ -15,7 +15,7 @@
     },
     {
         "id": 1,
-        "score": 9.1,
+        "score": 9.0,
         "name": "Побег из Шоушенка",
         "euName": "The Shawshank Redemption",
         "age": "16",
@@ -43,7 +43,7 @@
     },
     {
         "id": 3,
-        "score": 8.7,
+        "score": 8.9,
         "name": "Властелин колец: Возвращение короля",
         "euName": "The Lord of the Rings: The Return of the King",
         "age": "12",
@@ -55,9 +55,9 @@
         "image": "/images/movies/Властелин_колец_Возвращение_короля.webp",
         "url": "the-lord-of-the-rings-the-return-of-the-king"
     },
-       {
+    {
         "id": 4,
-        "score": 8.6,
+        "score": 8.8,
         "name": "Властелин колец: Братство Кольца",
         "euName": "The Lord of the Rings: The Fellowship of the Ring",
         "age": "12",
@@ -69,9 +69,9 @@
         "image": "/images/movies/Властелин_колец_Братство_кольца.webp",
         "url": "the-lord-of-the-rings-the-fellowship-of-the-ring"
     },
-       {
+    {
         "id": 5,
-        "score": 8.6,
+        "score": 8.8,
         "name": "Властелин колец: Две крепости",
         "euName": "The Lord of the Rings: The Two Towers",
         "age": "12",
@@ -82,5 +82,19 @@
         "trailer": "",
         "image": "/images/movies/Властелин_колец_Две_крепости.webp",
         "url": "the-lord-of-the-rings-the-two-towers"
+    },
+    {
+        "id": 6,
+        "score": 8.8,
+        "name": "Интерстеллар",
+        "euName": "Interstellar",
+        "age": "16",
+        "duration": "2 часа 49 минут",
+        "release": "2014",
+        "country": "США",
+        "genre": "фантастика",
+        "trailer": "",
+        "image": "/images/movies/Интерстеллар.webp",
+        "url": "interstellar"
     }
 ]
