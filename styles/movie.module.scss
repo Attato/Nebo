@@ -7,68 +7,92 @@
 		border-radius: 6px;
 	}
 
+	.movie__rightside {
+		display: flex;
+		flex-direction: column;
+	}
+
 	.movie__content {
+		display: flex;
+		flex-direction: column;
 		max-width: 600px;
 		width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+		gap: 50px;
 
-		h1 {
-			margin: 0;
-			font-size: 40px;
-			margin-bottom: 10px;
-		}
-
-		span {
-			color: rgba(0 0 0 / 60%);
+		.movie__masthead__content {
+			width: 100%;
 			display: flex;
-			align-items: center;
-			gap: 10px;
-		}
-
-		.age {
-			border: 1px solid rgba(31 31 31 / 40%);
-			color: rgba(31 31 31 / 40%);
-			border-radius: 3px;
-			padding: 1px 3px 0;
-			font-size: 11px;
-			font-weight: 500;
-		}
-
-		button {
-			display: flex;
-			gap: 5px;
-			padding: 5px 10px;
-			background-color: transparent;
-			color: #222;
-			border: 1px solid #d1d1d1;
-			border-radius: 6px;
-			margin-top: 20px;
-            cursor: pointer;
-            user-select: none;
-		}
-
-		h2 {
-			font-size: 24px;
-			color: #222;
-            margin-bottom: 10px;
-		}
-
-		.about__movie {
-			display: flex;
-			padding: 8px 0;
-
+			flex-direction: column;
+			justify-content: space-between;
+			height: 450px;
+	
+			h1 {
+				margin: 0;
+				font-size: 40px;
+				margin-bottom: 10px;
+			}
+	
 			span {
-				color: #333;
-				font-size: 14px;
+				color: #acacac;
+				display: flex;
+				align-items: center;
+				gap: 10px;
+			}
+	
+			.age {
+				border: 1px solid #acacac;
+				color: #acacac;
+				border-radius: 3px;
+				padding: 1px 3px 0;
+				font-size: 11px;
+				font-weight: 500;
+			}
+	
+			button {
+				display: flex;
+				gap: 5px;
+				padding: 5px 10px;
+				background-color: transparent;
+				color: #acacac;
+				border: 0;
+				margin-top: 20px;
+				cursor: pointer;
+				user-select: none;
+			}
+	
+			h2 {
+				font-size: 24px;
+				color: #ebebeb;
+				margin-bottom: 10px;
+			}
+	
+			.about__movie {
+				display: flex;
+				padding: 8px 0;
+	
+				span {
+					color: #ebebeb;
+					font-size: 14px;
+	
+					&:first-child {
+						max-width: 160px;
+						width: 100%;
+						color: #acacac;
+					}
+				}
 
-				&:first-child {
-					max-width: 160px;
-					width: 100%;
-					color: rgba(0, 0, 0, 0.6);
+				&:last-child {
+					padding-bottom: 0;
 				}
 			}
+		}
+		
+		.video__wrap {
+			max-width: 600px;
+			width: 100%;
+			height: 360px;
+			background-color: #333;
+			border-radius: 6px;
 		}
 	}
 }
