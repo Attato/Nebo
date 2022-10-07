@@ -6,21 +6,22 @@
 	h1 {
 		margin: 60px 0 30px;
 		font-size: 72px;
-		color: #222;
+		color: #ebebeb;
 	}
 
 	p {
-		color: #323232;
+		color: #acacac;
 	}
 }
 
 .info__block {
 	max-width: 293px;
-	border: 2px solid #222;
+	border: 2px solid #ebebeb;
 	padding: 20px;
-	box-shadow: inset 0 -8px 0 #222;
+	box-shadow: inset 0 -8px 0 #ebebeb;
+	margin-bottom: 20px;
 
 	p {
-		color: #323232;
+		color: #acacac;
 	}
 }
