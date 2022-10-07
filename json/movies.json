@@ -1,7 +1,7 @@
 [
     {
         "id": 0,
-        "score": 9.2,
+        "score": "9.2",
         "name": "Зелёная миля",
         "euName": "The Green Mile",
         "age": "16",
@@ -15,7 +15,7 @@
     },
     {
         "id": 1,
-        "score": 9.0,
+        "score": "9.0",
         "name": "Побег из Шоушенка",
         "euName": "The Shawshank Redemption",
         "age": "16",
@@ -29,7 +29,7 @@
     },
     {
         "id": 2,
-        "score": 8.9,
+        "score": "8.9",
         "name": "Форрест Гамп",
         "euName": "Forrest Gump",
         "age": "16",
@@ -43,7 +43,7 @@
     },
     {
         "id": 3,
-        "score": 8.9,
+        "score": "8.9",
         "name": "Властелин колец: Возвращение короля",
         "euName": "The Lord of the Rings: The Return of the King",
         "age": "12",
@@ -57,7 +57,7 @@
     },
     {
         "id": 4,
-        "score": 8.8,
+        "score": "8.8",
         "name": "Властелин колец: Братство Кольца",
         "euName": "The Lord of the Rings: The Fellowship of the Ring",
         "age": "12",
@@ -71,7 +71,7 @@
     },
     {
         "id": 5,
-        "score": 8.8,
+        "score": "8.8",
         "name": "Властелин колец: Две крепости",
         "euName": "The Lord of the Rings: The Two Towers",
         "age": "12",
@@ -85,7 +85,7 @@
     },
     {
         "id": 6,
-        "score": 8.8,
+        "score": "8.8",
         "name": "Интерстеллар",
         "euName": "Interstellar",
         "age": "16",
@@ -96,5 +96,19 @@
         "trailer": "",
         "image": "/images/movies/Интерстеллар.webp",
         "url": "interstellar"
+    },
+    {
+        "id": 7,
+        "score": "8.8",
+        "name": "Назад в будущее",
+        "euName": "Back to the Future",
+        "age": "12",
+        "duration": "1 час 56 минут",
+        "release": "1985",
+        "country": "США",
+        "genre": "фантастика",
+        "trailer": "",
+        "image": "/images/movies/Назад_в_будущее.webp",
+        "url": "back-to-the-future"
     }
 ]
