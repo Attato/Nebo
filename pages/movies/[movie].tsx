@@ -36,56 +36,53 @@ const Movie: NextPage = () => {
 					.map((movie, id) => {
 						return (
 							<div className={styles.movie} key={id}>
-								<Image
-									src={movie.image}
-									width={300}
-									height={450}
-									className={styles.image}
-									draggable="false"
-								/>
-								<div className={styles.movie__content}>
-									<div className={styles.first__part}>
-										<h1>
-											{movie.name} ({movie.release})
-										</h1>
-										<span>
-											{movie.euName}{' '}
-											<span className={styles.age}>{movie.age}+</span>
-										</span>
-										<button>
-											<Image
-												src="/svg/flag.svg"
-												width={16}
-												height={16}
-												draggable="false"
-											/>
-											Буду смотреть
-										</button>
-									</div>
+								<div className={styles.movie__rightside}>
+									<Image
+										src={movie.image}
+										width={300}
+										height={450}
+										className={styles.image}
+										draggable="false"
+									/>
+								</div>
 
-									<div className={styles.second__part}>
-										<h2>О фильме</h2>
-										<div className={styles.about__movie}>
-											<span>Год производства</span>
-											<span>{movie.release}</span>
+								<div className={styles.movie__content}>
+									<div className={styles.movie__masthead__content}>
+										<div className={styles.first__part}>
+											<h1>
+												{movie.name} ({movie.release})
+											</h1>
+											<span>
+												{movie.euName}{' '}
+												<span className={styles.age}>{movie.age}+</span>
+											</span>
 										</div>
-										<div className={styles.about__movie}>
-											<span>Страна</span>
-											<span>{movie.country}</span>
-										</div>
-										<div className={styles.about__movie}>
-											<span>Жанр</span>
-											<span>{movie.genre}</span>
-										</div>
-										<div className={styles.about__movie}>
-											<span>Возраст</span>
-											<span>{movie.age}+</span>
-										</div>
-										<div className={styles.about__movie}>
-											<span>Длительность</span>
-											<span>{movie.duration}</span>
+
+										<div className={styles.second__part}>
+											<h2>О фильме</h2>
+											<div className={styles.about__movie}>
+												<span>Год производства</span>
+												<span>{movie.release}</span>
+											</div>
+											<div className={styles.about__movie}>
+												<span>Страна</span>
+												<span>{movie.country}</span>
+											</div>
+											<div className={styles.about__movie}>
+												<span>Жанр</span>
+												<span>{movie.genre}</span>
+											</div>
+											<div className={styles.about__movie}>
+												<span>Возраст</span>
+												<span>{movie.age}+</span>
+											</div>
+											<div className={styles.about__movie}>
+												<span>Длительность</span>
+												<span>{movie.duration}</span>
+											</div>
 										</div>
 									</div>
+									<div className={styles.video__wrap}></div>
 								</div>
 							</div>
 						);
