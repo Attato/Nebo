@@ -48,6 +48,27 @@ const Movies: NextPage = () => {
 											<h2>
 												{movie.name}, {movie.age}+
 											</h2>
+											<button
+												onClick={() => {
+													setIsActiveFlag(!isActiveFlag);
+												}}
+											>
+												{isActiveFlag ? (
+													<Image
+														src="/svg/active_flag.svg"
+														width={22}
+														height={22}
+														draggable="false"
+													/>
+												) : (
+													<Image
+														src="/svg/flag.svg"
+														draggable="false"
+														width={22}
+														height={22}
+													/>
+												)}
+											</button>
 										</a>
 									</Link>
 									<Link href={`/movies/${movie.url}`}>
@@ -64,28 +85,6 @@ const Movies: NextPage = () => {
 											</p>
 										</a>
 									</Link>
-									<button
-										onClick={() => {
-											setIsActiveFlag(!isActiveFlag);
-										}}
-									>
-										Буду смотреть{' '}
-										{isActiveFlag ? (
-											<Image
-												src="/svg/flag.svg"
-												width={16}
-												height={16}
-												draggable="false"
-											/>
-										) : (
-											<Image
-												src="/svg/active_flag.svg"
-												draggable="false"
-												width={16}
-												height={16}
-											/>
-										)}
-									</button>
 								</div>
 							</div>
 						);
