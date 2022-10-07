@@ -1,12 +1,13 @@
 .header {
-    background-color: #eae9e5;
-    color: #222222;
+    background-color: #181818;
+    color: #ebebeb;
     height: 60px;
     display: flex;
     align-items: center;
     position: sticky;
     top: 0;
     z-index: 10000;
+    
     
     .header__content {
         max-width: 1330px;
@@ -19,10 +20,6 @@
         .right__side {
             display: flex;
             gap: 15px;
-        }
-
-        .left__side {
-
         }
     }
 }
