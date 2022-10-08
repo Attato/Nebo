@@ -30,7 +30,7 @@ const Movies: NextPage = () => {
 					{movies.map((movie, id) => {
 						return (
 							<div className={styles.card} key={id}>
-								<Link href={`/movies/${movie.url}`}>
+								<Link href={`/movies/${movie.ref}`}>
 									<a draggable="false">
 										<Image
 											src={movie.image}
@@ -42,7 +42,7 @@ const Movies: NextPage = () => {
 									</a>
 								</Link>
 								<div className={styles.card__content}>
-									<Link href={`/movies/${movie.url}`}>
+									<Link href={`/movies/${movie.ref}`}>
 										<a className={styles.card__content__row} draggable="false">
 											<div className={styles.card__score}>{movie.score}</div>
 											<h2>
@@ -71,7 +71,7 @@ const Movies: NextPage = () => {
 											</button>
 										</a>
 									</Link>
-									<Link href={`/movies/${movie.url}`}>
+									<Link href={`/movies/${movie.ref}`}>
 										<a
 											className={styles.card__content__column}
 											draggable="false"
