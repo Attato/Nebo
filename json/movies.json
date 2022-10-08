@@ -5,13 +5,14 @@
         "name": "Зелёная миля",
         "euName": "The Green Mile",
         "age": "16",
-        "duration": "3 часа 9 минут",
+        "duration": "3 часа 8 минут",
         "release": "1999",
         "country": "США",
         "genre": "драма",
         "trailer": "",
+        "video": "/videos/Зелёная_миля.mp4",
         "image": "/images/movies/Зелёная_миля.webp",
-        "url": "the-green-mile"
+        "ref": "the-green-mile"
     },
     {
         "id": 1,
@@ -24,8 +25,9 @@
         "country": "США",
         "genre": "драма",
         "trailer": "",
+        "video": "/videos/Побег_из_Шоушенка.mp4",
         "image": "/images/movies/Побег_из_Шоушенка.webp",
-        "url": "the-shawshank-redemption"
+        "ref": "the-shawshank-redemption"
     },
     {
         "id": 2,
@@ -39,7 +41,7 @@
         "genre": "драма",
         "trailer": "",
         "image": "/images/movies/Форест_гамп.webp",
-        "url": "forrest-gump"
+        "ref": "forrest-gump"
     },
     {
         "id": 3,
@@ -53,7 +55,7 @@
         "genre": "фэнтези",
         "trailer": "",
         "image": "/images/movies/Властелин_колец_Возвращение_короля.webp",
-        "url": "the-lord-of-the-rings-the-return-of-the-king"
+        "ref": "the-lord-of-the-rings-the-return-of-the-king"
     },
     {
         "id": 4,
@@ -67,7 +69,7 @@
         "genre": "фэнтези",
         "trailer": "",
         "image": "/images/movies/Властелин_колец_Братство_кольца.webp",
-        "url": "the-lord-of-the-rings-the-fellowship-of-the-ring"
+        "ref": "the-lord-of-the-rings-the-fellowship-of-the-ring"
     },
     {
         "id": 5,
@@ -81,7 +83,7 @@
         "genre": "фэнтези",
         "trailer": "",
         "image": "/images/movies/Властелин_колец_Две_крепости.webp",
-        "url": "the-lord-of-the-rings-the-two-towers"
+        "ref": "the-lord-of-the-rings-the-two-towers"
     },
     {
         "id": 6,
@@ -95,7 +97,7 @@
         "genre": "фантастика",
         "trailer": "",
         "image": "/images/movies/Интерстеллар.webp",
-        "url": "interstellar"
+        "ref": "interstellar"
     },
     {
         "id": 7,
@@ -109,6 +111,6 @@
         "genre": "фантастика",
         "trailer": "",
         "image": "/images/movies/Назад_в_будущее.webp",
-        "url": "back-to-the-future"
+        "ref": "back-to-the-future"
     }
 ]
