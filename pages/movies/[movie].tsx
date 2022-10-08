@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
-import Link from 'next/link';
 import styles from 'styles/movie.module.scss';
 
 import Header from 'components/header/header';
@@ -10,8 +9,32 @@ import Footer from 'components/footer/footer';
 
 import movies from 'json/movies.json';
 
-const Movie: NextPage = () => {
+const VideoPlayer = () => {
 	const router = useRouter();
+	const { movie } = router.query;
+	
+	return (
+		<div className={styles.video}>
+			{movies
+				.filter((movies) => movies.ref === movie)
+				.map((movie, id) => {
+					return (
+						<video
+							key={id}
+							src={movie.video}
+							loop
+							controls
+							playsInline
+						/>
+					);
+				})
+			}
+		</div>
+	);
+};
+
+const Movie: NextPage = () => {
+ 	const router = useRouter();
 	const { movie } = router.query;
 
 	return (
@@ -19,7 +42,7 @@ const Movie: NextPage = () => {
 			<Head>
 				<title>
 					{movies
-						.filter((movies) => movies.url === movie)
+						.filter((movies) => movies.ref === movie)
 						.map((movie) => {
 							return movie.name;
 						})}
@@ -32,7 +55,7 @@ const Movie: NextPage = () => {
 
 			<main className="main">
 				{movies
-					.filter((movies) => movies.url === movie)
+					.filter((movies) => movies.ref === movie)
 					.map((movie, id) => {
 						return (
 							<div className={styles.movie} key={id}>
@@ -82,7 +105,7 @@ const Movie: NextPage = () => {
 											</div>
 										</div>
 									</div>
-									<div className={styles.video__wrap}></div>
+									<VideoPlayer />
 								</div>
 							</div>
 						);
