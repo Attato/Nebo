@@ -37,6 +37,7 @@ const Movies: NextPage = () => {
 											width={300}
 											height={450}
 											className={styles.image}
+											alt="image"
 											draggable="false"
 										/>
 									</a>
@@ -59,6 +60,7 @@ const Movies: NextPage = () => {
 														width={22}
 														height={22}
 														draggable="false"
+														alt="image"
 													/>
 												) : (
 													<Image
@@ -66,6 +68,7 @@ const Movies: NextPage = () => {
 														draggable="false"
 														width={22}
 														height={22}
+														alt="image"
 													/>
 												)}
 											</button>

@@ -66,6 +66,7 @@ const Movie: NextPage = () => {
 										height={450}
 										className={styles.image}
 										draggable="false"
+										alt="image"
 									/>
 								</div>
 
