@@ -1,0 +1,51 @@
+.auth {
+	display: flex;
+	flex-direction: column;
+	margin: 60px auto;
+	max-width: 300px;
+
+	span {
+		margin-bottom: 10px;
+		font-size: 13px;
+		color: #ebebeb;
+	}
+
+	.input {
+		width: 100%;
+		display: flex;
+		gap: 10px;
+		margin-bottom: 20px;
+		flex-direction: column;
+		justify-content: flex-start;
+
+		input {
+			max-width: 300px;
+			width: 100%;
+			background-color: transparent;
+			border: 1px solid #2e2e2e;
+			padding: 5px 10px;
+			border-radius: 6px;
+			outline: none;
+
+			&:hover {
+				border-color: #3e3e3e;
+				transition: all 0.15s;
+			}
+		}
+
+		p {
+			margin: 0;
+			color: #ef0f24;
+			font-size: 13px;
+		}
+	}
+
+	button {
+		max-width: 300px;
+		width: 100%;
+		background-color: #238636;
+		border: 1px solid #2e2e2e;
+		padding: 5px 10px;
+		border-radius: 6px;
+	}
+}
