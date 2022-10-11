@@ -21,7 +21,7 @@ const VideoPlayer = () => {
 					return (
 						<video
 							key={id}
-							src={movie.video}
+							src={movie.trailer}
 							loop
 							controls
 							playsInline
