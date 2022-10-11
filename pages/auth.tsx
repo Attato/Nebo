@@ -42,7 +42,7 @@ const Auth: NextPage = () => {
 	const passwordHandler = (e) => {
 		setPassword(e.target.value);
 		if (e.target.value.length < 4 || e.target.value.length > 16) {
-			setPasswordError('Это поле должно быть длиной от 4 до 16 символов');
+			setPasswordError('Это поле должно быть длиной от 4 до 16 символов.');
             if(!e.target.value) {
                 setPasswordError('Это поле не может быть пустым.');
             }
@@ -71,8 +71,9 @@ const Auth: NextPage = () => {
 
 			<Header />
 
-			<main className="main">
+			<main className={styles.main}>
 				<div className={styles.auth}>
+					<h1>Авторизация</h1>
 					<span>Логин</span>
 					<div className={styles.input}>
 						<input
@@ -97,7 +98,9 @@ const Auth: NextPage = () => {
 						/>
 						{invalidPassword && passwordError && <p>{passwordError}</p>}
 					</div>
-                    <button disabled={!formValid} type="submit">Авторизация</button>
+					<button disabled={!formValid} type="submit">
+						Авторизация
+					</button>
 				</div>
 			</main>
 
