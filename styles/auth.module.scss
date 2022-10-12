@@ -37,6 +37,7 @@
                 width: 100%;
                 background-color: transparent;
                 border: 1px solid #2e2e2e;
+                color: #ebebeb;
                 padding: 5px 10px;
                 border-radius: 6px;
                 outline: none;
@@ -57,10 +58,23 @@
         button {
             max-width: 300px;
             width: 100%;
-            background-color: #238636;
-            border: 1px solid #238636;
             padding: 5px 16px;
             border-radius: 6px;
+            color: #ebebeb;
+        }
+    }
+}
+
+
+@media (prefers-color-scheme: dark) {
+    .auth {
+        button {
+            background-color: #238636;
+            border: 1px solid #238636;
+
+            &[disabled] {
+                color:#386147;
+            }
     
             &:hover {
                 cursor: pointer;
@@ -73,6 +87,32 @@
                 cursor: not-allowed;
                 background-color: #238636;
                 border: 1px solid #238636;
+            }
+        }
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .auth {
+        button {
+            background-color: #2da44e;
+            border: 1px solid #1b1f2426;
+
+            &[disabled] {
+                color:#386147;
+            }
+    
+            &:hover {
+                cursor: pointer;
+                background-color: #2c974b;
+                border-color: #1b1f2426;
+                transition: all 0.15s;
+            }
+    
+            &[disabled]:hover {
+                cursor: not-allowed;
+                background-color: #2da44e;
+                border: 1px solid #1b1f2426;
             }
         }
     }

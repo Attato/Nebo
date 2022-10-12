@@ -5,15 +5,17 @@
 	padding: 28px 20px;
 	border-radius: 6px;
 
-	h1 {
-		margin: 0 0 30px;
-		color: #ebebeb;
-	}
-
-	p {
-		color: inherit;
+	.masthead {
 		max-width: 640px;
-		margin-bottom: 40px;
+		h1 {
+			margin: 0 0 30px;
+			color: #ebebeb;
+		}
+	
+		p {
+			color: inherit;
+			margin-bottom: 40px;
+		}
 	}
 }
 
@@ -55,8 +57,6 @@
 			padding: 0 20px;
 			display: flex;
 			flex-direction: column;
-			border-top-right-radius: 5px;
-			border-bottom-right-radius: 5px;
 			align-items: baseline;
 			width: 100%;
 
@@ -115,3 +115,27 @@
 		background-position-x: -200%;
 	}
 }
+
+@media screen and (max-width: 1320px) {
+	.masthead {
+		margin: auto;
+	}
+
+	.card__wrap {
+		max-width: 630px;
+		margin: auto;
+	}
+}
+
+@media screen and (max-width: 425px) {
+	.card {
+		flex-direction: column !important;
+		gap: 20px;
+	}
+
+	.card__content {
+		padding: 0 0 10px !important;
+		border-bottom: 1px solid #333;
+	}
+}
+
