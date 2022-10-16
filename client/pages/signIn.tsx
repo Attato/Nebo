@@ -12,33 +12,36 @@ import styles from 'styles/auth.module.scss';
 
 const signIn: NextPage = () => {
 	// Validation
-	const [email, setEmail] = useState('');
+	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 
-	const [emailError, setEmailError] = useState('Это обязательное поле.');
+	const [usernameError, setUsernameError] = useState('Это обязательное поле.');
 	const [passwordError, setPasswordError] = useState('Это обязательное поле.');
 
-	const [invalidEmail, setInvalidEmail] = useState(false);
+	const [invalidUsername, setInvalidUsername] = useState(false);
 	const [invalidPassword, setInvalidPassword] = useState(false);
 
 	const [formValid, setFormValid] = useState(false);
+	const [signInStatus, setSignInStatus] = useState(false);
 
 	useEffect(() => {
-		if (emailError || passwordError) {
+		if (usernameError || passwordError) {
 			setFormValid(false);
 		} else {
 			setFormValid(true);
 		}
-	}, [emailError, passwordError]);
+	}, [usernameError, passwordError]);
 
-	const emailHandler = (e) => {
-		setEmail(e.target.value);
-		const regexp =
-			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		if (!regexp.test(String(e.target.value).toLowerCase())) {
-			setEmailError('Некорректный email.');
+	const usernameHandler = (e) => {
+		setUsername(e.target.value);
+		setUsername(e.target.value);
+		if (e.target.value.length < 3 || e.target.value.length > 15) {
+			setUsernameError('Это поле должно быть длиной от 3 до 15 символов.');
+			if (!e.target.value) {
+				setUsernameError('Это поле не может быть пустым.');
+			}
 		} else {
-			setEmailError('');
+			setUsernameError('');
 		}
 	};
 
@@ -57,38 +60,24 @@ const signIn: NextPage = () => {
 	const blurHandler = (e) => {
 		switch (e.target.name) {
 			case 'email':
-				setInvalidEmail(true);
+				setInvalidUsername(true);
 			case 'password':
 				setInvalidPassword(true);
 		}
 	};
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-
-		try {
-			const res = await axios.post('http://localhost:3000/api/auth', email);
-			console.log(res);
-		} catch (error) {
-			console.log(error);
-		}
+	const signIn = () => {
+		axios.post('http://localhost:3001/login', {
+			username: username,
+			password: password,
+		}).then((response) => {
+			if(response.data.message) {
+				setSignInStatus(response.data.message)
+			} else {
+				setSignInStatus(response.data[0].username)
+			}
+		})
 	};
-	//
-
-	// Get data
-
-	const [dataResponse, setDataResponse] = useState([]);
-
-	useEffect(() => {
-		const getPageData = async () => {
-			const apiUrlEndpoint = `http://localhost:3000/api/auth`;
-			const response = await fetch(apiUrlEndpoint);
-			const user = await response.json();
-			console.log(user);
-			setDataResponse(user);
-		};
-		getPageData();
-	}, []);
 
 	return (
 		<div className="container">
@@ -106,12 +95,14 @@ const signIn: NextPage = () => {
 					<span>Имя</span>
 					<div className={styles.input}>
 						<input
+							onChange={(e) => usernameHandler(e)}
+							value={username}
 							onBlur={(e) => blurHandler(e)}
-							name="username"
+							name="email"
 							type="text"
 							placeholder="username"
 						/>
-						{invalidEmail && emailError && <p>{emailError}</p>}
+						{invalidUsername && usernameError && <p>{usernameError}</p>}
 					</div>
 					<span>Пароль</span>
 					<div className={styles.input}>
@@ -125,10 +116,17 @@ const signIn: NextPage = () => {
 						/>
 						{invalidPassword && passwordError && <p>{passwordError}</p>}
 					</div>
-					<button onClick={handleSubmit} disabled={!formValid} type="submit">
+					<button onClick={signIn} disabled={!formValid} type="submit">
 						Авторизация
 					</button>
-					<Link href="/signUp"><a>Зарегистрироваться</a></Link>
+					<div className={styles.input}><p>{signInStatus}</p></div>
+					<div className={styles.sign__up}>
+						<span>Нет аккаунта? Создайте его</span>
+						<Link href="/signUp">
+							<a>здесь</a>
+						</Link>.
+					</div>
+
 				</div>
 			</main>
 

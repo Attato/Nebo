@@ -26,20 +26,20 @@ app.post('/register', (req, res) => {
 })
 
 app.post('/login', (req, res) => {
-    const email = req.body.username;
+    const username = req.body.username;
     const password = req.body.password;
 
-    database.query("SELECT * FROM user WHERE email = ? AND password = ?", 
-    [email, password], 
+    database.query("SELECT * FROM user WHERE username = ? AND password = ?", 
+    [username, password], 
     (err, result) => {
         if (err) {
             res.send({error: err})
         }
         
-        if(result) {
+        if(Array.isArray(result) && result.length > 0) {
             res.send(result)
         } else {
-            res.send({message: "Неправильный логин или пароль"})
+            res.send({message: "* Неправильный логин или пароль"})
         }
     })
 })

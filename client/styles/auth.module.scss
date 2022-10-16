@@ -61,6 +61,31 @@
             padding: 5px 16px;
             border-radius: 6px;
             color: #ebebeb;
+            margin-bottom: 10px;
+        }
+
+        .sign__up {
+            margin-top: 10px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            border: 1px solid #2e2e2e;
+            border-radius: 6px;
+            
+            span {
+                margin: 0;
+            }
+
+            a {
+                font-size: 13px;
+                color: #2ec74c;
+                margin-left: 5px;
+                
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
         }
     }
 }

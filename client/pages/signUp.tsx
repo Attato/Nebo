@@ -91,22 +91,6 @@ const signUp: NextPage = () => {
 		})
 	}
 
-
-// Get data
-
-	// const [dataResponse, setDataResponse] = useState([]);
-	
-	// useEffect(() => {
-	// 	const getPageData = async () => {
-	// 		const apiUrlEndpoint = `http://localhost:3001/register`
-	// 		const response = await fetch(apiUrlEndpoint);
-	// 		const user = await response.json();
-	// 		console.log(user); 
-	// 		setDataResponse(user);
-	// 	}
-	// 	getPageData()
-	// }, [])
-
 	return (
 		<div className="container">
 			<Head>
