@@ -1,7 +1,8 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import styles from 'styles/index.module.scss';
+import Link from 'next/link'
 
+import styles from 'styles/index.module.scss';
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
 
@@ -21,6 +22,7 @@ const Home: NextPage = () => {
 				<div className={styles.masthead}>
 					<h1>Cinema</h1>
 					<p>Вы смотрите - Мы показываем.</p>
+					<Link href="/api/auth"><a>data</a></Link> 
 				</div>
 				<div className={styles.info__block}>
 					<p>

@@ -1,13 +1,17 @@
 import { useState, useEffect } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
 
-import styles from 'styles/auth.module.scss'
+import axios from 'axios';
 
-const Auth: NextPage = () => {
+import styles from 'styles/auth.module.scss';
+
+const signIn: NextPage = () => {
+	// Validation
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
@@ -17,16 +21,15 @@ const Auth: NextPage = () => {
 	const [invalidEmail, setInvalidEmail] = useState(false);
 	const [invalidPassword, setInvalidPassword] = useState(false);
 
-    const [formValid, setFormValid] = useState(false);
+	const [formValid, setFormValid] = useState(false);
 
-    useEffect(() => {
-        if(emailError || passwordError) {
-            setFormValid(false)
-        } else {
-            setFormValid(true)
-        }
-        
-    }, [emailError, passwordError])
+	useEffect(() => {
+		if (emailError || passwordError) {
+			setFormValid(false);
+		} else {
+			setFormValid(true);
+		}
+	}, [emailError, passwordError]);
 
 	const emailHandler = (e) => {
 		setEmail(e.target.value);
@@ -43,10 +46,9 @@ const Auth: NextPage = () => {
 		setPassword(e.target.value);
 		if (e.target.value.length < 4 || e.target.value.length > 16) {
 			setPasswordError('Это поле должно быть длиной от 4 до 16 символов.');
-            if(!e.target.value) {
-                setPasswordError('Это поле не может быть пустым.');
-            }
-
+			if (!e.target.value) {
+				setPasswordError('Это поле не может быть пустым.');
+			}
 		} else {
 			setPasswordError('');
 		}
@@ -61,6 +63,33 @@ const Auth: NextPage = () => {
 		}
 	};
 
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+
+		try {
+			const res = await axios.post('http://localhost:3000/api/auth', email);
+			console.log(res);
+		} catch (error) {
+			console.log(error);
+		}
+	};
+	//
+
+	// Get data
+
+	const [dataResponse, setDataResponse] = useState([]);
+
+	useEffect(() => {
+		const getPageData = async () => {
+			const apiUrlEndpoint = `http://localhost:3000/api/auth`;
+			const response = await fetch(apiUrlEndpoint);
+			const user = await response.json();
+			console.log(user);
+			setDataResponse(user);
+		};
+		getPageData();
+	}, []);
+
 	return (
 		<div className="container">
 			<Head>
@@ -74,15 +103,13 @@ const Auth: NextPage = () => {
 			<main className={styles.main}>
 				<div className={styles.auth}>
 					<h1>Авторизация</h1>
-					<span>Логин</span>
+					<span>Имя</span>
 					<div className={styles.input}>
 						<input
-							onChange={(e) => emailHandler(e)}
-							value={email}
 							onBlur={(e) => blurHandler(e)}
-							name="email"
+							name="username"
 							type="text"
-							placeholder="example@mail.ru"
+							placeholder="username"
 						/>
 						{invalidEmail && emailError && <p>{emailError}</p>}
 					</div>
@@ -98,9 +125,10 @@ const Auth: NextPage = () => {
 						/>
 						{invalidPassword && passwordError && <p>{passwordError}</p>}
 					</div>
-					<button disabled={!formValid} type="submit">
+					<button onClick={handleSubmit} disabled={!formValid} type="submit">
 						Авторизация
 					</button>
+					<Link href="/signUp"><a>Зарегистрироваться</a></Link>
 				</div>
 			</main>
 
@@ -109,4 +137,4 @@ const Auth: NextPage = () => {
 	);
 };
 
-export default Auth;
+export default signIn;

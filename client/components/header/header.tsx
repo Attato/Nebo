@@ -13,7 +13,7 @@ const Header = () => {
                 </div>
 
                 <div className={styles.left__side}>
-                    <Link href="/auth"><a>Авторизация</a></Link>
+                    <Link href="/signIn"><a>Авторизация</a></Link>
                 </div>
             </div>
         </header>
