@@ -25,8 +25,9 @@
         .left__side {
             a {
                 display: flex;
-                align-items: flex-end;
-                gap: 5px;
+                padding: 5px 20px;
+                background: #2c974b;
+                border-radius: 6px;
             }
         }
     }
