@@ -1,1 +1,3 @@
-# cinema
+```bash
+npm run dev
+```

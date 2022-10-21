@@ -45,7 +45,7 @@ const signUp: NextPage = () => {
 		} else {
 			setUsernameError('');
 		}
-	}
+	};
 
 	const emailHandler = (e) => {
 		setEmail(e.target.value);
