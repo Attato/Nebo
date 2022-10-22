@@ -7,15 +7,14 @@ import Footer from 'components/footer/footer';
 
 import axios from 'axios';
 
-import styles from 'styles/auth.module.scss'
+import styles from 'styles/auth.module.scss';
 
 const signUp: NextPage = () => {
-
-// Validation
-	const [username, setUsername] = useState('')
+	// Validation
+	const [username, setUsername] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	
+
 	const [usernameError, setUsernameError] = useState('Это обязательное поле.');
 	const [emailError, setEmailError] = useState('Это обязательное поле.');
 	const [passwordError, setPasswordError] = useState('Это обязательное поле.');
@@ -33,7 +32,7 @@ const signUp: NextPage = () => {
 			setFormValid(true);
 		}
 	}, [usernameError, emailError, passwordError]);
-	
+
 	const usernameHandler = (e) => {
 		setUsername(e.target.value);
 		setUsername(e.target.value);
@@ -57,7 +56,7 @@ const signUp: NextPage = () => {
 			setEmailError('');
 		}
 	};
-	
+
 	const passwordHandler = (e) => {
 		setPassword(e.target.value);
 		if (e.target.value.length < 4 || e.target.value.length > 16) {
@@ -69,7 +68,7 @@ const signUp: NextPage = () => {
 			setPasswordError('');
 		}
 	};
-	
+
 	const blurHandler = (e) => {
 		switch (e.target.name) {
 			case 'username':
@@ -82,14 +81,16 @@ const signUp: NextPage = () => {
 	};
 
 	const signUp = () => {
-		axios.post('http://localhost:3001/register', {
-			username: username,
-			email: email,
-			password: password
-		}).then((response) => {
-			console.log(response);
-		})
-	}
+		axios
+			.post('http://localhost:3001/register', {
+				username: username,
+				email: email,
+				password: password,
+			})
+			.then((response) => {
+				console.log(response);
+			});
+	};
 
 	return (
 		<div className="container">

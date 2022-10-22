@@ -67,16 +67,18 @@ const signIn: NextPage = () => {
 	};
 
 	const signIn = () => {
-		axios.post('http://localhost:3001/login', {
-			username: username,
-			password: password,
-		}).then((response) => {
-			if(response.data.message) {
-				setSignInStatus(response.data.message)
-			} else {
-				setSignInStatus(response.data[0].username)
-			}
-		})
+		axios
+			.post('http://localhost:3001/login', {
+				username: username,
+				password: password,
+			})
+			.then((response) => {
+				if (response.data.message) {
+					setSignInStatus(response.data.message);
+				} else {
+					setSignInStatus(response.data[0].username);
+				}
+			});
 	};
 
 	return (
@@ -119,14 +121,16 @@ const signIn: NextPage = () => {
 					<button onClick={signIn} disabled={!formValid} type="submit">
 						Авторизация
 					</button>
-					<div className={styles.input}><p>{signInStatus}</p></div>
+					<div className={styles.input}>
+						<p>{signInStatus}</p>
+					</div>
 					<div className={styles.sign__up}>
 						<span>Нет аккаунта? Создайте его</span>
 						<Link href="/signUp">
 							<a>здесь</a>
-						</Link>.
+						</Link>
+						.
 					</div>
-
 				</div>
 			</main>
 
