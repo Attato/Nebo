@@ -1,48 +1,50 @@
+import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
-import { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
-import styles from 'styles/movie.module.scss';
+
+import { PrismaClient } from '@prisma/client';
 
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
 
-import movies from 'json/movies.json';
+import styles from 'styles/movie.module.scss';
 
-const VideoPlayer = () => {
-	const router = useRouter();
-	const { movie } = router.query;
-	
-	return (
-		<div className={styles.video}>
-			{movies
-				.filter((movies) => movies.ref === movie)
-				.map((movie, id) => {
-					return (
-						<video
-							key={id}
-							src={movie.trailer}
-							loop
-							controls
-							playsInline
-						/>
-					);
-				})
-			}
-		</div>
-	);
+const prisma = new PrismaClient();
+
+export const getServerSideProps: GetServerSideProps = async () => {
+	const movies = await prisma.movie.findMany();
+
+	return {
+		props: { movies },
+	};
 };
 
-const Movie: NextPage = () => {
- 	const router = useRouter();
-	const { movie } = router.query;
+interface Movies {
+	movies: {
+		id: number;
+		score: string;
+		name: string;
+		euName: string;
+		age: string;
+		duration: string;
+		release: string;
+		country: string;
+		genre: string;
+		trailer: string;
+		image: string;
+		slug: string;
+	}[];
+}
 
+const Movie = ({ movies }: Movies) => {
+	const { movie } = useRouter().query;
 	return (
 		<div className="container">
 			<Head>
 				<title>
 					{movies
-						.filter((movies) => movies.ref === movie)
+						.filter((movies) => movies.slug === movie)
 						.map((movie) => {
 							return movie.name;
 						})}
@@ -52,10 +54,9 @@ const Movie: NextPage = () => {
 			</Head>
 
 			<Header />
-
 			<main className="main">
 				{movies
-					.filter((movies) => movies.ref === movie)
+					.filter((movies) => movies.slug === movie)
 					.map((movie, id) => {
 						return (
 							<div className={styles.movie} key={id}>
@@ -105,7 +106,9 @@ const Movie: NextPage = () => {
 													<span>{movie.duration}</span>
 												</div>
 											</div>
-											<VideoPlayer />
+											<div className={styles.video}>
+												<video src={movie.trailer} loop controls playsInline />
+											</div>
 										</div>
 									</div>
 								</div>
@@ -113,7 +116,6 @@ const Movie: NextPage = () => {
 						);
 					})}
 			</main>
-
 			<Footer />
 		</div>
 	);
