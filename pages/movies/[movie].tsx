@@ -3,14 +3,12 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Image from 'next/image';
 
-import { PrismaClient } from '@prisma/client';
-
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
 
 import styles from 'styles/movie.module.scss';
 
-const prisma = new PrismaClient();
+import prisma from 'prisma/prisma';
 
 export const getServerSideProps: GetServerSideProps = async () => {
 	const movies = await prisma.movie.findMany();
