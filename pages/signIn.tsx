@@ -1,16 +1,32 @@
 import { useState, useEffect } from 'react';
-import type { NextPage } from 'next';
+import type { NextPage, GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
 
-import axios from 'axios';
+import prisma from 'prisma/prisma';
 
 import styles from 'styles/auth.module.scss';
 
-const signIn: NextPage = () => {
+export const getServerSideProps: GetServerSideProps = async () => {
+	const user = await prisma.user.findMany();
+
+	return {
+		props: { user },
+	};
+};
+
+interface User {
+	user: {
+		id: number;
+		username: string;
+		password: string;
+	}[];
+}
+
+const signIn: NextPage = ({ user }: User) => {
 	// Validation
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
@@ -23,6 +39,8 @@ const signIn: NextPage = () => {
 
 	const [formValid, setFormValid] = useState(false);
 	const [signInStatus, setSignInStatus] = useState(false);
+
+	console.log(user);
 
 	useEffect(() => {
 		if (usernameError || passwordError) {
@@ -66,20 +84,7 @@ const signIn: NextPage = () => {
 		}
 	};
 
-	const signIn = () => {
-		axios
-			.post('http://localhost:3001/login', {
-				username: username,
-				password: password,
-			})
-			.then((response) => {
-				if (response.data.message) {
-					setSignInStatus(response.data.message);
-				} else {
-					setSignInStatus(response.data[0].username);
-				}
-			});
-	};
+	const signIn = () => {};
 
 	return (
 		<div className="container">

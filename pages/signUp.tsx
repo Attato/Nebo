@@ -1,15 +1,33 @@
 import { useState, useEffect } from 'react';
-import type { NextPage } from 'next';
+import type { NextPage, GetServerSideProps } from 'next';
+
 import Head from 'next/head';
 
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
 
-import axios from 'axios';
-
+import prisma from 'prisma/prisma';
 import styles from 'styles/auth.module.scss';
 
-const signUp: NextPage = () => {
+// Prisma
+
+export const getServerSideProps: GetServerSideProps = async () => {
+	const user = await prisma.user.findMany();
+
+	return {
+		props: { user },
+	};
+};
+
+interface User {
+	user: {
+		id: number;
+		username: string;
+		password: string;
+	}[];
+}
+
+const signUp: NextPage = ({ user }: User) => {
 	// Validation
 	const [username, setUsername] = useState('');
 	const [email, setEmail] = useState('');
@@ -80,18 +98,6 @@ const signUp: NextPage = () => {
 		}
 	};
 
-	const signUp = () => {
-		axios
-			.post('http://localhost:3001/register', {
-				username: username,
-				email: email,
-				password: password,
-			})
-			.then((response) => {
-				console.log(response);
-			});
-	};
-
 	return (
 		<div className="container">
 			<Head>
@@ -141,7 +147,11 @@ const signUp: NextPage = () => {
 						/>
 						{invalidPassword && passwordError && <p>{passwordError}</p>}
 					</div>
-					<button onClick={signUp} disabled={!formValid} type="submit">
+					<button
+						onClick={() => alert('Эта функция пока недоступна.')}
+						disabled={!formValid}
+						type="submit"
+					>
 						Регистрация
 					</button>
 				</div>
