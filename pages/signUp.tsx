@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
-import type { NextPage, GetServerSideProps } from 'next';
-
+import { NextPage, GetServerSideProps } from 'next';
 import Head from 'next/head';
+
+import prisma from 'plugins/prisma';
+import express from 'express';
 
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
 
-import prisma from 'prisma/prisma';
 import styles from 'styles/auth.module.scss';
 
 // Prisma

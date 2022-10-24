@@ -8,7 +8,7 @@ import Footer from 'components/footer/footer';
 
 import styles from 'styles/movie.module.scss';
 
-import prisma from 'prisma/prisma';
+import prisma from 'plugins/prisma';
 
 export const getServerSideProps: GetServerSideProps = async () => {
 	const movies = await prisma.movie.findMany();
