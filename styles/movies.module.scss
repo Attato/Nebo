@@ -6,15 +6,35 @@
 	border-radius: 6px;
 
 	.masthead {
-		max-width: 640px;
+		max-width: 685px;
+		margin: 40px auto 100px auto;
+		text-align: center;
+
 		h1 {
 			margin: 0 0 30px;
-			color: #ebebeb;
+			color: white;
+			font-size: 48px;
 		}
-	
+
 		p {
 			color: inherit;
 			margin-bottom: 40px;
+			color: white;
+		}
+	}
+
+	.sort {
+		display: flex;
+		gap: 10px;
+		color: white;
+		margin-bottom: 20px;
+
+		p {
+			cursor: pointer;
+		}
+
+		.active {
+			text-decoration: underline;
 		}
 	}
 }
@@ -38,7 +58,7 @@
 
 				&:hover {
 					filter: brightness(0.8);
-					transition: all .15s;
+					transition: all 0.15s;
 				}
 			}
 		}
@@ -138,4 +158,3 @@
 		border-bottom: 1px solid #333;
 	}
 }
-
