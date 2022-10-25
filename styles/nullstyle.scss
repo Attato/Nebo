@@ -1,15 +1,16 @@
-@import "./public/fonts/fonts.scss";
+@import './public/fonts/fonts.scss';
 
 html,
 body {
 	padding: 0;
 	margin: 0;
-	font-family: "Mont";
+	font-family: 'Mont';
 	scroll-behavior: smooth;
 }
 
-button, input {
-	font-family: "Mont";
+button,
+input {
+	font-family: 'Mont';
 }
 
 h1,
@@ -31,13 +32,19 @@ a {
 	box-sizing: border-box;
 }
 
+hr {
+	width: 100%;
+	margin: 10px 0;
+	border: 1px solid #2e2e2e;
+}
+
 @media (prefers-color-scheme: dark) {
 	html {
 		color-scheme: dark;
 	}
 	body {
 		color: white;
-		background: #121212;
+		background: #009688;
 	}
 }
 
