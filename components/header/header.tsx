@@ -9,19 +9,19 @@ const Header = () => {
 				<div className={styles.right__side}>
 					<Link href="/">
 						<a>
-							<Image src="/svg/home.svg" width={24} height={24} />
+							<Image src="/svg/home.svg" width={24} height={24} alt="svg" />
 							<p>Главная</p>
 						</a>
 					</Link>
 					<Link href="/movies">
 						<a>
-							<Image src="/svg/movie.svg" width={24} height={24} />
+							<Image src="/svg/movie.svg" width={24} height={24} alt="svg" />
 							<p>Фильмы</p>
 						</a>
 					</Link>
 					<Link href="/cartoons">
 						<a>
-							<Image src="/svg/ticket.svg" width={24} height={24} />
+							<Image src="/svg/ticket.svg" width={24} height={24} alt="svg" />
 							<p>Билеты</p>
 						</a>
 					</Link>
