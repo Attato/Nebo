@@ -1,21 +1,21 @@
 .footer {
-    background-color: #181818;
-    color: #ebebeb;
-    height: 120px;
-    display: flex;
-    align-items: center;
-    max-width: 2500px;
-    width: 100%;
-    padding: 0 15px;
-    margin-top: 60px;
+	background-color: #0a0a0a;
+	color: #ebebeb;
+	height: 120px;
+	display: flex;
+	align-items: center;
+	max-width: 2500px;
+	width: 100%;
+	padding: 0 15px;
+	margin-top: 60px;
 
-    .footer__content {
-        max-width: 1300px;
-        width: 100%;
-        margin: 0 auto;
-        display: flex;
-        gap: 15px;
-        font-size: 30px;
-        font-weight: 500;
-    }
+	.footer__content {
+		max-width: 1300px;
+		width: 100%;
+		margin: 0 auto;
+		display: flex;
+		gap: 15px;
+		font-size: 30px;
+		font-weight: 500;
+	}
 }

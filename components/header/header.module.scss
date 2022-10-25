@@ -1,5 +1,5 @@
 .header {
-	background-color: #181818;
+	background-color: #060606;
 	color: #ebebeb;
 	height: 60px;
 	display: flex;
@@ -19,15 +19,27 @@
 
 		.right__side {
 			display: flex;
-			gap: 15px;
+			gap: 20px;
+			height: 24px;
+
+			a {
+				display: flex;
+				align-items: flex-end;
+				gap: 5px;
+			}
 		}
 
 		.left__side {
 			a {
 				display: flex;
 				padding: 5px 20px;
-				background: #2c974b;
-				border-radius: 6px;
+				border: 1px solid white;
+
+				&:hover {
+					background-color: white;
+					color: #060606;
+					transition: all ease-in-out 0.3s;
+				}
 			}
 		}
 	}
