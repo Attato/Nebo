@@ -1,34 +1,16 @@
 import { useState, useEffect } from 'react';
 import { NextPage, GetServerSideProps } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 
 import prisma from 'plugins/prisma';
-import express from 'express';
 
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
 
 import styles from 'styles/auth.module.scss';
 
-// Prisma
-
-export const getServerSideProps: GetServerSideProps = async () => {
-	const user = await prisma.user.findMany();
-
-	return {
-		props: { user },
-	};
-};
-
-interface User {
-	user: {
-		id: number;
-		username: string;
-		password: string;
-	}[];
-}
-
-const signUp: NextPage = ({ user }: User) => {
+const signUp: NextPage = () => {
 	// Validation
 	const [username, setUsername] = useState('');
 	const [email, setEmail] = useState('');
@@ -155,6 +137,14 @@ const signUp: NextPage = ({ user }: User) => {
 					>
 						Регистрация
 					</button>
+
+					<div className={styles.sign__up}>
+						<small>У вас уже есть аккаунт?</small>
+						<Link href="/signIn">
+							<a>Войти</a>
+						</Link>
+						.
+					</div>
 				</div>
 			</main>
 
