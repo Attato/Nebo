@@ -126,15 +126,21 @@ const signIn: NextPage = ({ user }: User) => {
 					<button onClick={signIn} disabled={!formValid} type="submit">
 						Авторизация
 					</button>
-					<div className={styles.input}>
-						<p>{signInStatus}</p>
-					</div>
 					<div className={styles.sign__up}>
-						<span>Нет аккаунта? Создайте его</span>
+						<small>Нет аккаунта? Создайте его</small>
 						<Link href="/signUp">
 							<a>здесь</a>
 						</Link>
 						.
+					</div>
+					<div className={styles.auth__another_option}>
+						<hr />
+						<small>или</small>
+						<hr />
+					</div>
+					<div className={styles.social__buttons}>
+						<button className={styles.social__button}>Gmail</button>
+						<button className={styles.social__button}>Github</button>
 					</div>
 				</div>
 			</main>
