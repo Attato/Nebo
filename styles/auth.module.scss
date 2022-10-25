@@ -1,144 +1,137 @@
 .main {
-    max-width: 1330px;
-    min-height: calc(100vh - 240px);
-    margin: auto;
-    padding: 0 15px;
-    display: flex;
-    
-    .auth {
-        display: flex;
-        flex-direction: column;
-        margin: auto;
-        max-width: 300px;
-        width: 100%;
-    
-        h1 {
-            font-weight: 400;
-            text-align: center;
-            margin: 0 0 40px 0;
-        }
-    
-        span {
-            margin-bottom: 10px;
-            font-size: 13px;
-            color: #ebebeb;
-        }
-    
-        .input {
-            width: 100%;
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            flex-direction: column;
-            justify-content: flex-start;
-    
-            input {
-                max-width: 300px;
-                width: 100%;
-                background-color: transparent;
-                border: 1px solid #2e2e2e;
-                color: #ebebeb;
-                padding: 5px 10px;
-                border-radius: 6px;
-                outline: none;
-    
-                &:hover {
-                    border-color: #3e3e3e;
-                    transition: all 0.15s;
-                }
-            }
-    
-            p {
-                margin: 0;
-                color: #ef0f24;
-                font-size: 13px;
-            }
-        }
-    
-        button {
-            max-width: 300px;
-            width: 100%;
-            padding: 5px 16px;
-            border-radius: 6px;
-            color: #ebebeb;
-            margin-bottom: 10px;
-        }
+	max-width: 1330px;
+	min-height: calc(100vh - 240px);
+	margin: auto;
+	padding: 0 15px;
+	display: flex;
 
-        .sign__up {
-            margin-top: 10px;
-            padding: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: baseline;
-            border: 1px solid #2e2e2e;
-            border-radius: 6px;
-            
-            span {
-                margin: 0;
-            }
+	.auth {
+		display: flex;
+		flex-direction: column;
+		margin: auto;
+		max-width: 400px;
+		width: 100%;
+		padding: 30px;
+		background: #181818;
+		border-radius: 10px;
+		box-shadow: 3px 3px 6px 0px rgba(0 0 0 / 20%);
 
-            a {
-                font-size: 13px;
-                color: #2ec74c;
-                margin-left: 5px;
-                
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
-        }
-    }
+		h1 {
+			font-weight: 400;
+			text-align: center;
+			margin: 0 0 40px 0;
+		}
+
+		span {
+			margin-bottom: 10px;
+			font-size: 13px;
+			color: #ebebeb;
+		}
+
+		.input {
+			width: 100%;
+			display: flex;
+			gap: 10px;
+			margin-bottom: 20px;
+			flex-direction: column;
+			justify-content: flex-start;
+
+			input {
+				width: 100%;
+				background-color: transparent;
+				border: 1px solid #2e2e2e;
+				color: #ebebeb;
+				padding: 5px 10px;
+				border-radius: 6px;
+				outline: none;
+
+				&:hover {
+					border-color: #3e3e3e;
+					transition: all 0.15s;
+				}
+			}
+
+			p {
+				margin: 0;
+				color: #ef0f24;
+				font-size: 13px;
+			}
+		}
+
+		button {
+			width: 100%;
+			padding: 7px 16px;
+			border-radius: 6px;
+			color: #ebebeb;
+		}
+
+		.sign__up {
+			margin-top: 20px;
+			padding: 10px;
+			display: flex;
+			justify-content: center;
+			align-items: baseline;
+			border: 1px solid #2e2e2e;
+			border-radius: 6px;
+
+			a {
+				font-size: 13.3333px;
+				color: #009688;
+				margin-left: 5px;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+
+		.auth__another_option {
+			display: flex;
+			gap: 10px;
+			margin: 10px 0;
+		}
+
+		.social__buttons {
+			display: flex;
+			flex-direction: row;
+			gap: 10px;
+			flex-wrap: wrap;
+			justify-content: space-around;
+
+			.social__button {
+				background-color: transparent;
+				border-color: #2e2e2e;
+				width: 100%;
+				max-width: calc((100% / 2) - 5px);
+
+				&:hover {
+					border-color: #3e3e3e;
+				}
+			}
+		}
+	}
 }
 
+.auth {
+	button {
+		background-color: #009688;
+		border: 1px solid #009688;
 
-@media (prefers-color-scheme: dark) {
-    .auth {
-        button {
-            background-color: #238636;
-            border: 1px solid #238636;
+		&[disabled] {
+			color: #386147;
+		}
 
-            &[disabled] {
-                color:#386147; 
-            }
-    
-            &:hover {
-                cursor: pointer;
-                background-color: #2ea043;
-                border-color: #f0f6fc1a;
-                transition: all 0.15s;
-            }
-    
-            &[disabled]:hover {
-                cursor: not-allowed;
-                background-color: #238636;
-                border: 1px solid #238636;
-            }
-        }
-    }
-}
+		&:hover {
+			cursor: pointer;
+			background-color: #009688;
+			border-color: #f0f6fc1a;
+			transition: all 0.15s;
+		}
 
-@media (prefers-color-scheme: light) {
-    .auth {
-        button {
-            background-color: #2da44e;
-            border: 1px solid #1b1f2426;
-
-            &[disabled] {
-                color:#386147;
-            }
-    
-            &:hover {
-                cursor: pointer;
-                background-color: #2c974b;
-                border-color: #1b1f2426;
-                transition: all 0.15s;
-            }
-    
-            &[disabled]:hover {
-                cursor: not-allowed;
-                background-color: #2da44e;
-                border: 1px solid #1b1f2426;
-            }
-        }
-    }
+		&[disabled]:hover {
+			cursor: not-allowed;
+			background-color: #009688;
+			border: 1px solid #009688;
+		}
+	}
 }
