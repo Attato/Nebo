@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './header.module.scss';
 
 const Header = () => {
@@ -7,13 +8,22 @@ const Header = () => {
 			<div className={styles.header__content}>
 				<div className={styles.right__side}>
 					<Link href="/">
-						<a>Главная</a>
+						<a>
+							<Image src="/svg/home.svg" width={24} height={24} />
+							<p>Главная</p>
+						</a>
 					</Link>
 					<Link href="/movies">
-						<a>Фильмы</a>
+						<a>
+							<Image src="/svg/movie.svg" width={24} height={24} />
+							<p>Фильмы</p>
+						</a>
 					</Link>
 					<Link href="/cartoons">
-						<a>Мультфильмы</a>
+						<a>
+							<Image src="/svg/ticket.svg" width={24} height={24} />
+							<p>Билеты</p>
+						</a>
 					</Link>
 				</div>
 
