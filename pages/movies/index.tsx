@@ -25,10 +25,15 @@ const Movies: NextPage = () => {
 
 			<main className={styles.main}>
 				<div className={styles.masthead}>
-					<h1>Фильмы</h1>
+					<h1>Найдите фильмы по вкусу.</h1>
 					<p>
 						Рейтинг из 100 лучших фильмов, которые должен посмотреть каждый.
 					</p>
+				</div>
+				<div className={styles.sort}>
+					<span>Сортировка:</span>
+					<p className={styles.active}>по рейтингу</p>
+					<p>по дате выпуска</p>
 				</div>
 				<div className={styles.card__wrap}>
 					{movies.map((movie, id) => {
