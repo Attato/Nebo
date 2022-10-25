@@ -26,7 +26,7 @@ interface User {
 	}[];
 }
 
-const signIn: NextPage = ({ user }: User) => {
+const SignIn: NextPage = ({ user }: User) => {
 	// Validation
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
@@ -150,4 +150,4 @@ const signIn: NextPage = ({ user }: User) => {
 	);
 };
 
-export default signIn;
+export default SignIn;

@@ -10,7 +10,7 @@ import Footer from 'components/footer/footer';
 
 import styles from 'styles/auth.module.scss';
 
-const signUp: NextPage = () => {
+const SignUp: NextPage = () => {
 	// Validation
 	const [username, setUsername] = useState('');
 	const [email, setEmail] = useState('');
@@ -153,4 +153,4 @@ const signUp: NextPage = () => {
 	);
 };
 
-export default signUp;
+export default SignUp;
