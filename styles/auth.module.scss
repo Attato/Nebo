@@ -12,9 +12,6 @@
 		max-width: 400px;
 		width: 100%;
 		padding: 30px;
-		background: #181818;
-		border-radius: 10px;
-		box-shadow: 3px 3px 6px 0px rgba(0 0 0 / 20%);
 
 		h1 {
 			font-weight: 400;
@@ -62,7 +59,6 @@
 			width: 100%;
 			padding: 7px 16px;
 			border-radius: 6px;
-			color: #ebebeb;
 		}
 
 		.sign__up {
@@ -76,7 +72,7 @@
 
 			a {
 				font-size: 13.3333px;
-				color: #009688;
+				color: #5b61eb;
 				margin-left: 5px;
 
 				&:hover {
@@ -114,24 +110,25 @@
 
 .auth {
 	button {
-		background-color: #009688;
-		border: 1px solid #009688;
+		background-color: #5b61eb;
+		border: 1px solid #5b61eb;
+		color: white;
 
 		&[disabled] {
-			color: #386147;
+			color: #c5c5c5;
 		}
 
 		&:hover {
 			cursor: pointer;
-			background-color: #009688;
+			background-color: #5b61eb;
 			border-color: #f0f6fc1a;
 			transition: all 0.15s;
 		}
 
 		&[disabled]:hover {
 			cursor: not-allowed;
-			background-color: #009688;
-			border: 1px solid #009688;
+			background-color: #5b61eb;
+			border: 1px solid #5b61eb;
 		}
 	}
 }
