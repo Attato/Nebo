@@ -1,11 +1,12 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 
-import styles from 'styles/index.module.scss';
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
 
+import styles from 'styles/index.module.scss';
 const Home: NextPage = () => {
 	return (
 		<div className="container">
@@ -19,26 +20,24 @@ const Home: NextPage = () => {
 
 			<main className="main">
 				<div className={styles.masthead}>
-					<h1>Cinema</h1>
-					<p>Вы смотрите - Мы показываем.</p>
-					<Link href="/api/auth">
-						<a>data</a>
+					<div className={styles.row__wrap}>
+						<h1>
+							<span className={styles.selection}>View</span> - платформа, на
+							которой вы найдёте фильмы по вкусу.
+						</h1>
+					</div>
+					<Link href="/movies">
+						<a>
+							Начать{' '}
+							<Image src="/svg/play.svg" width={24} height={24} alt="svg" />
+						</a>
 					</Link>
-				</div>
-				<div className={styles.info__block}>
-					<p>
-						<strong>Cinema</strong> - это сотня фильмов на вечер. Без рекламы, в
-						хорошем качестве, с любимой озвучкой или в оригинале.
-					</p>
-				</div>
-				<div className={styles.info__block}>
-					<p>
-						Смотрите кино дома и в дороге А также в парке, на веранде кафе, в
-						метро, в гостях у любимой бабули — онлайн или без интернета.
-					</p>
 				</div>
 			</main>
 
+			<section className={styles.white__section}>
+				<div className={styles.content}></div>
+			</section>
 			<Footer />
 		</div>
 	);
