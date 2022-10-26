@@ -1,23 +1,21 @@
 .container {
 	max-width: 2500px;
+	min-height: 100vh;
 	margin: auto;
 	background-color: #0a0a0a;
 
 	.main {
 		max-width: 1330px;
-		min-height: calc(100vh - 300px);
 		margin: auto;
 		padding: 0 15px;
 
 		h1 {
-			margin: 60px 0 30px;
 			color: #ebebeb;
 		}
 
 		p {
 			color: #ebebeb;
 			max-width: 640px;
-			margin-bottom: 40px;
 		}
 	}
 }
