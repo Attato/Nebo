@@ -39,63 +39,62 @@ const Movies: NextPage = () => {
 					{movies.map((movie, id) => {
 						return (
 							<div className={styles.card} key={id}>
-								<Link href={`/movies/${movie.ref}`}>
-									<a draggable="false">
-										<Image
-											src={movie.image}
-											width={300}
-											height={450}
-											className={styles.image}
-											alt="image"
-											draggable="false"
-										/>
-									</a>
+								<Link href={`/movies/${movie.ref}`} draggable="false">
+									<Image
+										src={movie.image}
+										width={200}
+										height={300}
+										className={styles.image}
+										alt="image"
+										draggable="false"
+									/>
 								</Link>
 								<div className={styles.card__content}>
-									<Link href={`/movies/${movie.ref}`}>
-										<a className={styles.card__content__row} draggable="false">
-											<div className={styles.card__score}>{movie.score}</div>
-											<h2>
-												{movie.name}, {movie.age}+
-											</h2>
-											<button
-												onClick={() => {
-													setIsActiveFlag(!isActiveFlag);
-												}}
-											>
-												{isActiveFlag ? (
-													<Image
-														src="/svg/active_flag.svg"
-														width={22}
-														height={22}
-														draggable="false"
-														alt="image"
-													/>
-												) : (
-													<Image
-														src="/svg/flag.svg"
-														draggable="false"
-														width={22}
-														height={22}
-														alt="image"
-													/>
-												)}
-											</button>
-										</a>
-									</Link>
-									<Link href={`/movies/${movie.ref}`}>
-										<a
-											className={styles.card__content__column}
-											draggable="false"
+									<Link
+										href={`/movies/${movie.ref}`}
+										className={styles.card__content__row}
+										draggable="false"
+									>
+										<div className={styles.card__score}>{movie.score}</div>
+										<h2>
+											{movie.name}, {movie.age}+
+										</h2>
+										<button
+											onClick={() => {
+												setIsActiveFlag(!isActiveFlag);
+											}}
 										>
-											<p>
-												{movie.euName}, {movie.release}, {movie.duration}
-											</p>
-											<p>
-												{movie.country} • {movie.genre} • Место в топе:{' '}
-												{movie.id + 1}
-											</p>
-										</a>
+											{isActiveFlag ? (
+												<Image
+													src="/svg/active_flag.svg"
+													width={17}
+													height={17}
+													draggable="false"
+													alt="image"
+												/>
+											) : (
+												<Image
+													src="/svg/flag.svg"
+													draggable="false"
+													width={17}
+													height={17}
+													alt="image"
+												/>
+											)}
+										</button>
+									</Link>
+									<Link
+										href={`/movies/${movie.ref}`}
+										className={styles.card__content__column}
+										draggable="false"
+									>
+										<p>
+											{movie.euName}, {movie.release}, {movie.duration}
+										</p>
+										<p>
+											{movie.country} • {movie.genre} • Место в топе:{' '}
+											{movie.id + 1}
+										</p>
 									</Link>
 								</div>
 							</div>
