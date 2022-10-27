@@ -26,11 +26,10 @@ const Home: NextPage = () => {
 							которой вы найдёте фильмы по вкусу.
 						</h1>
 					</div>
+					<p>qwe</p>
 					<Link href="/movies">
-						<a>
-							Начать{' '}
-							<Image src="/svg/play.svg" width={24} height={24} alt="svg" />
-						</a>
+						Начать{' '}
+						<Image src="/svg/play.svg" width={24} height={24} alt="svg" />
 					</Link>
 				</div>
 			</main>
