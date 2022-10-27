@@ -140,10 +140,7 @@ const SignUp: NextPage = () => {
 
 					<div className={styles.sign__up}>
 						<small>У вас уже есть аккаунт?</small>
-						<Link href="/signIn">
-							<a>Войти</a>
-						</Link>
-						.
+						<Link href="/signIn">Войти</Link>.
 					</div>
 				</div>
 			</main>
