@@ -128,10 +128,7 @@ const SignIn: NextPage = ({ user }: User) => {
 					</button>
 					<div className={styles.sign__up}>
 						<small>Нет аккаунта? Создайте его</small>
-						<Link href="/signUp">
-							<a>здесь</a>
-						</Link>
-						.
+						<Link href="/signUp">здесь</Link>.
 					</div>
 					<div className={styles.auth__another_option}>
 						<hr />
