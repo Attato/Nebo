@@ -45,7 +45,13 @@ const Footer = () => {
 				</div>
 			</div>
 			<div className={styles.under__footer}>
-				<p> © 2022 View. Все права защищены</p>
+				<p>
+					©{' '}
+					{new Date().getFullYear() === 2022
+						? new Date().getFullYear()
+						: '2022 - ' + new Date().getFullYear()}
+					&nbsp;View. Все права защищены
+				</p>
 				<div className={styles.right_side}>
 					<Link href="/movies">Политика конфиденциальности</Link>
 					<Link href="/tickets">Кабинет</Link>
