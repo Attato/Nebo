@@ -107,3 +107,35 @@
 		}
 	}
 }
+
+@media screen and (max-width: 768px) {
+	.footer__content {
+		flex-direction: column;
+		gap: 60px !important;
+
+		.right__side {
+			justify-content: flex-start !important;
+		}
+	}
+}
+
+@media screen and (max-width: 425px) {
+	.under__footer {
+		flex-direction: column-reverse;
+		gap: 20px;
+
+		p {
+			text-align: center;
+		}
+
+		.right_side {
+			display: flex;
+			gap: 12px;
+			flex-direction: column-reverse;
+
+			a {
+				max-width: none;
+			}
+		}
+	}
+}
