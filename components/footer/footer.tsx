@@ -1,13 +1,33 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './footer.module.scss';
 
 const Footer = () => {
 	return (
 		<footer className={styles.footer}>
 			<div className={styles.footer__content}>
-				<Link href="/" className={styles.logo}>
-					View
-				</Link>
+				<div className={styles.left__side}>
+					<Link href="/" className={styles.logo}>
+						View
+					</Link>
+					<p>следите за нами в соц. сетях.</p>
+					<div className={styles.social__icons}>
+						<Link href="https://vk.com/qwaqwakva" target="blank">
+							<Image src="/svg/vk.svg" width={20} height={20} alt="link" />
+						</Link>
+						<Link href="https://t.me/qwaqwakwa" target="blank">
+							<Image
+								src="/svg/telegram.svg"
+								width={20}
+								height={20}
+								alt="link"
+							/>
+						</Link>
+						<Link href="https://github.com/Attato" target="blank">
+							<Image src="/svg/github.svg" width={20} height={20} alt="link" />
+						</Link>
+					</div>
+				</div>
 				<div className={styles.right__side}>
 					<div className={styles.columns}>
 						<h2>Разделы</h2>

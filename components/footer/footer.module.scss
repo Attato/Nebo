@@ -15,10 +15,31 @@
 		padding: 0 0 15px;
 		border-bottom: 1px solid #cdcdcd;
 
-		.logo {
-			font-size: 30px;
-			font-weight: 400;
-			height: fit-content;
+		.left__side {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 20px;
+			width: 100%;
+
+			.logo {
+				font-size: 30px;
+				font-weight: 400;
+			}
+
+			p {
+				color: #cdcdcd;
+				font-weight: 500;
+			}
+
+			.social__icons {
+				display: flex;
+				gap: 10px;
+
+				a {
+					display: flex;
+				}
+			}
 		}
 
 		.right__side {
