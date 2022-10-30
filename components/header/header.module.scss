@@ -19,13 +19,111 @@
 
 		.right__side {
 			display: flex;
-			gap: 20px;
-			height: 24px;
+			align-items: center;
 
-			a {
+			.right__side__content {
 				display: flex;
-				align-items: flex-end;
-				gap: 5px;
+				align-items: center;
+				gap: 20px;
+
+				a {
+					display: flex;
+					align-items: flex-end;
+					gap: 5px;
+					color: #cdcdcd;
+
+					&:hover {
+						color: white;
+						transition: all 0.15s;
+
+						p {
+							border-bottom: 2px solid #5b61eb;
+						}
+					}
+				}
+
+				img {
+					margin-bottom: 5px;
+				}
+
+				p {
+					padding-bottom: 3px;
+					border-bottom: 2px solid transparent;
+
+					&:hover {
+						border-bottom: 2px solid #5b61eb;
+						transition: all 0.2s;
+					}
+				}
+			}
+
+			.burger {
+				display: none;
+				align-items: center;
+				width: 36px;
+				height: 10px;
+				position: relative;
+				background-color: transparent;
+				border: 0;
+				cursor: pointer;
+
+				&:before {
+					content: '';
+					position: absolute;
+					top: 0;
+					width: 20px;
+					background-color: #cdcdcd;
+					height: 2px;
+				}
+
+				&:after {
+					content: '';
+					position: absolute;
+					bottom: 0;
+					width: 20px;
+					background-color: #cdcdcd;
+					height: 2px;
+				}
+			}
+
+			.menu,
+			.menu__active {
+				position: fixed;
+				width: 100vw;
+				height: 100vh;
+				top: 50px;
+				left: 0;
+
+				.menu__content {
+					display: none;
+					width: 100%;
+					height: 100%;
+					gap: 20px;
+					background-color: black;
+					flex-direction: column;
+					padding: 45px 40px 8px;
+
+					a {
+						display: flex;
+						align-items: flex-end;
+						gap: 5px;
+						color: #cdcdcd;
+						width: fit-content;
+
+						&:hover {
+							color: white;
+							transition: all 0.15s;
+
+							p {
+								border-bottom: 2px solid #5b61eb;
+							}
+						}
+					}
+				}
+			}
+
+			.menu {
+				display: none;
 			}
 		}
 
@@ -42,5 +140,16 @@
 				}
 			}
 		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.burger,
+	.menu__content {
+		display: flex !important;
+	}
+
+	.right__side__content {
+		display: none !important;
 	}
 }
