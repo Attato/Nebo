@@ -56,3 +56,42 @@
 	min-height: 1080px;
 	background-color: #ebeff2;
 }
+
+@media screen and (max-width: 768px) {
+	.masthead {
+		h1 {
+			font-size: 48px !important;
+			line-height: normal !important;
+		}
+
+		p {
+			font-size: 20px;
+		}
+	}
+}
+
+@media screen and (max-width: 425px) {
+	.masthead {
+		h1 {
+			font-size: 36px !important;
+		}
+
+		p {
+			font-size: 16px;
+		}
+	}
+}
+
+@media screen and (max-width: 375px) {
+	.masthead {
+		gap: 20px; 
+		
+		h1 {
+			font-size: 26px !important;
+		}
+
+		a {
+			padding: 5px 15px;
+		}
+	}
+}
