@@ -9,6 +9,15 @@ body {
 	scroll-behavior: smooth;
 }
 
+html {
+	color-scheme: dark;
+}
+
+body {
+	color: white;
+	background: #5b61eb;
+}
+
 button,
 input {
 	font-family: 'Mont';
@@ -39,23 +48,3 @@ hr {
 	border: 1px solid #2e2e2e;
 }
 
-@media (prefers-color-scheme: dark) {
-	html {
-		color-scheme: dark;
-	}
-	body {
-		color: white;
-		background: #5b61eb;
-	}
-}
-
-@media (prefers-color-scheme: light) {
-	html {
-		color-scheme: light;
-	}
-
-	body {
-		color: white;
-		background: white;
-	}
-}
