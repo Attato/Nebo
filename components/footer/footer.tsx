@@ -41,6 +41,7 @@ const Footer = () => {
 						<Link href="/movies">Документация</Link>
 						<Link href="/movies">Скидки</Link>
 						<Link href="/tickets">FAQ</Link>
+						<Link href="/movies">Политика конфиденциальности</Link>
 					</div>
 				</div>
 			</div>
@@ -52,10 +53,6 @@ const Footer = () => {
 						: '2022 - ' + new Date().getFullYear()}
 					&nbsp;View. Все права защищены
 				</p>
-				<div className={styles.right_side}>
-					<Link href="/movies">Политика конфиденциальности</Link>
-					<Link href="/tickets">Кабинет</Link>
-				</div>
 			</div>
 		</footer>
 	);
