@@ -24,82 +24,33 @@ const Movies: NextPage = () => {
 			<Header />
 
 			<main className={styles.main}>
-				<div className={styles.masthead}>
-					<h1>Найдите фильмы по вкусу.</h1>
-					<p>
-						Рейтинг из 100 лучших фильмов, которые должен посмотреть каждый.
-					</p>
-				</div>
-				<div className={styles.sort}>
-					<span>Сортировка:</span>
-					<p className={styles.active}>по рейтингу</p>
-					<p>по дате выпуска</p>
-				</div>
-				<div className={styles.card__wrap}>
-					{movies.map((movie, id) => {
-						return (
-							<div className={styles.card} key={id}>
-								<Link href={`/movies/${movie.ref}`} draggable="false">
-									<Image
-										src={movie.image}
-										width={200}
-										height={300}
-										className={styles.image}
-										alt="image"
-										draggable="false"
-									/>
-								</Link>
-								<div className={styles.card__content}>
-									<Link
-										href={`/movies/${movie.ref}`}
-										className={styles.card__content__row}
-										draggable="false"
-									>
+				<div className={styles.page__wrap}>
+					<div className={styles.search__header}>
+						<h1>Каталог</h1>
+						<button>По рейтингу</button>
+					</div>
+					<input type="text" placeholder="Поиск по названию..." />
+					<div className={styles.cards__wrap}>
+						{movies.map((movie, id) => {
+							return (
+								<div className={styles.card} key={id}>
+									<Link href={`/movies/${movie.ref}`} draggable="false">
+										<Image
+											src={movie.image}
+											width={210}
+											height={270}
+											alt="image"
+											draggable="false"
+										/>
 										<div className={styles.card__score}>{movie.score}</div>
-										<h2>
-											{movie.name}, {movie.age}+
-										</h2>
-										<button
-											onClick={() => {
-												setIsActiveFlag(!isActiveFlag);
-											}}
-										>
-											{isActiveFlag ? (
-												<Image
-													src="/svg/active_flag.svg"
-													width={17}
-													height={17}
-													draggable="false"
-													alt="image"
-												/>
-											) : (
-												<Image
-													src="/svg/flag.svg"
-													draggable="false"
-													width={17}
-													height={17}
-													alt="image"
-												/>
-											)}
-										</button>
-									</Link>
-									<Link
-										href={`/movies/${movie.ref}`}
-										className={styles.card__content__column}
-										draggable="false"
-									>
-										<p>
-											{movie.euName}, {movie.release}, {movie.duration}
-										</p>
-										<p>
-											{movie.country} • {movie.genre} • Место в топе:{' '}
-											{movie.id + 1}
-										</p>
 									</Link>
 								</div>
-							</div>
-						);
-					})}
+							);
+						})}
+					</div>
+				</div>
+				<div className={styles.sort__wrap}>
+					<h1>1</h1>
 				</div>
 			</main>
 
