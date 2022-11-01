@@ -34,14 +34,11 @@ const Movies: NextPage = () => {
 						{movies.map((movie, id) => {
 							return (
 								<div className={styles.card} key={id}>
-									<Link href={`/movies/${movie.ref}`} draggable="false">
-										<Image
-											src={movie.image}
-											width={210}
-											height={270}
-											alt="image"
-											draggable="false"
-										/>
+									<Link
+										href={`/movies/${movie.ref}`}
+										draggable="false"
+										style={{ backgroundImage: `url(${movie.image})` }}
+									>
 										<div className={styles.card__score}>{movie.score}</div>
 									</Link>
 								</div>
@@ -49,8 +46,30 @@ const Movies: NextPage = () => {
 						})}
 					</div>
 				</div>
-				<div className={styles.sort__wrap}>
-					<h1>1</h1>
+				<div className={styles.search}>
+					<div className={styles.search__submenu}>
+						<button>Жанры</button>
+						<span>Любые</span>
+					</div>
+					<div className={styles.search__submenu}>
+						<button>Теги</button>
+						<span>Любые</span>
+					</div>
+					<div className={styles.search__submenu}>
+						<button>Длительность</button>
+						<span>от-до</span>
+					</div>
+					<div className={styles.search__submenu}>
+						<button>Оценка</button>
+						<span>от-до</span>
+					</div>
+					<div className={styles.search__submenu}>
+						<button>Возрастной рейтинг</button>
+						<span>Любые</span>
+					</div>
+					<div className={styles.search__submenu}>
+						<button>Мои списки</button>
+					</div>
 				</div>
 			</main>
 
