@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -11,7 +11,13 @@ import Footer from 'components/footer/footer';
 import movies from 'json/movies.json';
 
 const Movies: NextPage = () => {
-	const [isActiveFlag, setIsActiveFlag] = useState(false);
+	const [search, setSearch] = useState('');
+
+	const filteredMovies = movies.filter((movie) => {
+		return movie.name.toLowerCase().includes(search.toLowerCase());
+	});
+
+	console.log(filteredMovies);
 
 	return (
 		<div className="container">
@@ -29,21 +35,29 @@ const Movies: NextPage = () => {
 						<h1>Каталог</h1>
 						<button>По рейтингу</button>
 					</div>
-					<input type="text" placeholder="Поиск по названию..." />
+					<input
+						type="text"
+						placeholder="Поиск по названию..."
+						onChange={(e) => setSearch(e.target.value)}
+					/>
 					<div className={styles.cards__wrap}>
-						{movies.map((movie, id) => {
-							return (
-								<div className={styles.card} key={id}>
-									<Link
-										href={`/movies/${movie.ref}`}
-										draggable="false"
-										style={{ backgroundImage: `url(${movie.image})` }}
-									>
-										<div className={styles.card__score}>{movie.score}</div>
-									</Link>
-								</div>
-							);
-						})}
+						{filteredMovies.length === 0 ? (
+							<div className={styles.not__found}>Ничего не найдено.</div>
+						) : (
+							filteredMovies.map((movie, id) => {
+								return (
+									<div className={styles.card} key={id}>
+										<Link
+											href={`/movies/${movie.ref}`}
+											draggable="false"
+											style={{ backgroundImage: `url(${movie.image})` }}
+										>
+											<div className={styles.card__score}>{movie.score}</div>
+										</Link>
+									</div>
+								);
+							})
+						)}
 					</div>
 				</div>
 				<div className={styles.search}>
@@ -55,20 +69,63 @@ const Movies: NextPage = () => {
 						<button>Теги</button>
 						<span>Любые</span>
 					</div>
-					<div className={styles.search__submenu}>
-						<button>Длительность</button>
-						<span>от-до</span>
+					<div className={styles.search__group}>
+						<span className={styles.search__title}>Длительность (мин.)</span>
+						<div className={styles.filter__content}>
+							<input type="text" placeholder="От" />
+							<span>—</span>
+							<input type="text" placeholder="До" />
+						</div>
 					</div>
-					<div className={styles.search__submenu}>
-						<button>Оценка</button>
-						<span>от-до</span>
+					<div className={styles.search__group}>
+						<span className={styles.search__title}>Оценка</span>
+						<div className={styles.filter__content}>
+							<input type="text" placeholder="От" />
+							<span>—</span>
+							<input type="text" placeholder="До" />
+						</div>
 					</div>
-					<div className={styles.search__submenu}>
-						<button>Возрастной рейтинг</button>
-						<span>Любые</span>
+					<div className={styles.search__group}>
+						<span className={styles.search__title}>Возрастной рейтинг</span>
+						<div className={styles.row__content}>
+							<div className={styles.item}>
+								<input type="checkbox" />
+								<p>Отсутствует</p>
+							</div>
+							<div className={styles.item}>
+								<input type="checkbox" />
+								<p>16+</p>
+							</div>
+							<div className={styles.item}>
+								<input type="checkbox" />
+								<p>18+</p>
+							</div>
+						</div>
 					</div>
-					<div className={styles.search__submenu}>
-						<button>Мои списки</button>
+					<div className={styles.search__group}>
+						<span className={styles.search__title}>Мои списки</span>
+						<div className={styles.column__content}>
+							<div className={styles.item}>
+								<input type="checkbox" />
+								<p>Любимые</p>
+							</div>
+							<div className={styles.item}>
+								<input type="checkbox" />
+								<p>Смотрю</p>
+							</div>
+							<div className={styles.item}>
+								<input type="checkbox" />
+								<p>В планах</p>
+							</div>
+							<div className={styles.item}>
+								<input type="checkbox" />
+								<p>Брошено</p>
+							</div>
+							<div className={styles.item}>
+								<input type="checkbox" />
+								<p>Просмотренно</p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</main>
