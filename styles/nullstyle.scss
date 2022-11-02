@@ -23,6 +23,21 @@ input {
 	font-family: 'Mont';
 }
 
+input {
+	width: 100%;
+	background-color: transparent;
+	border: 1px solid #2e2e2e;
+	color: #ebebeb;
+	padding: 5px 10px;
+	border-radius: 6px;
+	outline: none;
+
+	&:hover {
+		border-color: #3e3e3e;
+		transition: all 0.15s;
+	}
+}
+
 h1,
 h2,
 h3,
@@ -47,4 +62,3 @@ hr {
 	margin: 10px 0;
 	border: 1px solid #2e2e2e;
 }
-
