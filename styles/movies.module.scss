@@ -29,6 +29,26 @@
 			}
 		}
 
+		.mobile__search__header {
+			display: none;
+			justify-content: flex-end;
+			gap: 20px;
+			position: fixed;
+			bottom: 0;
+			right: 0;
+			z-index: 10;
+			width: 100%;
+			padding: 15px;
+			background-color: #060606;
+
+			button {
+				padding: 5px 20px;
+				border-radius: 0;
+				background-color: transparent;
+				border: 1px solid white;
+			}
+		}
+
 		input {
 			margin-bottom: 20px;
 		}
@@ -200,9 +220,43 @@
 	.page__wrap {
 		max-width: none !important;
 	}
+
+	.mobile__search__header {
+		display: flex !important;
+	}
 }
 
 @media screen and (max-width: 425px) {
+
+	.card {
+		width: 33.3% !important;
+		padding: 8px;
+
+		&:nth-child(4n + 1) {
+			padding-left: 8px !important;
+		}
+
+		&:nth-child(4n) {
+			padding-right: 8px !important;
+		}
+
+		&:nth-child(3n + 1) {
+			padding-left: 0px !important;
+		}
+
+		&:nth-child(3n) {
+			padding-right: 0px !important;
+		}
+	}
+
+	.mobile__search__header {
+		button {
+			width: 100%;
+		}
+	}
+}
+
+@media screen and (max-width: 375px) {
 	.card {
 		width: 50% !important;
 		padding: 8px;

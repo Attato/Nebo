@@ -17,8 +17,6 @@ const Movies: NextPage = () => {
 		return movie.name.toLowerCase().includes(search.toLowerCase());
 	});
 
-	console.log(filteredMovies);
-
 	return (
 		<div className="container">
 			<Head>
@@ -34,6 +32,10 @@ const Movies: NextPage = () => {
 					<div className={styles.search__header}>
 						<h1>Каталог</h1>
 						<button>По рейтингу</button>
+					</div>
+					<div className={styles.mobile__search__header}>
+						<button>Сортировать</button>
+						<button>Фильтры</button>
 					</div>
 					<input
 						type="text"
