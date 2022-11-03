@@ -42,10 +42,16 @@
 			background-color: #060606;
 
 			button {
-				padding: 5px 20px;
+				padding: 7px 20px;
 				border-radius: 0;
 				background-color: transparent;
 				border: 1px solid white;
+
+				&:hover {
+					background-color: white;
+					color: #060606;
+					transition: all ease-in-out 0.3s;
+				}
 			}
 		}
 
