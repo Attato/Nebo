@@ -13,8 +13,32 @@ import movies from 'json/movies.json';
 const Movies: NextPage = () => {
 	const [search, setSearch] = useState('');
 
+	//Год выпуска
+
+	const [sortFromRelease, setSortFromRelease] = useState('1895'); // От
+	const [sortToRelease, setSortToRelease] = useState(
+		new Date().getFullYear().toString()
+	); // До
+
+	// Оценка
+
+	const [sortFromScore, setSortFromScore] = useState(''); // От
+	const [sortToScore, setSortToScore] = useState(''); // До
+
+	console.log(sortToScore);
+
 	const filteredMovies = movies.filter((movie) => {
-		return movie.name.toLowerCase().includes(search.toLowerCase());
+		if (search) {
+			return movie.name.toLowerCase().includes(search.toLowerCase());
+		}
+
+		if (sortFromRelease <= movie.release && sortToRelease >= movie.release) {
+			return movie.release.includes(search);
+		}
+
+		if (sortFromScore <= movie.score && sortToScore >= movie.score) {
+			return movie.score.includes(search);
+		}
 	});
 
 	return (
@@ -50,7 +74,7 @@ const Movies: NextPage = () => {
 								return (
 									<div className={styles.card} key={id}>
 										<Link
-											href={`/movies/${movie.ref}`}
+											href={`/movies/${movie.slug}`}
 											draggable="false"
 											style={{ backgroundImage: `url(${movie.image})` }}
 										>
@@ -72,35 +96,51 @@ const Movies: NextPage = () => {
 						<span>Любые</span>
 					</div>
 					<div className={styles.search__group}>
-						<span className={styles.search__title}>Длительность (мин.)</span>
+						<span className={styles.search__title}>Год выпуска</span>
 						<div className={styles.filter__content}>
-							<input type="text" placeholder="От" />
+							<input
+								type="text"
+								placeholder="От"
+								onChange={(e) => setSortFromRelease(e.target.value)}
+							/>
 							<span>—</span>
-							<input type="text" placeholder="До" />
+							<input
+								type="text"
+								placeholder="До"
+								onChange={(e) => setSortToRelease(e.target.value)}
+							/>
 						</div>
 					</div>
 					<div className={styles.search__group}>
 						<span className={styles.search__title}>Оценка</span>
 						<div className={styles.filter__content}>
-							<input type="text" placeholder="От" />
+							<input
+								type="text"
+								placeholder="От"
+								onChange={(e) => setSortFromScore(e.target.value)}
+							/>
 							<span>—</span>
-							<input type="text" placeholder="До" />
+							<input
+								type="text"
+								placeholder="До"
+								onChange={(e) => setSortToScore(e.target.value)}
+							/>
 						</div>
 					</div>
 					<div className={styles.search__group}>
 						<span className={styles.search__title}>Возрастной рейтинг</span>
-						<div className={styles.row__content}>
+						<div className={styles.column__content}>
 							<div className={styles.item}>
-								<input type="checkbox" />
-								<p>Отсутствует</p>
+								<input type="checkbox" id="0+" />
+								<label htmlFor="0+">Отсутствует</label>
 							</div>
 							<div className={styles.item}>
-								<input type="checkbox" />
-								<p>16+</p>
+								<input type="checkbox" id="16+" />
+								<label htmlFor="16+">16+</label>
 							</div>
 							<div className={styles.item}>
-								<input type="checkbox" />
-								<p>18+</p>
+								<input type="checkbox" id="18+" />
+								<label htmlFor="18+">18+</label>
 							</div>
 						</div>
 					</div>
@@ -108,24 +148,24 @@ const Movies: NextPage = () => {
 						<span className={styles.search__title}>Мои списки</span>
 						<div className={styles.column__content}>
 							<div className={styles.item}>
-								<input type="checkbox" />
-								<p>Любимые</p>
+								<input type="checkbox" id="favorite" />
+								<label htmlFor="favorite">Любимые</label>
 							</div>
 							<div className={styles.item}>
-								<input type="checkbox" />
-								<p>Смотрю</p>
+								<input type="checkbox" id="watching" />
+								<label htmlFor="watching">Смотрю</label>
 							</div>
 							<div className={styles.item}>
-								<input type="checkbox" />
-								<p>В планах</p>
+								<input type="checkbox" id="planned" />
+								<label htmlFor="planned">В планах</label>
 							</div>
 							<div className={styles.item}>
-								<input type="checkbox" />
-								<p>Брошено</p>
+								<input type="checkbox" id="thrown" />
+								<label htmlFor="thrown">Брошено</label>
 							</div>
 							<div className={styles.item}>
-								<input type="checkbox" />
-								<p>Просмотренно</p>
+								<input type="checkbox" id="viewed" />
+								<label htmlFor="viewed">Просмотренно</label>
 							</div>
 						</div>
 					</div>
