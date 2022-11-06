@@ -8,34 +8,37 @@ import Footer from 'components/footer/footer';
 
 import styles from 'styles/movie.module.scss';
 
-import prisma from 'plugins/prisma';
+import movies from 'json/movies.json';
 
-export const getServerSideProps: GetServerSideProps = async () => {
-	const movies = await prisma.movie.findMany();
+// import prisma from 'plugins/prisma';
 
-	return {
-		props: { movies },
-	};
-};
+// export const getServerSideProps: GetServerSideProps = async () => {
+// 	const movies = await prisma.movie.findMany();
 
-interface Movies {
-	movies: {
-		id: number;
-		score: string;
-		name: string;
-		euName: string;
-		age: string;
-		duration: string;
-		release: string;
-		country: string;
-		genre: string;
-		trailer: string;
-		image: string;
-		slug: string;
-	}[];
-}
+// 	return {
+// 		props: { movies },
+// 	};
+// };
 
-const Movie = ({ movies }: Movies) => {
+// interface Movies {
+// 	movies: {
+// 		id: number;
+// 		score: string;
+// 		name: string;
+// 		euName: string;
+// 		age: string;
+// 		duration: string;
+// 		release: string;
+// 		country: string;
+// 		genre: string;
+// 		trailer: string;
+// 		image: string;
+// 		slug: string;
+// 	}[];
+// }
+
+// const Movie = ({ movies }) => {
+const Movie = () => {
 	const { movie } = useRouter().query;
 	return (
 		<div className="container">

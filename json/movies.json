@@ -11,7 +11,7 @@
         "genre": "драма",
         "trailer": "/trailers/the_green_mile.mp4",
         "image": "/images/movies/the_green_mile.webp",
-        "ref": "the_green_mile"
+        "slug": "the_green_mile"
     },
     {
         "id": 1,
@@ -25,7 +25,7 @@
         "genre": "драма",
         "trailer": "",
         "image": "/images/movies/the_shawshank_redemption.webp",
-        "ref": "the_shawshank_redemption"
+        "slug": "the_shawshank_redemption"
     },
     {
         "id": 2,
@@ -39,7 +39,7 @@
         "genre": "драма",
         "trailer": "",
         "image": "/images/movies/forrest_gump.webp",
-        "ref": "forrest_gump"
+        "slug": "forrest_gump"
     },
     {
         "id": 3,
@@ -53,7 +53,7 @@
         "genre": "фэнтези",
         "trailer": "",
         "image": "/images/movies/the_lord_of_the_rings_the_return_of_the_king.webp",
-        "ref": "the_lord_of_the_rings_the_return_of_the_king"
+        "slug": "the_lord_of_the_rings_the_return_of_the_king"
     },
     {
         "id": 4,
@@ -67,7 +67,7 @@
         "genre": "фэнтези",
         "trailer": "",
         "image": "/images/movies/the_lord_of_the_rings_the_fellowship_of_the_ring.webp",
-        "ref": "the_lord_of_the_rings_the_fellowship_of_the_ring"
+        "slug": "the_lord_of_the_rings_the_fellowship_of_the_ring"
     },
     {
         "id": 5,
@@ -81,7 +81,7 @@
         "genre": "фэнтези",
         "trailer": "",
         "image": "/images/movies/the_lord_of_the_rings_the_two_towers.webp",
-        "ref": "the_lord_of_the_rings_the_two_towers"
+        "slug": "the_lord_of_the_rings_the_two_towers"
     },
     {
         "id": 6,
@@ -95,7 +95,7 @@
         "genre": "фантастика",
         "trailer": "",
         "image": "/images/movies/interstellar.webp",
-        "ref": "interstellar"
+        "slug": "interstellar"
     },
     {
         "id": 7,
@@ -109,7 +109,7 @@
         "genre": "фантастика",
         "trailer": "",
         "image": "/images/movies/back_to_the_future.webp",
-        "ref": "back_to_the_future"
+        "slug": "back_to_the_future"
     },
     {
         "id": 8,
@@ -123,7 +123,7 @@
         "genre": "фантастика",
         "trailer": "",
         "image": "/images/movies/the_dark_knight.webp",
-        "ref": "the_dark_knight"
+        "slug": "the_dark_knight"
     },
     {
         "id": 9,
@@ -137,7 +137,7 @@
         "genre": "триллер",
         "trailer": "",
         "image": "/images/movies/fight_club.webp",
-        "ref": "fight_club"
+        "slug": "fight_club"
     },
     {
         "id": 10,
@@ -151,7 +151,7 @@
         "genre": "история",
         "trailer": "",
         "image": "/images/movies/gladiator.webp",
-        "ref": "gladiator"
+        "slug": "gladiator"
     },
     {
         "id": 11,
@@ -165,7 +165,7 @@
         "genre": "фантастика",
         "trailer": "",
         "image": "/images/movies/inception.webp",
-        "ref": "inception"
+        "slug": "inception"
     },
     {
         "id": 12,
@@ -179,7 +179,7 @@
         "genre": "фэнтези",
         "trailer": "",
         "image": "/images/movies/pirates_of_the_caribbean_the_curse_of_the_black_pearl.webp",
-        "ref": "pirates_of_the_caribbean_the_curse_of_the_black_pearl"
+        "slug": "pirates_of_the_caribbean_the_curse_of_the_black_pearl"
     },
     {
         "id": 13,
@@ -193,7 +193,7 @@
         "genre": "криминал",
         "trailer": "",
         "image": "/images/movies/catch_me_if_you_can.webp",
-        "ref": "catch_me_if_you_can"
+        "slug": "catch_me_if_you_can"
     },
     {
         "id": 14,
@@ -207,7 +207,7 @@
         "genre": "фэнтези",
         "trailer": "",
         "image": "/images/movies/harry_potter_and_the_sorcerers_stone.webp",
-        "ref": "harry_potter_and_the_sorcerers_stone"
+        "slug": "harry_potter_and_the_sorcerers_stone"
     },
     {
         "id": 15,
@@ -221,7 +221,7 @@
         "genre": "мелодрама",
         "trailer": "",
         "image": "/images/movies/titanic.webp",
-        "ref": "titanic"
+        "slug": "titanic"
     },
     {
         "id": 16,
@@ -235,7 +235,7 @@
         "genre": "фэнтези",
         "trailer": "",
         "image": "/images/movies/harry_potter_and_the_prisoner_of_azkaban.webp",
-        "ref": "harry_potter_and_the_prisoner_of_azkaban"
+        "slug": "harry_potter_and_the_prisoner_of_azkaban"
     },
     {
         "id": 17,
@@ -249,7 +249,7 @@
         "genre": "боевик",
         "trailer": "",
         "image": "/images/movies/leon.webp",
-        "ref": "leon"
+        "slug": "leon"
     },
     {
         "id": 18,
@@ -263,7 +263,7 @@
         "genre": "вестерн",
         "trailer": "",
         "image": "/images/movies/django_unchained.webp",
-        "ref": "django_unchained"
+        "slug": "django_unchained"
     },
     {
         "id": 19,
@@ -277,7 +277,7 @@
         "genre": "фантастика",
         "trailer": "",
         "image": "/images/movies/back_to_the_future_part_II.webp",
-        "ref": "back_to_the_future_part_II"
+        "slug": "back_to_the_future_part_II"
     },
     {
         "id": 20,
@@ -291,7 +291,7 @@
         "genre": "фантастика",
         "trailer": "",
         "image": "/images/movies/the_matrix.webp",
-        "ref": "the_matrix"
+        "slug": "the_matrix"
     },
     {
         "id": 21,
@@ -305,6 +305,6 @@
         "genre": "фэнтези",
         "trailer": "",
         "image": "/images/movies/pirates_of_the_caribbean_dead_mans_chest.webp",
-        "ref": "pirates_of_the_caribbean_dead_mans_chest"
+        "slug": "pirates_of_the_caribbean_dead_mans_chest"
     }
 ]
