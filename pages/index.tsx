@@ -21,19 +21,24 @@ const Home: NextPage = () => {
 			<main className="main">
 				<div className={styles.masthead}>
 					<div className={styles.row__wrap}>
-						<h1>
-							<span className={styles.selection}>View</span> - платформа, на
-							которой вы найдёте фильмы по вкусу.
-						</h1>
+						<div className={styles.masthead__content}>
+							<h1>View</h1>
+							<div className={styles.column__content}>
+								это любимые фильмы &nbsp;
+								<div className={styles.words}>
+									<p>в свободное время</p>
+									<p>в семейном кругу</p>
+									<p>дома у бабушки</p>
+									<p>в уютной кровати</p>
+								</div>
+							</div>
+
+							<Link href="/movies">
+								Начнём?
+								{/* <Image src="/svg/play.svg" width={24} height={24} alt="svg" /> */}
+							</Link>
+						</div>
 					</div>
-					<p>
-						Однажды съев фейхоа, я, как зацикленный, ностальгирую всё чаще и
-						больше по этому чуду.
-					</p>
-					<Link href="/movies">
-						Начать{' '}
-						<Image src="/svg/play.svg" width={24} height={24} alt="svg" />
-					</Link>
 				</div>
 			</main>
 
