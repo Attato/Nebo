@@ -34,7 +34,7 @@ const Home: NextPage = () => {
 							</div>
 
 							<Link href="/movies">
-								Начнём?
+								приступим?
 								{/* <Image src="/svg/play.svg" width={24} height={24} alt="svg" /> */}
 							</Link>
 						</div>

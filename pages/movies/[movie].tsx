@@ -40,6 +40,7 @@ import movies from 'json/movies.json';
 // const Movie = ({ movies }) => {
 const Movie = () => {
 	const { movie } = useRouter().query;
+
 	return (
 		<div className="container">
 			<Head>
