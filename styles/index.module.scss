@@ -94,7 +94,7 @@
 				align-items: center;
 				justify-content: center;
 				gap: 5px;
-				padding: 10px;
+				padding: 5px 20px;
 				border-radius: 6px;
 				font-size: 16px;
 				border: 2px solid #5b61eb;
@@ -105,6 +105,7 @@
 				&:hover {
 					box-shadow: 0 0 6px 0 rgba(91 97 235 / 100%);
 					transition: all 0.2s;
+					background-color: #5b61eb;
 				}
 			}
 		}
