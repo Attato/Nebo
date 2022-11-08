@@ -13,10 +13,11 @@ const Header = () => {
 		<header className={styles.header}>
 			<div className={styles.header__content}>
 				<div className={styles.right__side}>
-					<button onClick={() => setIsOpen(!isOpen)} className={styles.burger}>
-						<span></span>
-					</button>
+					<button onClick={() => setIsOpen(!isOpen)} className={isOpen ? styles.burger__active : styles.burger} />
 					<div className={isOpen ? styles.menu__active : styles.menu}>
+					{isOpen && (
+					<div className={styles.blur} onClick={() => setIsOpen(false)} />
+				)}
 						<div className={styles.menu__content}>
 							<Link href="/" onClick={() => setIsOpen(!isOpen)}>
 								<Image src="/svg/home.svg" width={24} height={24} alt="svg" />
