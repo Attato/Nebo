@@ -44,11 +44,21 @@ const Header = () => {
 								<p>Главная</p>
 							</Link>
 							<Link href="/movies" onClick={() => setIsOpen(!isOpen)}>
-								<Image src="/svg/movie.svg" width={24} height={24} alt="svg" />
+								<Image
+									src="/svg/movies/movies.svg"
+									width={24}
+									height={24}
+									alt="svg"
+								/>
 								<p>Фильмы</p>
 							</Link>
 							<Link href="/subscription" onClick={() => setIsOpen(!isOpen)}>
-								<Image src="/svg/ticket.svg" width={24} height={24} alt="svg" />
+								<Image
+									src="/svg/ticket/ticket.svg"
+									width={24}
+									height={24}
+									alt="svg"
+								/>
 								<p>Подписка</p>
 							</Link>
 						</div>
@@ -114,7 +124,7 @@ const Header = () => {
 				</div>
 
 				<div className={styles.left__side}>
-					<Link href="/signIn">войдёшь?</Link>
+					<Link href="/signIn">Войти</Link>
 				</div>
 			</div>
 		</header>
