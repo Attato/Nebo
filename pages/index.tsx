@@ -1,7 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
-import Image from 'next/image';
 
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
@@ -33,10 +32,7 @@ const Home: NextPage = () => {
 								</div>
 							</div>
 
-							<Link href="/movies">
-								приступим?
-								{/* <Image src="/svg/play.svg" width={24} height={24} alt="svg" /> */}
-							</Link>
+							<Link href="/movies">Начать</Link>
 						</div>
 					</div>
 				</div>
