@@ -97,12 +97,9 @@
 				border-radius: 6px;
 				font-size: 16px;
 				border: 2px solid #5b61eb;
-				box-shadow: 0 0 6px 0 rgba(91 97 235 / 60%);
-
 				cursor: pointer;
 
 				&:hover {
-					box-shadow: 0 0 6px 0 rgba(91 97 235 / 100%);
 					transition: all 0.2s;
 					background-color: #5b61eb;
 				}
