@@ -190,7 +190,8 @@
 				.item {
 					display: flex;
 					gap: 10px;
-					width: fit-content;
+					width: 100%;
+					max-width: 175px;
 					border-radius: 6px;
 					padding: 4px 10px 4px 10px;
 					cursor: pointer;
@@ -210,23 +211,21 @@
 
 					label {
 						cursor: pointer;
-						padding-left: 35px;
 						position: relative;
+						display: flex;
+						align-items: center;
+						gap: 10px;
+						width: 100%;
 
 						&:before {
 							content: '';
 							display: block;
-							width: 18px;
-							height: 18px;
-
+							width: 17px;
+							height: 17px;
 							border: 1px solid #161616;
-							border-radius: 4px;
 							background-color: #fff;
-
-							position: absolute;
-							top: 0;
-							left: 0;
-							z-index: 1;
+							border-radius: 4px;
+							margin-bottom: 1px;
 						}
 
 						img {
@@ -244,11 +243,11 @@
 							height: 18px;
 
 							background: url(../public/svg/check.svg) no-repeat;
-							background-size: 14px 14px;
+							background-size: 13px 13px;
 
 							position: absolute;
-							top: 3px;
-							left: 3px;
+							top: 3.5px;
+							left: 2.5px;
 							z-index: 2;
 						}
 					}
