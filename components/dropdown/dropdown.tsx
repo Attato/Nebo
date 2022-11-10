@@ -28,7 +28,6 @@ const Dropdown = ({ options }) => {
 				ref={ref}
 			>
 				{selected}
-				<span className={styles.caret} />
 			</div>
 			{isActive && (
 				<div className={styles.dropdown__content}>
