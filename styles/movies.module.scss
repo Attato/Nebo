@@ -191,7 +191,7 @@
 					display: flex;
 					gap: 10px;
 					width: 100%;
-					max-width: 175px;
+					max-width: 160px;
 					border-radius: 6px;
 					padding: 4px 10px 4px 10px;
 					cursor: pointer;
@@ -214,36 +214,31 @@
 						position: relative;
 						display: flex;
 						align-items: center;
+						font-size: 14px;
 						gap: 10px;
 						width: 100%;
 
 						&:before {
 							content: '';
 							display: block;
-							width: 17px;
-							height: 17px;
+							width: 15px;
+							height: 15px;
 							border: 1px solid #161616;
 							background-color: #fff;
 							border-radius: 4px;
 							margin-bottom: 1px;
 						}
 
-						img {
-							content: '';
-							position: absolute;
-							top: 3px;
-							left: 3px;
-							z-index: 2;
-						}
-
 						&:after {
 							content: '';
-							display: block;
-							width: 18px;
-							height: 18px;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							width: 11px;
+							height: 11px;
 
 							background: url(../public/svg/check.svg) no-repeat;
-							background-size: 13px 13px;
+							background-size: 11px 11px;
 
 							position: absolute;
 							top: 3.5px;
@@ -258,6 +253,23 @@
 
 					input[type='checkbox']:checked + img {
 						opacity: 1;
+					}
+				}
+
+				.reset {
+					background-color: transparent;
+					border: 1px solid white;
+					border-radius: 6px;
+					padding: 5px 20px;
+					font-size: 14px;
+					max-width: 120px;
+					margin: 20px auto 0;
+					cursor: pointer;
+
+					&:hover {
+						background-color: white;
+						color: #060606;
+						transition: all ease-in-out 0.3s;
 					}
 				}
 			}
