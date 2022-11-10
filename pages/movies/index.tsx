@@ -7,6 +7,7 @@ import styles from 'styles/movies.module.scss';
 
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
+import Dropdown from 'components/dropdown/dropdown';
 
 import movies from 'json/movies.json';
 
@@ -15,28 +16,28 @@ const Movies: NextPage = () => {
 
 	//Год выпуска
 
-	const [sortFromRelease, setSortFromRelease] = useState('1895'); // От
-	const [sortToRelease, setSortToRelease] = useState(
+	const [sortLowDate, setSortLowDate] = useState('1895'); // От
+	const [sortHighDate, setSortHighDate] = useState(
 		new Date().getFullYear().toString()
 	); // До
 
 	// Оценка
 
-	const [sortFromScore, setSortFromScore] = useState(''); // От
-	const [sortToScore, setSortToScore] = useState(''); // До
+	const [sortLowRating, setSortLowRating] = useState('');
+	const [sortHighRating, setSortHighRating] = useState('');
 
-	console.log(sortToScore);
+	console.log(sortLowRating);
 
 	const filteredMovies = movies.filter((movie) => {
 		if (search) {
 			return movie.name.toLowerCase().includes(search.toLowerCase());
 		}
 
-		if (sortFromRelease <= movie.release && sortToRelease >= movie.release) {
+		if (sortLowDate <= movie.release && sortHighDate >= movie.release) {
 			return movie.release.includes(search);
 		}
 
-		if (sortFromScore <= movie.score && sortToScore >= movie.score) {
+		if (sortLowRating <= movie.score && sortHighRating >= movie.score) {
 			return movie.score.includes(search);
 		}
 	});
@@ -55,7 +56,7 @@ const Movies: NextPage = () => {
 				<div className={styles.page__wrap}>
 					<div className={styles.search__header}>
 						<h1>Каталог</h1>
-						<button>По рейтингу</button>
+						<Dropdown options={['по рейтингу', 'по новизне']} />
 					</div>
 					<div className={styles.mobile__search__header}>
 						<button>Сортировать</button>
@@ -89,11 +90,32 @@ const Movies: NextPage = () => {
 				<div className={styles.search}>
 					<div className={styles.search__submenu}>
 						<button>Жанры</button>
-						<span>Любые</span>
+						<span>
+							<Dropdown
+								options={[
+									'комедия',
+									'хоррор',
+									'фантастика',
+									'триллер',
+									'боевик',
+									'мелодрама',
+									'детектив',
+									'приключение',
+									'фэнтези',
+									'документальный',
+									'драма',
+									'криминал',
+									'спорт',
+									'мюзикл',
+								]}
+							/>
+						</span>
 					</div>
 					<div className={styles.search__submenu}>
 						<button>Теги</button>
-						<span>Любые</span>
+						<span>
+							<Dropdown options={['по рейтингу', 'по новизне']} />
+						</span>
 					</div>
 					<div className={styles.search__group}>
 						<span className={styles.search__title}>Год выпуска</span>
@@ -101,13 +123,13 @@ const Movies: NextPage = () => {
 							<input
 								type="text"
 								placeholder="От"
-								onChange={(e) => setSortFromRelease(e.target.value)}
+								onChange={(e) => setSortLowDate(e.target.value)}
 							/>
 							<span>—</span>
 							<input
 								type="text"
 								placeholder="До"
-								onChange={(e) => setSortToRelease(e.target.value)}
+								onChange={(e) => setSortHighDate(e.target.value)}
 							/>
 						</div>
 					</div>
@@ -117,13 +139,13 @@ const Movies: NextPage = () => {
 							<input
 								type="text"
 								placeholder="От"
-								onChange={(e) => setSortFromScore(e.target.value)}
+								onChange={(e) => setSortLowRating(e.target.value)}
 							/>
 							<span>—</span>
 							<input
 								type="text"
 								placeholder="До"
-								onChange={(e) => setSortToScore(e.target.value)}
+								onChange={(e) => setSortHighRating(e.target.value)}
 							/>
 						</div>
 					</div>
@@ -167,6 +189,9 @@ const Movies: NextPage = () => {
 								<input type="checkbox" id="viewed" />
 								<label htmlFor="viewed">Просмотренно</label>
 							</div>
+							<button className={styles.reset} onClick={() => {}}>
+								Сбросить
+							</button>
 						</div>
 					</div>
 				</div>
