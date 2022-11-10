@@ -154,14 +154,23 @@ const Movies: NextPage = () => {
 						<div className={styles.column__content}>
 							<div className={styles.item}>
 								<input type="checkbox" id="0+" />
+								<div className={styles.checkbox}>
+									<div className={styles.check} />
+								</div>
 								<label htmlFor="0+">Отсутствует</label>
 							</div>
 							<div className={styles.item}>
 								<input type="checkbox" id="16+" />
+								<div className={styles.checkbox}>
+									<div className={styles.check} />
+								</div>
 								<label htmlFor="16+">16+</label>
 							</div>
 							<div className={styles.item}>
 								<input type="checkbox" id="18+" />
+								<div className={styles.checkbox}>
+									<div className={styles.check} />
+								</div>
 								<label htmlFor="18+">18+</label>
 							</div>
 						</div>
@@ -171,22 +180,37 @@ const Movies: NextPage = () => {
 						<div className={styles.column__content}>
 							<div className={styles.item}>
 								<input type="checkbox" id="favorite" />
+								<div className={styles.checkbox}>
+									<div className={styles.check} />
+								</div>
 								<label htmlFor="favorite">Любимые</label>
 							</div>
 							<div className={styles.item}>
 								<input type="checkbox" id="watching" />
+								<div className={styles.checkbox}>
+									<div className={styles.check} />
+								</div>
 								<label htmlFor="watching">Смотрю</label>
 							</div>
 							<div className={styles.item}>
 								<input type="checkbox" id="planned" />
+								<div className={styles.checkbox}>
+									<div className={styles.check} />
+								</div>
 								<label htmlFor="planned">В планах</label>
 							</div>
 							<div className={styles.item}>
 								<input type="checkbox" id="thrown" />
+								<div className={styles.checkbox}>
+									<div className={styles.check} />
+								</div>
 								<label htmlFor="thrown">Брошено</label>
 							</div>
 							<div className={styles.item}>
 								<input type="checkbox" id="viewed" />
+								<div className={styles.checkbox}>
+									<div className={styles.check} />
+								</div>
 								<label htmlFor="viewed">Просмотренно</label>
 							</div>
 							<button className={styles.reset} onClick={() => {}}>
