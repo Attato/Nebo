@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import styles from 'components/ui_styles/dropdown.module.scss';
 
 const Filter = ({
 	setActiveGenre,
@@ -37,22 +36,20 @@ const Filter = ({
 	}, [activeGenre]);
 
 	return (
-		<div className={styles.dropdown}>
+		<div className="dropdown">
 			<div
-				className={
-					isActive ? styles.dropdown__btn__active : styles.dropdown__btn
-				}
-				onClick={(e) => setIsActive(!isActive)}
+				className={isActive ? 'dropdown__btn__active' : 'dropdown__btn'}
+				onClick={() => setIsActive(!isActive)}
 				ref={ref}
 			>
 				{selected}
 			</div>
 			{isActive && (
-				<div className={styles.dropdown__content}>
+				<div className="dropdown__content">
 					{options.map((option, id) => {
 						return (
 							<div
-								className={styles.dropdown__item}
+								className="dropdown__item"
 								key={id}
 								onClick={() => {
 									setSelected(option);

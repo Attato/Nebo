@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import styles from 'styles/movies.module.scss';
-
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
 import Filter from 'components/ui/filter';
@@ -15,8 +14,12 @@ const Movies: NextPage = () => {
 	const [search, setSearch] = useState('');
 	const [sort, setSort] = useState('по рейтингу');
 	const [activeGenre, setActiveGenre] = useState('любой');
+	const [isActive, setIsActive] = useState(false);
 	const [filtered, setFiltered] = useState([]);
 	const [popular, setPopular] = useState([]);
+
+	const ref = useRef();
+
 	useEffect(() => {
 		fetchPopular();
 	}, []);
@@ -25,6 +28,18 @@ const Movies: NextPage = () => {
 		setPopular(movies);
 		setFiltered(movies);
 	};
+
+	useEffect(() => {
+		const closeDropdown = (e) => {
+			if (e.path[0] !== ref.current) {
+				setIsActive(false);
+			}
+		};
+
+		document.body.addEventListener('click', closeDropdown);
+
+		return () => document.body.removeEventListener('click', closeDropdown);
+	}, []);
 
 	//Год выпуска
 
@@ -115,13 +130,51 @@ const Movies: NextPage = () => {
 							setFiltered={setFiltered}
 							activeGenre={activeGenre}
 							setActiveGenre={setActiveGenre}
-							options={['любой', 'драма', 'фэнтези']}
+							options={[
+								'любой',
+								'драма',
+								'фэнтези',
+								'фантастика',
+								'триллер',
+								'история',
+								'криминал',
+								'мелодрама',
+								'боевик',
+								'вестерн',
+							]}
 						></Filter>
 					</div>
 					<div className={styles.search__submenu}>
 						<button>Сортировать</button>
-						<button onClick={() => setSort('по рейтингу')}>по рейтингу</button>
-						<button onClick={() => setSort('по новизне')}>по новизне</button>
+						<div className="dropdown">
+							<div
+								className={isActive ? 'dropdown__btn__active' : 'dropdown__btn'}
+								onClick={() => setIsActive(!isActive)}
+								ref={ref}
+							>
+								{sort}
+							</div>
+							{isActive && (
+								<div className="dropdown__content">
+									<div
+										className="dropdown__item"
+										onClick={() => {
+											setIsActive(false);
+										}}
+									>
+										<a onClick={() => setSort('по рейтингу')}>по рейтингу</a>
+									</div>
+									<div
+										className="dropdown__item"
+										onClick={() => {
+											setIsActive(false);
+										}}
+									>
+										<a onClick={() => setSort('по новизне')}>по новизне</a>
+									</div>
+								</div>
+							)}
+						</div>
 					</div>
 					<div className={styles.search__group}>
 						<span className={styles.search__title}>Год выпуска</span>
