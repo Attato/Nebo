@@ -67,6 +67,10 @@
 			.card {
 				width: 25%;
 				padding: 8px;
+				&:hover {
+					filter: brightness(0.8);
+					transition: all 0.15s;
+				}
 
 				&:nth-child(4n + 1) {
 					padding-left: 0;
@@ -85,18 +89,6 @@
 					background-position: 50%;
 					height: 100%;
 					cursor: pointer;
-				}
-
-				img {
-					border-radius: 6px;
-					user-select: none;
-					max-width: 100%;
-					height: auto;
-
-					&:hover {
-						filter: brightness(0.8);
-						transition: all 0.15s;
-					}
 				}
 
 				.card__score {
@@ -148,10 +140,6 @@
 				font-size: 14px;
 				padding: 0;
 			}
-
-			span {
-				font-size: 14px;
-			}
 		}
 
 		.search__group {
@@ -188,60 +176,69 @@
 
 				.item {
 					display: flex;
-					gap: 10px;
-					width: 100%;
-					max-width: 160px;
-					border-radius: 6px;
-					padding: 4px 10px 4px 10px;
-					cursor: pointer;
+					justify-content: space-between;
 
-					&:hover {
-						background-color: #161616;
-						padding: 4px 10px 4px 10px;
-					}
-
-					input[type='checkbox'] {
-						width: fit-content;
-						margin: 0;
-						appearance: none;
-						position: absolute;
-						border: 0;
-					}
-
-					.checkbox {
+					.item__content {
 						display: flex;
-						justify-content: center;
-						align-items: center;
+						gap: 10px;
 						width: 100%;
-						max-width: 17px;
-						height: 17px;
-						border: 1px solid #161616;
-						background-color: #fff;
-						border-radius: 4px;
-						margin-bottom: 1px;
-						position: relative;
+						max-width: 160px;
+						border-radius: 6px;
+						padding: 4px 10px 4px 10px;
+						cursor: pointer;
 
-						.check {
-							width: 11px;
-							height: 11px;
-							background: url(../public/svg/check.svg) no-repeat;
-							background-size: 11px 11px;
+						&:hover {
+							background-color: #161616;
+							padding: 4px 10px 4px 10px;
+						}
+
+						input[type='checkbox'] {
+							width: fit-content;
+							margin: 0;
+							appearance: none;
+							position: absolute;
+							border: 0;
+						}
+
+						.checkbox {
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							width: 100%;
+							max-width: 17px;
+							height: 17px;
+							border: 1px solid #161616;
+							background-color: #fff;
+							border-radius: 4px;
+							margin-bottom: 1px;
+							position: relative;
+
+							.check {
+								width: 11px;
+								height: 11px;
+								background: url(../public/svg/check.svg) no-repeat;
+								background-size: 11px 11px;
+							}
+						}
+
+						label {
+							width: 100%;
+							position: relative;
+							display: flex;
+							align-items: center;
+							font-size: 14px;
+							gap: 10px;
+							cursor: pointer;
+						}
+
+						input[type='checkbox']:checked + .checkbox {
+							background-color: #5b61eb;
 						}
 					}
+				}
 
-					label {
-						width: 100%;
-						position: relative;
-						display: flex;
-						align-items: center;
-						font-size: 14px;
-						gap: 10px;
-						cursor: pointer;
-					}
-
-					input[type='checkbox']:checked + .checkbox {
-						background-color: #5b61eb;
-					}
+				span {
+					color: #ccc;
 				}
 
 				.reset {
