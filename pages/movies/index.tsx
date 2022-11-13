@@ -67,10 +67,7 @@ const Movies: NextPage = () => {
 				<div className={styles.page__wrap}>
 					<div className={styles.search__header}>
 						<h1>Каталог</h1>
-					</div>
-					<div className={styles.mobile__search__header}>
-						<button>Сортировать</button>
-						<button>Фильтры</button>
+						<button>фильтры</button>
 					</div>
 					<input
 						type="text"
