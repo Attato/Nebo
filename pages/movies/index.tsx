@@ -156,22 +156,24 @@ const Movies: NextPage = () => {
 							</div>
 							{isActive && (
 								<div className="dropdown__content">
-									<div
+									<a
 										className="dropdown__item"
 										onClick={() => {
 											setIsActive(false);
+											setSort('по рейтингу');
 										}}
 									>
-										<a onClick={() => setSort('по рейтингу')}>по рейтингу</a>
-									</div>
-									<div
+										по рейтингу
+									</a>
+									<a
 										className="dropdown__item"
 										onClick={() => {
 											setIsActive(false);
+											setSort('по новизне');
 										}}
 									>
-										<a onClick={() => setSort('по новизне')}>по новизне</a>
-									</div>
+										по новизне
+									</a>
 								</div>
 							)}
 						</div>
@@ -293,7 +295,13 @@ const Movies: NextPage = () => {
 								</div>
 								<span>0</span>
 							</div>
-							<button className={styles.reset} onClick={() => {}}>
+							<button
+								className={styles.reset}
+								onClick={() => {
+									setActiveGenre('любой');
+									setSort('по рейтингу');
+								}}
+							>
 								Сбросить
 							</button>
 						</div>

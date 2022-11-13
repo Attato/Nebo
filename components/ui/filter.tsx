@@ -8,8 +8,9 @@ const Filter = ({
 	options,
 }) => {
 	const [isActive, setIsActive] = useState(false);
-	const [selected, setSelected] = useState(options[0]);
+	const [selected, setSelected] = useState(activeGenre);
 	const ref = useRef();
+
 	useEffect(() => {
 		const closeDropdown = (e) => {
 			if (e.path[0] !== ref.current) {
@@ -42,22 +43,23 @@ const Filter = ({
 				onClick={() => setIsActive(!isActive)}
 				ref={ref}
 			>
-				{selected}
+				{activeGenre}
 			</div>
 			{isActive && (
 				<div className="dropdown__content">
 					{options.map((option, id) => {
 						return (
-							<div
+							<a
 								className="dropdown__item"
 								key={id}
 								onClick={() => {
 									setSelected(option);
+									setActiveGenre(option);
 									setIsActive(false);
 								}}
 							>
-								<a onClick={() => setActiveGenre(option)}>{option}</a>
-							</div>
+								{option}
+							</a>
 						);
 					})}
 				</div>
