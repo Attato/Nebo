@@ -1,46 +1,42 @@
 import { useState, useEffect } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Image from 'next/image';
 import Link from 'next/link';
 import styles from 'styles/movies.module.scss';
 
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
-import Dropdown from 'components/dropdown/dropdown';
-
+import Filter from 'components/ui/filter';
 import movies from 'json/movies.json';
+
+import { motion } from 'framer-motion';
 
 const Movies: NextPage = () => {
 	const [search, setSearch] = useState('');
+	const [sort, setSort] = useState('по рейтингу');
+	const [activeGenre, setActiveGenre] = useState('любой');
+	const [filtered, setFiltered] = useState([]);
+	const [popular, setPopular] = useState([]);
+	useEffect(() => {
+		fetchPopular();
+	}, []);
+
+	const fetchPopular = async () => {
+		setPopular(movies);
+		setFiltered(movies);
+	};
 
 	//Год выпуска
 
-	const [sortLowDate, setSortLowDate] = useState('1895'); // От
+	const [sortLowDate, setSortLowDate] = useState('1895');
 	const [sortHighDate, setSortHighDate] = useState(
 		new Date().getFullYear().toString()
-	); // До
+	);
 
 	// Оценка
 
 	const [sortLowRating, setSortLowRating] = useState('');
 	const [sortHighRating, setSortHighRating] = useState('');
-
-	console.log(sortLowRating);
-
-	const filteredMovies = movies.filter((movie) => {
-		if (search) {
-			return movie.name.toLowerCase().includes(search.toLowerCase());
-		}
-
-		if (sortLowDate <= movie.release && sortHighDate >= movie.release) {
-			return movie.release.includes(search);
-		}
-
-		if (sortLowRating <= movie.score && sortHighRating >= movie.score) {
-			return movie.score.includes(search);
-		}
-	});
 
 	return (
 		<div className="container">
@@ -56,7 +52,6 @@ const Movies: NextPage = () => {
 				<div className={styles.page__wrap}>
 					<div className={styles.search__header}>
 						<h1>Каталог</h1>
-						<Dropdown options={['по рейтингу', 'по новизне']} />
 					</div>
 					<div className={styles.mobile__search__header}>
 						<button>Сортировать</button>
@@ -68,54 +63,65 @@ const Movies: NextPage = () => {
 						onChange={(e) => setSearch(e.target.value)}
 					/>
 					<div className={styles.cards__wrap}>
-						{filteredMovies.length === 0 ? (
+						{filtered.length === 0 ? (
 							<div className={styles.not__found}>Ничего не найдено.</div>
 						) : (
-							filteredMovies.map((movie, id) => {
-								return (
-									<div className={styles.card} key={id}>
-										<Link
-											href={`/movies/${movie.slug}`}
-											draggable="false"
-											style={{ backgroundImage: `url(${movie.image})` }}
+							[...filtered]
+								.filter((movie) => {
+									return movie.title
+										.toLowerCase()
+										.includes(search.toLowerCase());
+								})
+								.sort((a, b) => {
+									if (sort === 'по рейтингу') {
+										return a.vote_average > b.vote_average ? -1 : 1;
+									}
+									if (sort === 'по новизне') {
+										return a.release_date > b.release_date ? -1 : 1;
+									}
+								})
+								.map((movie) => {
+									return (
+										<motion.div
+											className={styles.card}
+											key={movie.id}
+											layout
+											animate={{ opacity: 1 }}
+											initial={{ opacity: 0 }}
+											exit={{ opacity: 0 }}
 										>
-											<div className={styles.card__score}>{movie.score}</div>
-										</Link>
-									</div>
-								);
-							})
+											<Link
+												href={`/movies/${movie.slug}`}
+												draggable="false"
+												style={{
+													backgroundImage: `url(${movie.backdrop_path})`,
+												}}
+											>
+												<div className={styles.card__score}>
+													{movie.vote_average.toFixed(1)}
+												</div>
+											</Link>
+										</motion.div>
+									);
+								})
 						)}
 					</div>
 				</div>
 				<div className={styles.search}>
 					<div className={styles.search__submenu}>
 						<button>Жанры</button>
-						<span>
-							<Dropdown
-								options={[
-									'комедия',
-									'хоррор',
-									'фантастика',
-									'триллер',
-									'боевик',
-									'мелодрама',
-									'детектив',
-									'приключение',
-									'фэнтези',
-									'документальный',
-									'драма',
-									'криминал',
-									'спорт',
-									'мюзикл',
-								]}
-							/>
-						</span>
+						<Filter
+							popular={popular}
+							setFiltered={setFiltered}
+							activeGenre={activeGenre}
+							setActiveGenre={setActiveGenre}
+							options={['любой', 'драма', 'фэнтези']}
+						></Filter>
 					</div>
 					<div className={styles.search__submenu}>
-						<button>Теги</button>
-						<span>
-							<Dropdown options={['по рейтингу', 'по новизне']} />
-						</span>
+						<button>Сортировать</button>
+						<button onClick={() => setSort('по рейтингу')}>по рейтингу</button>
+						<button onClick={() => setSort('по новизне')}>по новизне</button>
 					</div>
 					<div className={styles.search__group}>
 						<span className={styles.search__title}>Год выпуска</span>
@@ -153,25 +159,31 @@ const Movies: NextPage = () => {
 						<span className={styles.search__title}>Возрастной рейтинг</span>
 						<div className={styles.column__content}>
 							<div className={styles.item}>
-								<input type="checkbox" id="0+" />
-								<div className={styles.checkbox}>
-									<div className={styles.check} />
+								<div className={styles.item__content}>
+									<input type="checkbox" id="0+" />
+									<div className={styles.checkbox}>
+										<div className={styles.check} />
+									</div>
+									<label htmlFor="0+">Отсутствует</label>
 								</div>
-								<label htmlFor="0+">Отсутствует</label>
 							</div>
 							<div className={styles.item}>
-								<input type="checkbox" id="16+" />
-								<div className={styles.checkbox}>
-									<div className={styles.check} />
+								<div className={styles.item__content}>
+									<input type="checkbox" id="16+" />
+									<div className={styles.checkbox}>
+										<div className={styles.check} />
+									</div>
+									<label htmlFor="16+">16+</label>
 								</div>
-								<label htmlFor="16+">16+</label>
 							</div>
 							<div className={styles.item}>
-								<input type="checkbox" id="18+" />
-								<div className={styles.checkbox}>
-									<div className={styles.check} />
+								<div className={styles.item__content}>
+									<input type="checkbox" id="18+" />
+									<div className={styles.checkbox}>
+										<div className={styles.check} />
+									</div>
+									<label htmlFor="18+">18+</label>
 								</div>
-								<label htmlFor="18+">18+</label>
 							</div>
 						</div>
 					</div>
@@ -179,39 +191,54 @@ const Movies: NextPage = () => {
 						<span className={styles.search__title}>Мои списки</span>
 						<div className={styles.column__content}>
 							<div className={styles.item}>
-								<input type="checkbox" id="favorite" />
-								<div className={styles.checkbox}>
-									<div className={styles.check} />
+								<div className={styles.item__content}>
+									<input type="checkbox" id="favorite" />
+									<div className={styles.checkbox}>
+										<div className={styles.check} />
+									</div>
+									<label htmlFor="favorite">Любимые</label>
 								</div>
-								<label htmlFor="favorite">Любимые</label>
+								<span>0</span>
 							</div>
 							<div className={styles.item}>
-								<input type="checkbox" id="watching" />
-								<div className={styles.checkbox}>
-									<div className={styles.check} />
+								<div className={styles.item__content}>
+									<input type="checkbox" id="watching" />
+									<div className={styles.checkbox}>
+										<div className={styles.check} />
+									</div>
+									<label htmlFor="watching">Смотрю</label>
 								</div>
-								<label htmlFor="watching">Смотрю</label>
+								<span>0</span>
 							</div>
 							<div className={styles.item}>
-								<input type="checkbox" id="planned" />
-								<div className={styles.checkbox}>
-									<div className={styles.check} />
+								<div className={styles.item__content}>
+									<input type="checkbox" id="planned" />
+									<div className={styles.checkbox}>
+										<div className={styles.check} />
+									</div>
+									<label htmlFor="planned">В планах</label>
 								</div>
-								<label htmlFor="planned">В планах</label>
+								<span>0</span>
 							</div>
 							<div className={styles.item}>
-								<input type="checkbox" id="thrown" />
-								<div className={styles.checkbox}>
-									<div className={styles.check} />
+								<div className={styles.item__content}>
+									<input type="checkbox" id="thrown" />
+									<div className={styles.checkbox}>
+										<div className={styles.check} />
+									</div>
+									<label htmlFor="thrown">Брошено</label>
 								</div>
-								<label htmlFor="thrown">Брошено</label>
+								<span>0</span>
 							</div>
 							<div className={styles.item}>
-								<input type="checkbox" id="viewed" />
-								<div className={styles.checkbox}>
-									<div className={styles.check} />
+								<div className={styles.item__content}>
+									<input type="checkbox" id="viewed" />
+									<div className={styles.checkbox}>
+										<div className={styles.check} />
+									</div>
+									<label htmlFor="viewed">Просмотренно</label>
 								</div>
-								<label htmlFor="viewed">Просмотренно</label>
+								<span>0</span>
 							</div>
 							<button className={styles.reset} onClick={() => {}}>
 								Сбросить
