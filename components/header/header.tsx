@@ -10,8 +10,6 @@ const Header = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const pathname = useRouter().pathname;
 
-	console.log(pathname);
-
 	return (
 		<header className={styles.header}>
 			<div className={styles.header__content}>
