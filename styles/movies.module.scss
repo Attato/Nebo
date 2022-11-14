@@ -154,7 +154,7 @@
 					display: flex;
 					justify-content: space-between;
 
-					.item__content {
+					.item__content, .item__content__active {
 						display: flex;
 						gap: 10px;
 						width: 100%;
@@ -206,8 +206,10 @@
 							gap: 10px;
 							cursor: pointer;
 						}
+					}
 
-						input[type='checkbox']:checked + .checkbox {
+					.item__content__active {
+						.checkbox {
 							background-color: #5b61eb;
 						}
 					}
