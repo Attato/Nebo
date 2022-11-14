@@ -8,7 +8,6 @@ const Filter = ({
 	options,
 }) => {
 	const [isActive, setIsActive] = useState(false);
-	const [selected, setSelected] = useState(activeGenre);
 	const ref = useRef();
 
 	useEffect(() => {
@@ -34,6 +33,7 @@ const Filter = ({
 		});
 
 		setFiltered(filtered);
+		
 	}, [activeGenre]);
 
 	return (
@@ -53,7 +53,6 @@ const Filter = ({
 								className="dropdown__item"
 								key={id}
 								onClick={() => {
-									setSelected(option);
 									setActiveGenre(option);
 									setIsActive(false);
 								}}
