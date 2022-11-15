@@ -34,37 +34,77 @@ const Home: NextPage = () => {
 								<Link href="/ticket">Подписаться</Link>
 							</div>
 						</div>
-						<div className={styles.demonstration__block}>
-							<div className={styles.header}>
-								<div className={styles.window__traffic}>
-									<span className={styles.close}></span>
-									<span className={styles.minimize}></span>
-									<span className={styles.fullscreen}></span>
-								</div>
-								<div className={styles.browser__input}>
-									<p>cinema-attato.vercel.app/</p>
 
-									<Image
-										src="/svg/refresh.svg"
-										width={12}
-										height={12}
-										alt="svg"
-									></Image>
+						<div className={styles.demonstration__blocks}>
+							<div className={styles.demonstration__block}>
+								<div className={styles.header}>
+									<div className={styles.window__traffic}>
+										<span className={styles.close}></span>
+										<span className={styles.minimize}></span>
+										<span className={styles.fullscreen}></span>
+									</div>
+									<div className={styles.browser__input}>
+										<p>cinema-attato.vercel.app/</p>
+
+										<Image
+											src="/svg/refresh.svg"
+											width={12}
+											height={12}
+											alt="svg"
+										></Image>
+									</div>
+									<div className={styles.space}></div>
 								</div>
-								<div className={styles.space}></div>
+								<div className={styles.content}>
+									<div className={styles.main}>
+										<div className={styles.page__wrap}>
+											<div className={styles.input} />
+											<div className={styles.movie__wrap}>
+												<div className={styles.movie} />
+												<div className={styles.movie} />
+												<div className={styles.movie} />
+												<div className={styles.movie} />
+												<div className={styles.movie} />
+												<div className={styles.movie} />
+												<div className={styles.movie} />
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
-							<div className={styles.content}>
-								<div className={styles.main}>
-									<div className={styles.page__wrap}>
-										<div className={styles.input} />
-										<div className={styles.movie__wrap}>
-											<div className={styles.movie} />
-											<div className={styles.movie} />
-											<div className={styles.movie} />
-											<div className={styles.movie} />
-											<div className={styles.movie} />
-											<div className={styles.movie} />
-											<div className={styles.movie} />
+
+							<div className={styles.demonstration__block}>
+								<div className={styles.header}>
+									<div className={styles.window__traffic}>
+										<span className={styles.close}></span>
+										<span className={styles.minimize}></span>
+										<span className={styles.fullscreen}></span>
+									</div>
+									<div className={styles.browser__input}>
+										<p>cinema-attato.vercel.app/</p>
+
+										<Image
+											src="/svg/refresh.svg"
+											width={12}
+											height={12}
+											alt="svg"
+										></Image>
+									</div>
+									<div className={styles.space}></div>
+								</div>
+								<div className={styles.content}>
+									<div className={styles.main}>
+										<div className={styles.page__wrap}>
+											<div className={styles.input} />
+											<div className={styles.movie__wrap}>
+												<div className={styles.movie} />
+												<div className={styles.movie} />
+												<div className={styles.movie} />
+												<div className={styles.movie} />
+												<div className={styles.movie} />
+												<div className={styles.movie} />
+												<div className={styles.movie} />
+											</div>
 										</div>
 									</div>
 								</div>
