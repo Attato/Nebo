@@ -90,14 +90,16 @@ const Ticket: NextPage = () => {
 								Расширенный доступ для <br /> особых пользователей
 							</span>
 							<div className={styles.price__wrap}>
+								<div className={styles.old__price}>
+									<span>₽</span>
+									<h2>2999</h2>
+								</div>
 								<div className={styles.price}>
 									<span>₽</span>
 									<h2>2749</h2>
 								</div>
-								<p>
-									в год <br /> за первые 12 месяцев
-								</p>
 							</div>
+							<p>в год за первые 12 месяцев</p>
 							<Link href="/">Продолжить с подпиской</Link>
 						</div>
 						<div className={styles.privileges__list}>
@@ -108,34 +110,7 @@ const Ticket: NextPage = () => {
 									height={14}
 									alt="svg"
 								/>
-								<p>Доступны бесплатные фильмы</p>
-							</div>
-							<div className={styles.item}>
-								<Image
-									src="/svg/check/check.svg"
-									width={14}
-									height={14}
-									alt="svg"
-								/>
-								<p>Просмотр без рекламы</p>
-							</div>
-							<div className={styles.item}>
-								<Image
-									src="/svg/check/check.svg"
-									width={14}
-									height={14}
-									alt="svg"
-								/>
-								<p>Личные категории</p>
-							</div>
-							<div className={styles.item}>
-								<Image
-									src="/svg/check/check.svg"
-									width={14}
-									height={14}
-									alt="svg"
-								/>
-								<p>Настройка профиля</p>
+								<p>Все возможности стандартной подписки</p>
 							</div>
 
 							<div className={styles.item}>
@@ -155,6 +130,14 @@ const Ticket: NextPage = () => {
 									alt="svg"
 								/>
 								<p>Особое обозначение премиального профиля</p>
+							</div>
+
+							<div className={styles.item}>
+								<span>*</span>
+								<p>
+									Цена со скидкой предназначена для новых ежегодных клиентов,
+									после первого года цена может измениться.
+								</p>
 							</div>
 						</div>
 					</div>
