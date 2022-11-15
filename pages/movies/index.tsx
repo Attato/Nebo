@@ -14,14 +14,13 @@ const Movies: NextPage = () => {
 	const [search, setSearch] = useState('');
 	const [sort, setSort] = useState('по рейтингу');
 	const [activeGenre, setActiveGenre] = useState('любой');
-	const [activeAge, setActiveAge] = useState(0)
-	const ageOptions = [0, 16, 18]
+	const [activeAge, setActiveAge] = useState(0);
+	const ageOptions = [0, 16, 18];
 	const [isActive, setIsActive] = useState(false);
 
-	
 	const [filtered, setFiltered] = useState([]);
 	const [popular, setPopular] = useState([]);
-	
+
 	const ref = useRef();
 
 	useEffect(() => {
@@ -79,12 +78,12 @@ const Movies: NextPage = () => {
 						onChange={(e) => setSearch(e.target.value)}
 					/>
 					<div className={styles.cards__wrap}>
-						{ filtered.length === 0 ? (
+						{filtered.length === 0 ? (
 							<div className={styles.not__found}>Ничего не найдено.</div>
 						) : (
 							[...filtered]
-								.filter((movie) => {														
-								return movie.title
+								.filter((movie) => {
+									return movie.title
 										.toLowerCase()
 										.includes(search.toLowerCase());
 								})
@@ -214,21 +213,26 @@ const Movies: NextPage = () => {
 					<div className={styles.search__group}>
 						<span className={styles.search__title}>Возрастной рейтинг</span>
 						<div className={styles.column__content}>
-							{
-								ageOptions.map((option, id) => {
-									return(
-										<div className={styles.item} key={id}>
-											<div className={activeAge === option ? styles.item__content__active : styles.item__content} onClick={() => setActiveAge(option)}>
-												<input type="checkbox" id={option.toString()} />
-												<div className={styles.checkbox}>
-													<div className={styles.check} />
-												</div>
-												<label htmlFor={option.toString()}>{option}+</label>
+							{ageOptions.map((option, id) => {
+								return (
+									<div className={styles.item} key={id}>
+										<div
+											className={
+												activeAge === option
+													? styles.item__content__active
+													: styles.item__content
+											}
+											onClick={() => setActiveAge(option)}
+										>
+											<input type="checkbox" id={option.toString()} />
+											<div className={styles.checkbox}>
+												<div className={styles.check} />
 											</div>
+											<label htmlFor={option.toString()}>{option}+</label>
 										</div>
-									)
-								})
-							}
+									</div>
+								);
+							})}
 						</div>
 					</div>
 					<div className={styles.search__group}>
@@ -289,7 +293,7 @@ const Movies: NextPage = () => {
 								onClick={() => {
 									setActiveGenre('любой');
 									setSort('по рейтингу');
-									setActiveAge(0)
+									setActiveAge(0);
 								}}
 							>
 								Сбросить
