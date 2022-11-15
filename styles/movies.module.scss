@@ -154,7 +154,8 @@
 					display: flex;
 					justify-content: space-between;
 
-					.item__content, .item__content__active {
+					.item__content,
+					.item__content__active {
 						display: flex;
 						gap: 10px;
 						width: 100%;
@@ -192,7 +193,7 @@
 							.check {
 								width: 11px;
 								height: 11px;
-								background: url(../public/svg/check.svg) no-repeat;
+								background: url(../public/svg/check/check.svg) no-repeat;
 								background-size: 11px 11px;
 							}
 						}
