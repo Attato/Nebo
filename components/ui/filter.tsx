@@ -33,7 +33,6 @@ const Filter = ({
 		});
 
 		setFiltered(filtered);
-		
 	}, [activeGenre]);
 
 	return (
