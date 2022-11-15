@@ -2,106 +2,166 @@
 	display: flex;
 	flex-direction: column;
 	align-items: baseline;
-	gap: 48px;
 	max-height: 1080px;
 	height: calc(100vh - 60px);
 
 	.row__wrap {
 		display: flex;
-		gap: 48px;
-		margin: auto;
-		max-width: 900px;
+		justify-content: space-between;
+		margin: 80px 0;
+		width: 100%;
 
 		.masthead__content {
 			display: flex;
 			flex-direction: column;
-			align-items: center;
-			gap: 10px;
+			gap: 15px;
 
 			h1 {
-				max-width: 680px;
 				font-weight: 500;
-				font-size: 72px;
+				font-size: 60px;
 				line-height: 80px;
-				color: #5b61eb;
-			}
-
-			.column__content {
-				display: flex;
-				flex-direction: column;
-				font-size: 32px;
-				font-weight: 500;
-				align-items: center;
-
-				.words {
-					overflow: hidden;
-					height: 66px;
-
-					p {
-						height: 100%;
-						color: #5b61eb;
-						animation: spin-words 10s ease infinite;
-						position: relative;
-						display: flex;
-						align-items: center;
-						justify-content: center;
-					}
-				}
-
-				@keyframes spin-words {
-					0%,
-					100% {
-						top: 0;
-					}
-
-					20% {
-						top: 0;
-					}
-
-					25% {
-						top: -66px;
-					}
-
-					45% {
-						top: -66px;
-					}
-
-					50% {
-						top: -132px;
-					}
-
-					70% {
-						top: -132px;
-					}
-
-					75% {
-						top: -198px;
-					}
-
-					95% {
-						top: -198px;
-					}
-				}
+				width: 100%;
 			}
 
 			p {
-				font-weight: 500;
+				font-weight: 400;
+				max-width: 475px;
+				font-size: 18px;
+				margin-bottom: 12px;
+				color: #ebebeb;
 			}
 
-			a {
+			.masthead__button__wrap {
 				display: flex;
 				align-items: center;
-				justify-content: center;
-				gap: 5px;
-				padding: 5px 20px;
-				border-radius: 6px;
-				font-size: 16px;
-				border: 2px solid #5b61eb;
-				cursor: pointer;
+				gap: 15px;
 
-				&:hover {
-					transition: all 0.2s;
+				a {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					padding: 8px 14px;
+					border-radius: 6px;
+					font-size: 14px;
 					background-color: #5b61eb;
+					width: fit-content;
+					cursor: pointer;
+
+					&:last-child {
+						background-color: transparent;
+						border: 1px solid #161616;
+
+						&:hover {
+							transition: all 0.2s;
+							border-color: #202020;
+						}
+					}
+
+					&:hover {
+						transition: all 0.2s;
+						filter: brightness(1.1);
+					}
+				}
+			}
+		}
+		.demonstration__block {
+			background-color: #0a0a0a;
+			width: 100%;
+			max-width: 518px;
+			height: 100%;
+			border: 1px solid #161616;
+			border-radius: 6px;
+
+			.header {
+				height: 40px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				justify-content: space-between;
+				border-bottom: 1px solid #161616;
+
+				.window__traffic {
+					display: flex;
+					gap: 8px;
+					margin-left: 12px;
+					width: calc(100% / 3);
+
+					.close {
+						background-color: #ff5f56;
+						width: 12px;
+						height: 12px;
+						border-radius: 50%;
+					}
+
+					.minimize {
+						background-color: #ffbd2e;
+						width: 12px;
+						height: 12px;
+						border-radius: 50%;
+					}
+
+					.fullscreen {
+						background-color: #27c93f;
+						width: 12px;
+						height: 12px;
+						border-radius: 50%;
+					}
+				}
+
+				.browser__input {
+					width: 100%;
+					background-color: #161616;
+					border-radius: 3px;
+					font-size: 12px;
+					display: flex;
+					max-width: 220px;
+					padding: 0 12px;
+					height: 70%;
+					align-items: center;
+					justify-content: space-between;
+				}
+
+				.space {
+					width: calc(100% / 3);
+				}
+			}
+
+			.content {
+				padding: 24px;
+				height: 100%;
+
+				.main {
+					display: flex;
+					gap: 20px;
+
+					.page__wrap {
+						display: flex;
+						flex-direction: column;
+						max-width: 64%;
+						width: 100%;
+
+						.input {
+							width: 100%;
+							border: 1px solid #161616;
+							border-radius: 3px;
+							height: 15px;
+
+							margin-bottom: 10px;
+						}
+
+						.movie__wrap {
+							display: flex;
+							flex-wrap: wrap;
+							gap: 4px;
+
+							.movie {
+								width: 18.93%;
+								height: 70px;
+								border-radius: 3px;
+								background-color: #161616;
+							}
+						}
+					}
 				}
 			}
 		}

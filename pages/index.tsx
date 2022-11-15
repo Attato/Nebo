@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
-
+import Image from 'next/image';
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
 
@@ -21,25 +21,70 @@ const Home: NextPage = () => {
 				<div className={styles.masthead}>
 					<div className={styles.row__wrap}>
 						<div className={styles.masthead__content}>
-							<h1>View</h1>
-							<div className={styles.column__content}>
-								это любимые фильмы &nbsp;
-								<div className={styles.words}>
-									<p>в свободное время</p>
-									<p>в семейном кругу</p>
-									<p>дома у бабушки</p>
-									<p>в уютной кровати</p>
+							<h1>
+								Один сервис. <br />
+								Море фильмов.
+							</h1>
+							<p>
+								View - это все, что вам нужно, чтобы провести свой день именно
+								так, как вы себе представляете.
+							</p>
+							<div className={styles.masthead__button__wrap}>
+								<Link href="/movies">Смотреть бесплатно</Link>
+								<Link href="/ticket">Подписаться</Link>
+							</div>
+						</div>
+						<div className={styles.demonstration__block}>
+							<div className={styles.header}>
+								<div className={styles.window__traffic}>
+									<span className={styles.close}></span>
+									<span className={styles.minimize}></span>
+									<span className={styles.fullscreen}></span>
+								</div>
+								<div className={styles.browser__input}>
+									<p>cinema-attato.vercel.app/</p>
+
+									<Image
+										src="/svg/refresh.svg"
+										width={12}
+										height={12}
+										alt="svg"
+									></Image>
+								</div>
+								<div className={styles.space}></div>
+							</div>
+							<div className={styles.content}>
+								<div className={styles.main}>
+									<div className={styles.page__wrap}>
+										<div className={styles.input} />
+										<div className={styles.movie__wrap}>
+											<div className={styles.movie} />
+											<div className={styles.movie} />
+											<div className={styles.movie} />
+											<div className={styles.movie} />
+											<div className={styles.movie} />
+											<div className={styles.movie} />
+											<div className={styles.movie} />
+										</div>
+									</div>
 								</div>
 							</div>
-
-							<Link href="/movies">Начать</Link>
 						</div>
 					</div>
 				</div>
 			</main>
 
 			<section className={styles.white__section}>
-				<div className={styles.content}></div>
+				<div className={styles.content}>
+					<Image
+						src="/images/ecosystem.png"
+						width={800}
+						height={500}
+						className={styles.image}
+						draggable="false"
+						alt="image"
+					/>
+				</div>
 			</section>
 			<Footer />
 		</div>
