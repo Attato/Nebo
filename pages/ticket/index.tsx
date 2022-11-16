@@ -151,6 +151,16 @@ const Ticket: NextPage = () => {
 						</div>
 					</div>
 				</div>
+
+				<div className={styles.faq}>
+					<h1>Часто задаваемые вопросы</h1>
+					<div className={styles.items}>
+						<div className={styles.item}>Какой план мне подходит?</div>
+						<div className={styles.item}>Каковы ограничения для каждого плана?</div>
+						<div className={styles.item}>Как Vercel рассчитывает использование?</div>
+					</div>
+				</div>
+
 			</main>
 		</div>
 	);

@@ -165,3 +165,45 @@
 		}
 	}
 }
+
+.faq {
+	display: flex;
+	flex-direction: column;
+	max-width: 1060px;
+	margin: auto;
+
+	h1 {
+		font-weight: 500;
+		text-align: center;
+		margin-bottom: 30px;
+	}
+
+	.items {
+		border-radius: 6px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 30px;
+
+		.item {
+			padding: 10px 16px 10px;
+			width: 100%;
+			
+			&:first-child {
+				border-radius: 6px 6px 0 0;
+			}
+
+			&:last-child {
+				border-radius: 0 0 6px 6px;
+			}
+
+			&:nth-child(1n) {
+				background-color: #161616;
+			}
+	
+			&:nth-child(2n) {
+				background-color: #202020;
+			}
+		}
+	}
+}
