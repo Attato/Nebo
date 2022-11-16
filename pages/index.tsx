@@ -94,16 +94,12 @@ const Home: NextPage = () => {
 								</div>
 								<div className={styles.content}>
 									<div className={styles.main}>
-										<div className={styles.page__wrap}>
-											<div className={styles.input} />
-											<div className={styles.movie__wrap}>
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-												<div className={styles.movie} />
+										<div className={styles.page__wrapper}>
+											<div className={styles.text} />
+											<div className={styles.text} />
+											<div className={styles.subscriptions}>
+												<div className={styles.subscription} />
+												<div className={styles.subscription} />
 											</div>
 										</div>
 									</div>
