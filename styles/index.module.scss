@@ -140,7 +140,6 @@
 
 				.content {
 					padding: 24px;
-					height: 100%;
 
 					.main {
 						display: flex;
@@ -178,6 +177,7 @@
 						
 						.page__wrapper {
 							width: 100%;
+							margin-top: 20px;
 							display: flex;
 							flex-direction: column;
 							justify-content: center;
