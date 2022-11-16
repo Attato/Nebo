@@ -80,6 +80,15 @@ const Ticket: NextPage = () => {
 								/>
 								<p>Настройка профиля</p>
 							</div>
+							<div className={styles.item}>
+								<Image
+									src="/svg/check/check.svg"
+									width={14}
+									height={14}
+									alt="svg"
+								/>
+								<p>Мессенджер</p>
+							</div>
 						</div>
 					</div>
 
