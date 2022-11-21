@@ -18,149 +18,106 @@ const Ticket: NextPage = () => {
 			<main className="main">
 				<div className={styles.masthead}>
 					<h1>Получите полный доступ ко всем нашм фильмам.</h1>
-					<h2>как часто вы хотите платить?</h2>
-					<div className={styles.payment__frequency}>
-						<button>Ежемесячно</button>
-						<button>Ежегодно ! получите 1 месяц бесплатно </button>
-					</div>
 				</div>
 
-				<div className={styles.subscription__type}>
+				<div className={styles.widget}>
 					<div className={styles.subscription}>
 						<div className={styles.subscription__title}>
-							<h1>Стандартная</h1>
-							<span>
-								Основная подписка для <br /> всех пользователей
-							</span>
+							<h1>View +</h1>
+							<span>Премиальная подписка на наш сервис</span>
+							<div className={styles.product__option}>
+								Подписка на 12 месяцев
+								<div className={styles.price}>
+									<span>₽</span>
+									<h2>199 / мес.</h2>
+								</div>
+								Экономия 600 ₽ / г.
+							</div>
+							<div className={styles.product__option}>
+								<p>Подписка на 6 месяцев</p>
+								<div className={styles.price}>
+									<span>₽</span>
+									<h2>199 / мес.</h2>
+								</div>
+								<p>Экономия 600 ₽ / г.</p>
+							</div>
+							<div className={styles.product__option}>
+								Подписка на 3 месяца
+								<div className={styles.price}>
+									<span>₽</span>
+									<h2>229 / мес.</h2>
+								</div>
+								Экономия 240 ₽ / г.
+							</div>
+							<div className={styles.product__option}>
+								Подписка на 1 месяц
+								<div className={styles.price}>
+									<span>₽</span>
+									<h2>249 / мес.</h2>
+								</div>
+							</div>
 							<div className={styles.price__wrap}>
 								<div className={styles.price}>
 									<span>₽</span>
-									<h2>0</h2>
+									<h2>249 / мес.</h2>
 								</div>
-								<p>
-									в год <br /> навсегда
-								</p>
+								<p>Подписка на 1 месяц</p>
 							</div>
-							<Link href="/">Присоединитесь бесплатно</Link>
-						</div>
-						<div className={styles.privileges__list}>
-							<div className={styles.item}>
-								<Image
-									src="/svg/check/check.svg"
-									width={14}
-									height={14}
-									alt="svg"
-								/>
-								<p>Доступны бесплатные фильмы</p>
-							</div>
-							<div className={styles.item}>
-								<Image
-									src="/svg/check/check.svg"
-									width={14}
-									height={14}
-									alt="svg"
-								/>
-								<p>Просмотр без рекламы</p>
-							</div>
-							<div className={styles.item}>
-								<Image
-									src="/svg/check/check.svg"
-									width={14}
-									height={14}
-									alt="svg"
-								/>
-								<p>Личные категории</p>
-							</div>
-							<div className={styles.item}>
-								<Image
-									src="/svg/check/check.svg"
-									width={14}
-									height={14}
-									alt="svg"
-								/>
-								<p>Настройка профиля</p>
-							</div>
-							<div className={styles.item}>
-								<Image
-									src="/svg/check/check.svg"
-									width={14}
-									height={14}
-									alt="svg"
-								/>
-								<p>Мессенджер</p>
-							</div>
-						</div>
-					</div>
-
-					<div className={styles.subscription}>
-						<div className={styles.subscription__title}>
-							<h1>Премиальная</h1>
-							<span>
-								Расширенный доступ для <br /> особых пользователей
-							</span>
-							<div className={styles.price__wrap}>
-								<div className={styles.old__price}>
-									<span>₽</span>
-									<h2>2999</h2>
-								</div>
-								<div className={styles.price}>
-									<span>₽</span>
-									<h2>2749</h2>
-								</div>
-							</div>
-							<p>в год за первые 12 месяцев</p>
-							<Link href="/">Продолжить с подпиской</Link>
-						</div>
-						<div className={styles.privileges__list}>
-							<div className={styles.item}>
-								<Image
-									src="/svg/check/check.svg"
-									width={14}
-									height={14}
-									alt="svg"
-								/>
-								<p>Все возможности стандартной подписки</p>
-							</div>
-
-							<div className={styles.item}>
-								<Image
-									src="/svg/check/active_check.svg"
-									width={14}
-									height={14}
-									alt="svg"
-								/>
-								<p>Доступны все фильмы сервиса</p>
-							</div>
-							<div className={styles.item}>
-								<Image
-									src="/svg/check/active_check.svg"
-									width={14}
-									height={14}
-									alt="svg"
-								/>
-								<p>Особое обозначение премиального профиля</p>
-							</div>
-
-							<div className={styles.item}>
-								<span>*</span>
-								<p>
-									Цена со скидкой предназначена для новых ежегодных клиентов,
-									после первого года цена может измениться.
-								</p>
-							</div>
+							<Link href="/">Оформить подписку</Link>
 						</div>
 					</div>
 				</div>
 
+				<div className={styles.privileges__list}>
+					<div className={styles.item}>
+						<Image
+							src="/svg/check/check.svg"
+							width={14}
+							height={14}
+							alt="svg"
+						/>
+						<p>Все возможности стандартной подписки</p>
+					</div>
+
+					<div className={styles.item}>
+						<Image
+							src="/svg/check/active_check.svg"
+							width={14}
+							height={14}
+							alt="svg"
+						/>
+						<p>Полный доступ ко всем фильмам сервиса</p>
+					</div>
+					<div className={styles.item}>
+						<Image
+							src="/svg/check/active_check.svg"
+							width={14}
+							height={14}
+							alt="svg"
+						/>
+						<p>Особая галочка для вашего профиля</p>
+					</div>
+
+					<div className={styles.item}>
+						<span>*</span>
+						<p>
+							Автоматическое списание средств. <br />
+							Вы можете в любой момент отменить подписку на сайте.
+						</p>
+					</div>
+				</div>
 				<div className={styles.faq}>
 					<h1>Часто задаваемые вопросы</h1>
 					<div className={styles.items}>
 						<div className={styles.item}>Какой план мне подходит?</div>
-						<div className={styles.item}>Каковы ограничения для каждого плана?</div>
-						<div className={styles.item}>Как Vercel рассчитывает использование?</div>
+						<div className={styles.item}>
+							Каковы ограничения для каждого плана?
+						</div>
+						<div className={styles.item}>
+							Как Vercel рассчитывает использование?
+						</div>
 					</div>
 				</div>
-
 			</main>
 		</div>
 	);
