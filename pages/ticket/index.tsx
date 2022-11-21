@@ -1,11 +1,18 @@
+import { useState } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import Header from 'components/header/header';
 import styles from 'styles/ticket.module.scss';
+import subscribe from 'json/subscribe.json'
 
 const Ticket: NextPage = () => {
+	const [duration, setDuration] = useState('1 месяц');
+	const [price, setPrice] = useState(249);
+	const [fullPrice, setFullPrice] = useState(249);
+	const [percent, setPercent] = useState("0%");
+
 	return (
 		<div className="container">
 			<Head>
@@ -17,7 +24,7 @@ const Ticket: NextPage = () => {
 			<Header />
 			<main className="main">
 				<div className={styles.masthead}>
-					<h1>Получите полный доступ ко всем нашм фильмам.</h1>
+					<h1>Получите полный доступ ко всем нашим фильмам.</h1>
 				</div>
 
 				<div className={styles.widget}>
@@ -25,43 +32,37 @@ const Ticket: NextPage = () => {
 						<div className={styles.subscription__title}>
 							<h1>View +</h1>
 							<span>Премиальная подписка на наш сервис</span>
-							<div className={styles.product__option}>
-								Подписка на 12 месяцев
-								<div className={styles.price}>
-									<span>₽</span>
-									<h2>199 / мес.</h2>
-								</div>
-								Экономия 600 ₽ / г.
-							</div>
-							<div className={styles.product__option}>
-								<p>Подписка на 6 месяцев</p>
-								<div className={styles.price}>
-									<span>₽</span>
-									<h2>199 / мес.</h2>
-								</div>
-								<p>Экономия 600 ₽ / г.</p>
-							</div>
-							<div className={styles.product__option}>
-								Подписка на 3 месяца
-								<div className={styles.price}>
-									<span>₽</span>
-									<h2>229 / мес.</h2>
-								</div>
-								Экономия 240 ₽ / г.
-							</div>
-							<div className={styles.product__option}>
-								Подписка на 1 месяц
-								<div className={styles.price}>
-									<span>₽</span>
-									<h2>249 / мес.</h2>
-								</div>
-							</div>
+							{
+								subscribe.map((subscribe, id) => {
+									return (
+										<div key={id} className={styles.product__option} onClick={() => {setDuration(subscribe.duration); setPrice(subscribe.price); setFullPrice(subscribe.full_price); setPercent(subscribe.percent)}}>
+											<p>Подписка на {subscribe.duration}</p>
+											<div className={styles.price}>
+												<span>₽</span>
+												<h2>{subscribe.monthly} / мес.</h2>
+											</div>
+											<p>Экономия {subscribe.economy} ₽ / г.</p>
+										</div>
+									)
+								})
+							}
 							<div className={styles.price__wrap}>
 								<div className={styles.price}>
-									<span>₽</span>
-									<h2>249 / мес.</h2>
+									<div className={styles.price}>
+										<h2>{price} RUB</h2>
+										{fullPrice != 249 ? <p>{fullPrice} RUB</p> : null}
+									</div>
+									{percent != "0%" 
+									? 
+										<div className={styles.percent}>
+											<p>{percent}</p>
+										</div> 
+									
+									: null
+									}
+									
 								</div>
-								<p>Подписка на 1 месяц</p>
+								<p>Cписание средств раз в {duration}. Вы можете в любой момент отменить подписку на сайте.</p>
 							</div>
 							<Link href="/">Оформить подписку</Link>
 						</div>

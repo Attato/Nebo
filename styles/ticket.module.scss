@@ -23,8 +23,8 @@
 		max-width: 520px;
 		z-index: 2;
 
-		.subscription__title {
-			padding: 24px 20px 30px;
+		.subscription__title {		
+			padding: 0 20px 30px 20px;
 			display: flex;
 			flex-direction: column;
 			gap: 8px;
@@ -47,17 +47,21 @@
 
 			.price__wrap {
 				display: flex;
-				align-items: center;
-				justify-content: center;
 				flex-direction: column;
+				align-items: flex-start;
+				padding: 10px 20px;
 
 				p {
-					font-weight: 500;
-					font-size: 16px;
+					font-weight: 400;
+					font-size: 14px;
+					text-align: left;
 				}
 
 				.price {
 					display: flex;
+					align-items: center;
+					gap: 10px;
+					width: 100%;
 
 					span {
 						font-size: 20px;
@@ -67,6 +71,19 @@
 						font-weight: 500;
 						font-size: 48px;
 					}
+
+					p {
+						text-decoration: line-through;
+						font-size: 16px;
+						color: #acacac;
+					}
+
+					.percent {
+						background-color: #fff;
+						color: #0a0a0a;
+						padding: 2px 10px;
+						border-radius: 6px;
+					}
 				}
 			}
 
@@ -74,12 +91,13 @@
 				font-size: 14px;
 			}
 
-			.product__option {
+			.product__option, .product__option__active {
 				display: flex;
 				flex-direction: column;
 				width: 100%;
 				padding: 10px 20px;
 				border-radius: 6px;
+				user-select: none;
 				cursor: pointer;
 
 				&:hover {
@@ -92,7 +110,7 @@
 					margin-bottom: 5px;
 
 					&:last-child {
-						color: #cdcdcd;
+						color: #acacac;
 					}
 				}
 
@@ -114,9 +132,8 @@
 				justify-content: center;
 				padding: 7px 20px;
 				border: 1px solid #333;
-				width: fit-content;
 				border-radius: 6px;
-				margin: auto;
+				margin: 10px 20px;
 
 				&:hover {
 					border-color: #444;
