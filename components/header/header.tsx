@@ -42,21 +42,39 @@ const Header = () => {
 								<p>Главная</p>
 							</Link>
 							<Link href="/movies" onClick={() => setIsOpen(!isOpen)}>
-								<Image
-									src="/svg/movies/movies.svg"
-									width={24}
-									height={24}
-									alt="svg"
-								/>
+								{pathname === '/movies' ? (
+									<Image
+										src="/svg/movies/movies_active.svg"
+										width={24}
+										height={24}
+										alt="svg"
+									/>
+								) : (	
+									<Image
+										src="/svg/movies/movies.svg"
+										width={24}
+										height={24}
+										alt="svg"
+									/>
+								)}
 								<p>Фильмы</p>
 							</Link>
 							<Link href="/subscription" onClick={() => setIsOpen(!isOpen)}>
-								<Image
-									src="/svg/subscription/subscription.svg"
-									width={24}
-									height={24}
-									alt="svg"
-								/>
+								{pathname === '/subscription' ? (
+									<Image
+										src="/svg/subscription/subscription_active.svg"
+										width={24}
+										height={24}
+										alt="svg"
+									/>
+								) : (	
+									<Image
+										src="/svg/subscription/subscription.svg"
+										width={24}
+										height={24}
+										alt="svg"
+									/>
+								)}
 								<p>Подписка</p>
 							</Link>
 						</div>
