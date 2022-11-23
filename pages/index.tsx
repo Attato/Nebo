@@ -44,7 +44,7 @@ const Home: NextPage = () => {
 										<span className={styles.fullscreen}></span>
 									</div>
 									<div className={styles.browser__input}>
-										<p>cinema-attato.vercel.app/</p>
+										<p>view</p>
 
 										<Image
 											src="/svg/refresh.svg"
@@ -81,7 +81,7 @@ const Home: NextPage = () => {
 										<span className={styles.fullscreen}></span>
 									</div>
 									<div className={styles.browser__input}>
-										<p>cinema-attato.vercel.app/</p>
+										<p>view/movies</p>
 
 										<Image
 											src="/svg/refresh.svg"

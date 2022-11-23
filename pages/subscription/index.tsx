@@ -93,7 +93,7 @@ const Ticket: NextPage = () => {
 										<span className={styles.fullscreen}></span>
 									</div>
 									<div className={styles.browser__input}>
-										<p>cinema-attato.vercel.app/</p>
+										<p>view/movies</p>
 
 										<Image
 											src="/svg/refresh.svg"
@@ -130,7 +130,7 @@ const Ticket: NextPage = () => {
 										<span className={styles.fullscreen}></span>
 									</div>
 									<div className={styles.browser__input}>
-										<p>cinema-attato.vercel.app/</p>
+										<p>view/user</p>
 
 										<Image
 											src="/svg/refresh.svg"
@@ -167,7 +167,7 @@ const Ticket: NextPage = () => {
 										<span className={styles.fullscreen}></span>
 									</div>
 									<div className={styles.browser__input}>
-										<p>cinema-attato.vercel.app/</p>
+										<p>view</p>
 
 										<Image
 											src="/svg/refresh.svg"
@@ -254,11 +254,6 @@ const Ticket: NextPage = () => {
 						</div>
 					</div>
 				</div>
-
-				<Link href="/subscription" className={styles.go__up}>
-					Наверх
-				</Link>
-
 				<Footer />
 			</main>
 		</div>
