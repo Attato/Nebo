@@ -14,6 +14,8 @@
 	align-items: center;
 	justify-content: center;
 	position: relative;
+	max-width: 1060px;
+	margin: auto;
 
 	.subscription {
 		display: flex;
@@ -162,7 +164,7 @@
 		width: 100%;
 		display: flex;
 		flex-direction: column;
-		padding: 86px 48px 180px 60px;
+		padding: 86px 48px;
 	}
 
 	.left__side {
@@ -171,7 +173,6 @@
 			width: 100%;
 			max-width: 518px;
 			flex-direction: column;
-			gap: 160px;
 
 			.demonstration__block {
 				background-color: #0a0a0a;
@@ -179,6 +180,10 @@
 				height: 100%;
 				border: 1px solid #333;
 				border-radius: 6px;
+				display: flex;
+				flex-direction: column;
+				height: 260px;
+				margin-bottom: 160px;
 
 				.header {
 					height: 40px;
@@ -217,16 +222,17 @@
 					}
 
 					.browser__input {
+						max-width: 220px;
 						width: 100%;
+						height: 70%;
 						background-color: #161616;
 						border-radius: 3px;
 						font-size: 12px;
-						display: flex;
-						max-width: 220px;
 						padding: 0 12px;
-						height: 70%;
+						display: flex;
 						align-items: center;
-						justify-content: space-between;
+						justify-content: center;
+						gap: 10px;
 					}
 
 					.space {
@@ -325,7 +331,7 @@
 		.gradient__line__last {
 			width: 1px;
 			background: linear-gradient(#444, #5b61eb);
-			height: 365px;
+			height: 265px;
 		}
 
 		.circle {
@@ -359,12 +365,13 @@
 	.right__side {
 		display: flex;
 		flex-direction: column;
-		gap: 311px;
 
 		.right__side__item {
 			display: flex;
 			flex-direction: column;
 			gap: 10px;
+			height: 260px;
+			margin-bottom: 160px;
 
 			.icon {
 				width: 40px;
