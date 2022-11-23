@@ -109,7 +109,7 @@
 			.menu,
 			.menu__active {
 				position: fixed;
-				width: 50vw;
+				width: 35vw;
 				height: 100vh;
 				top: 60px;
 				left: 0;
@@ -120,7 +120,7 @@
 					backdrop-filter: brightness(0.5);
 					position: absolute;
 					top: 0;
-					left: 50vw;
+					left: 35vw;
 					cursor: pointer;
 				}
 

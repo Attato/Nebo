@@ -52,7 +52,7 @@ const Header = () => {
 							</Link>
 							<Link href="/subscription" onClick={() => setIsOpen(!isOpen)}>
 								<Image
-									src="/svg/ticket/ticket.svg"
+									src="/svg/subscription/subscription.svg"
 									width={24}
 									height={24}
 									alt="svg"
@@ -100,17 +100,17 @@ const Header = () => {
 							)}
 							<p>Фильмы</p>
 						</Link>
-						<Link href="/ticket">
-							{pathname === '/ticket' ? (
+						<Link href="/subscription">
+							{pathname === '/subscription' ? (
 								<Image
-									src="/svg/ticket/ticket_active.svg"
+									src="/svg/subscription/subscription_active.svg"
 									width={24}
 									height={24}
 									alt="svg"
 								/>
 							) : (
 								<Image
-									src="/svg/ticket/ticket.svg"
+									src="/svg/subscription/subscription.svg"
 									width={24}
 									height={24}
 									alt="svg"
