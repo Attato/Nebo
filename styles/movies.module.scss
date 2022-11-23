@@ -11,28 +11,11 @@
 		width: 100%;
 		min-height: calc(100vh - 80px);
 
-		.search__header {
-			display: flex;
-			margin-bottom: 12px;
-			justify-content: space-between;
-
-			h1 {
-				font-weight: 500;
-				font-size: 21px;
-			}
-
-			button {
-				font-size: 14px;
-				background-color: transparent;
-				border: 0;
-				padding: 0;
-				display: none;
-				align-items: center;
-			}
-		}
-
 		input {
 			margin-bottom: 20px;
+			padding-left: 15px;
+			font-size: 14px;
+			border-radius: 6px;
 		}
 
 		.cards__wrap {

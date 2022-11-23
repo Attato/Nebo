@@ -68,13 +68,9 @@ const Movies: NextPage = () => {
 
 			<main className={styles.main}>
 				<div className={styles.page__wrap}>
-					<div className={styles.search__header}>
-						<h1>Каталог</h1>
-						<button>фильтры</button>
-					</div>
 					<input
 						type="text"
-						placeholder="Поиск по названию..."
+						placeholder="Введите запрос"
 						onChange={(e) => setSearch(e.target.value)}
 					/>
 					<div className={styles.cards__wrap}>
