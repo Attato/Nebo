@@ -31,7 +31,7 @@ const Home: NextPage = () => {
 							</p>
 							<div className={styles.masthead__button__wrap}>
 								<Link href="/movies">Смотреть бесплатно</Link>
-								<Link href="/ticket">Подписаться</Link>
+								<Link href="/subscription">Подписаться</Link>
 							</div>
 						</div>
 
@@ -109,19 +109,6 @@ const Home: NextPage = () => {
 					</div>
 				</div>
 			</main>
-
-			<section className={styles.white__section}>
-				<div className={styles.content}>
-					<Image
-						src="/images/ecosystem.png"
-						width={800}
-						height={500}
-						className={styles.image}
-						draggable="false"
-						alt="image"
-					/>
-				</div>
-			</section>
 			<Footer />
 		</div>
 	);
