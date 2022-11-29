@@ -1,27 +1,39 @@
 .main {
-	display: flex;
 	max-width: 1330px;
 	margin: 20px auto auto;
 	padding: 0 20px;
 	border-radius: 6px;
-	gap: 20px;
 
 	.page__wrap {
 		display: flex;
+		justify-content: space-between;
 
 		.search {
 			display: flex;
 			flex-direction: column;
 			gap: 24px;
-			width: 222px;
+			min-width: 222px;
 			margin-right: 52px;
 			height: fit-content;
 
-			input {
-				height: 40px;
+			.input {
+				display: flex;
+				align-items: center;
+				border: 1px solid #2e2e2f;
+				border-radius: 6px;
 
-				&::placeholder {
-					font-size: 14px;
+				img {
+					margin: 0 0 0 12px;
+				}
+
+				input {
+					height: 40px;
+					border: 0;
+					border-radius: 0;
+
+					&::placeholder {
+						font-size: 14px;
+					}
 				}
 			}
 
@@ -30,6 +42,9 @@
 				flex-direction: column;
 
 				button {
+					display: flex;
+					align-items: center;
+					gap: 10px;
 					background-color: transparent;
 					border: 0;
 					border-top: 1px solid #2e2e2f;
@@ -45,15 +60,37 @@
 		.cards__wrap {
 			display: flex;
 			flex-wrap: wrap;
-			gap: 24px;
-			max-width: 990px;
+			gap: 28px;
+			max-width: 1016px;
 
-			a {
-				height: 100%;
-				img {
-					height: 100%;
-					background-repeat: no-repeat;
-					border-radius: 6px;
+			.card {
+				max-width: 320px;
+				a {
+					display: block;
+
+					img {
+						width: 100%;
+						background-repeat: no-repeat;
+						object-fit: cover;
+						border-radius: 6px;
+					}
+
+					p,
+					h3 {
+						width: 320px;
+						white-space: nowrap;
+						overflow: hidden;
+						text-overflow: ellipsis;
+					}
+
+					h3 {
+						margin: 10px 0;
+						font-size: 16px;
+					}
+
+					p {
+						font-size: 14px;
+					}
 				}
 			}
 		}

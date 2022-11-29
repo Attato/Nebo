@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import type { NextPage } from 'next';
 import Head from 'next/head';
@@ -8,8 +8,6 @@ import Image from 'next/image';
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
 
-import movies from 'json/movies.json';
-
 import { motion } from 'framer-motion';
 
 import styles from './movies.module.scss';
@@ -17,6 +15,22 @@ import styles from './movies.module.scss';
 const Movies: NextPage = () => {
 	const [search, setSearch] = useState('');
 
+	const [popularMovies, setPopularMovies] = useState([]);
+
+	useEffect(() => {
+		fetchPopularMovies();
+	}, []);
+
+	const fetchPopularMovies = async () => {
+		const data = await fetch(
+			'https://api.themoviedb.org/3/movie/popular?api_key=4506fc01a7d9f8d5b35ff79dc50bf10c&language=en-US&page=1'
+		);
+
+		const movies = await data.json();
+		console.log(movies.results);
+
+		setPopularMovies(movies.results);
+	};
 	return (
 		<div className="container">
 			<Head>
@@ -31,16 +45,56 @@ const Movies: NextPage = () => {
 				<div className={styles.page__wrap}>
 					<div className={styles.search}>
 						<h4>Шаблоны фильтров</h4>
-						<input type="text" placeholder="Поиск..." />
+						<div className={styles.input}>
+							<Image
+								src="/svg/search.svg"
+								width={16}
+								height={16}
+								alt="svg"
+							></Image>
+							<input type="text" placeholder="Поиск..." />
+						</div>
 						<div className={styles.filter}>
-							<button>Жанры</button>
-							<button>Год выпуска</button>
-							<button>Оценка</button>
-							<button>Возрастной рейтинг</button>
+							<button>
+								<Image
+									src="/svg/arrow.svg"
+									width={16}
+									height={16}
+									alt="svg"
+								></Image>
+								Жанры
+							</button>
+							<button>
+								<Image
+									src="/svg/arrow.svg"
+									width={16}
+									height={16}
+									alt="svg"
+								></Image>
+								Год выпуска
+							</button>
+							<button>
+								<Image
+									src="/svg/arrow.svg"
+									width={16}
+									height={16}
+									alt="svg"
+								></Image>
+								Оценка
+							</button>
+							<button>
+								<Image
+									src="/svg/arrow.svg"
+									width={16}
+									height={16}
+									alt="svg"
+								></Image>
+								Возрастной рейтинг
+							</button>
 						</div>
 					</div>
 					<div className={styles.cards__wrap}>
-						{movies.map((movie) => {
+						{popularMovies.map((movie) => {
 							return (
 								<motion.div
 									className={styles.card}
@@ -51,13 +105,17 @@ const Movies: NextPage = () => {
 									exit={{ opacity: 0 }}
 								>
 									<Link href={`/movies/${movie.slug}`}>
-										<Image
-											src={movie.backdrop_path}
+										<img
+											src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
 											width={220}
 											height={180}
 											alt="image"
 											draggable="false"
-										></Image>
+										/>
+										<h3>
+											{movie.vote_average.toFixed(1)} &nbsp; {movie.title}
+										</h3>
+										<p>{movie.overview}</p>
 									</Link>
 								</motion.div>
 							);
