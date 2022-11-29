@@ -1,60 +1,21 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
+
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
-import styles from 'styles/movies.module.scss';
+import Image from 'next/image';
+
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
-import Filter from 'components/ui/filter';
+
 import movies from 'json/movies.json';
 
 import { motion } from 'framer-motion';
 
+import styles from './movies.module.scss';
+
 const Movies: NextPage = () => {
 	const [search, setSearch] = useState('');
-	const [sort, setSort] = useState('по рейтингу');
-	const [activeGenre, setActiveGenre] = useState('любой');
-	const [activeAge, setActiveAge] = useState(0);
-	const ageOptions = [0, 16, 18];
-	const [isActive, setIsActive] = useState(false);
-
-	const [filtered, setFiltered] = useState([]);
-	const [popular, setPopular] = useState([]);
-
-	const ref = useRef();
-
-	useEffect(() => {
-		fetchPopular();
-	}, []);
-
-	const fetchPopular = async () => {
-		setPopular(movies);
-		setFiltered(movies);
-	};
-
-	useEffect(() => {
-		const closeDropdown = (e) => {
-			if (e.path[0] !== ref.current) {
-				setIsActive(false);
-			}
-		};
-
-		document.body.addEventListener('click', closeDropdown);
-
-		return () => document.body.removeEventListener('click', closeDropdown);
-	}, []);
-
-	//Год выпуска
-
-	const [sortLowDate, setSortLowDate] = useState('1895');
-	const [sortHighDate, setSortHighDate] = useState(
-		new Date().getFullYear().toString()
-	);
-
-	// Оценка
-
-	const [sortLowRating, setSortLowRating] = useState('');
-	const [sortHighRating, setSortHighRating] = useState('');
 
 	return (
 		<div className="container">
@@ -68,233 +29,39 @@ const Movies: NextPage = () => {
 
 			<main className={styles.main}>
 				<div className={styles.page__wrap}>
-					<input
-						type="text"
-						placeholder="Введите запрос"
-						onChange={(e) => setSearch(e.target.value)}
-					/>
+					<div className={styles.search}>
+						<h4>Шаблоны фильтров</h4>
+						<input type="text" placeholder="Поиск..." />
+						<div className={styles.filter}>
+							<button>Жанры</button>
+							<button>Год выпуска</button>
+							<button>Оценка</button>
+							<button>Возрастной рейтинг</button>
+						</div>
+					</div>
 					<div className={styles.cards__wrap}>
-						{filtered.length === 0 ? (
-							<div className={styles.not__found}>Ничего не найдено.</div>
-						) : (
-							[...filtered]
-								.filter((movie) => {
-									return movie.title
-										.toLowerCase()
-										.includes(search.toLowerCase());
-								})
-								.sort((a, b) => {
-									if (sort === 'по рейтингу') {
-										return a.vote_average > b.vote_average ? -1 : 1;
-									}
-									if (sort === 'по новизне') {
-										return a.release_date > b.release_date ? -1 : 1;
-									}
-								})
-								.map((movie) => {
-									return (
-										<motion.div
-											className={styles.card}
-											key={movie.id}
-											layout
-											animate={{ opacity: 1 }}
-											initial={{ opacity: 0 }}
-											exit={{ opacity: 0 }}
-										>
-											<Link
-												href={`/movies/${movie.slug}`}
-												draggable="false"
-												style={{
-													backgroundImage: `url(${movie.backdrop_path})`,
-												}}
-											>
-												<div className={styles.card__score}>
-													{movie.vote_average.toFixed(1)}
-												</div>
-											</Link>
-										</motion.div>
-									);
-								})
-						)}
-					</div>
-				</div>
-				<div className={styles.search}>
-					<div className={styles.search__submenu}>
-						<button>Жанры</button>
-						<Filter
-							popular={popular}
-							setFiltered={setFiltered}
-							activeGenre={activeGenre}
-							setActiveGenre={setActiveGenre}
-							options={[
-								'любой',
-								'драма',
-								'фэнтези',
-								'фантастика',
-								'триллер',
-								'история',
-								'криминал',
-								'мелодрама',
-								'боевик',
-								'вестерн',
-							]}
-						></Filter>
-					</div>
-					<div className={styles.search__submenu}>
-						<button>Сортировать</button>
-						<div className="dropdown">
-							<div
-								className={isActive ? 'dropdown__btn__active' : 'dropdown__btn'}
-								onClick={() => setIsActive(!isActive)}
-								ref={ref}
-							>
-								{sort}
-							</div>
-							{isActive && (
-								<div className="dropdown__content">
-									<a
-										className="dropdown__item"
-										onClick={() => {
-											setIsActive(false);
-											setSort('по рейтингу');
-										}}
-									>
-										по рейтингу
-									</a>
-									<a
-										className="dropdown__item"
-										onClick={() => {
-											setIsActive(false);
-											setSort('по новизне');
-										}}
-									>
-										по новизне
-									</a>
-								</div>
-							)}
-						</div>
-					</div>
-					<div className={styles.search__group}>
-						<span className={styles.search__title}>Год выпуска</span>
-						<div className={styles.filter__content}>
-							<input
-								type="text"
-								placeholder="От"
-								onChange={(e) => setSortLowDate(e.target.value)}
-							/>
-							<span>—</span>
-							<input
-								type="text"
-								placeholder="До"
-								onChange={(e) => setSortHighDate(e.target.value)}
-							/>
-						</div>
-					</div>
-					<div className={styles.search__group}>
-						<span className={styles.search__title}>Оценка</span>
-						<div className={styles.filter__content}>
-							<input
-								type="text"
-								placeholder="От"
-								onChange={(e) => setSortLowRating(e.target.value)}
-							/>
-							<span>—</span>
-							<input
-								type="text"
-								placeholder="До"
-								onChange={(e) => setSortHighRating(e.target.value)}
-							/>
-						</div>
-					</div>
-					<div className={styles.search__group}>
-						<span className={styles.search__title}>Возрастной рейтинг</span>
-						<div className={styles.column__content}>
-							{ageOptions.map((option, id) => {
-								return (
-									<div className={styles.item} key={id}>
-										<div
-											className={
-												activeAge === option
-													? styles.item__content__active
-													: styles.item__content
-											}
-											onClick={() => setActiveAge(option)}
-										>
-											<input type="checkbox" id={option.toString()} />
-											<div className={styles.checkbox}>
-												<div className={styles.check} />
-											</div>
-											<label htmlFor={option.toString()}>{option}+</label>
-										</div>
-									</div>
-								);
-							})}
-						</div>
-					</div>
-					<div className={styles.search__group}>
-						<span className={styles.search__title}>Мои списки</span>
-						<div className={styles.column__content}>
-							<div className={styles.item}>
-								<div className={styles.item__content}>
-									<input type="checkbox" id="favorite" />
-									<div className={styles.checkbox}>
-										<div className={styles.check} />
-									</div>
-									<label htmlFor="favorite">Любимые</label>
-								</div>
-								<span>0</span>
-							</div>
-							<div className={styles.item}>
-								<div className={styles.item__content}>
-									<input type="checkbox" id="watching" />
-									<div className={styles.checkbox}>
-										<div className={styles.check} />
-									</div>
-									<label htmlFor="watching">Смотрю</label>
-								</div>
-								<span>0</span>
-							</div>
-							<div className={styles.item}>
-								<div className={styles.item__content}>
-									<input type="checkbox" id="planned" />
-									<div className={styles.checkbox}>
-										<div className={styles.check} />
-									</div>
-									<label htmlFor="planned">В планах</label>
-								</div>
-								<span>0</span>
-							</div>
-							<div className={styles.item}>
-								<div className={styles.item__content}>
-									<input type="checkbox" id="thrown" />
-									<div className={styles.checkbox}>
-										<div className={styles.check} />
-									</div>
-									<label htmlFor="thrown">Брошено</label>
-								</div>
-								<span>0</span>
-							</div>
-							<div className={styles.item}>
-								<div className={styles.item__content}>
-									<input type="checkbox" id="viewed" />
-									<div className={styles.checkbox}>
-										<div className={styles.check} />
-									</div>
-									<label htmlFor="viewed">Просмотренно</label>
-								</div>
-								<span>0</span>
-							</div>
-							<button
-								className={styles.reset}
-								onClick={() => {
-									setActiveGenre('любой');
-									setSort('по рейтингу');
-									setActiveAge(0);
-								}}
-							>
-								Сбросить
-							</button>
-						</div>
+						{movies.map((movie) => {
+							return (
+								<motion.div
+									className={styles.card}
+									key={movie.id}
+									layout
+									animate={{ opacity: 1 }}
+									initial={{ opacity: 0 }}
+									exit={{ opacity: 0 }}
+								>
+									<Link href={`/movies/${movie.slug}`}>
+										<Image
+											src={movie.backdrop_path}
+											width={220}
+											height={180}
+											alt="image"
+											draggable="false"
+										></Image>
+									</Link>
+								</motion.div>
+							);
+						})}
 					</div>
 				</div>
 			</main>
