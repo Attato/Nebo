@@ -10,13 +10,13 @@ import prisma from 'plugins/prisma';
 
 import styles from 'styles/auth.module.scss';
 
-export const getServerSideProps: GetServerSideProps = async () => {
-	const user = await prisma.user.findMany();
+// export const getServerSideProps: GetServerSideProps = async () => {
+// 	const user = await prisma.user.findMany();
 
-	return {
-		props: { user },
-	};
-};
+// 	return {
+// 		props: { user },
+// 	};
+// };
 
 interface User {
 	user: {

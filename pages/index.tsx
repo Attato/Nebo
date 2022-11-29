@@ -2,10 +2,12 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
+
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
 
 import styles from 'styles/index.module.scss';
+
 const Home: NextPage = () => {
 	return (
 		<div className="container">
