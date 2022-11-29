@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
 import styles from 'styles/subscription.module.scss';
-import subscribe from 'json/subscribe.json';
+import subscribe from './subscription.json';
 
 const Ticket: NextPage = () => {
 	const [option, setOption] = useState(3);
