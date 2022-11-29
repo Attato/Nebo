@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
 
-import styles from 'styles/movie.module.scss';
+import styles from './movie.module.scss';
 
 import movies from 'json/movies.json';
 
