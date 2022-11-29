@@ -13,13 +13,50 @@ import { motion } from 'framer-motion';
 import styles from './movies.module.scss';
 
 const Movies: NextPage = () => {
+	// Поиск фильмов
 	const [search, setSearch] = useState('');
 
-	const [popularMovies, setPopularMovies] = useState([]);
+	// Выпадающий список
 
-	useEffect(() => {
-		fetchPopularMovies();
-	}, []);
+	const filterItem = [
+		{
+			name: 'Cортировка',
+			subitems: [{ name: 'по популярности' }, { name: 'по рейтингу' }],
+		},
+		{
+			name: 'Жанры',
+			subitems: [{ name: 'Драма' }, { name: 'Ногть' }, { name: 'Верёвка' }],
+		},
+		{
+			name: 'Год выпуска',
+			subitems: [
+				{ name: '< 2000' },
+				{ name: '2000 - 2010' },
+				{ name: '2010 - 2020' },
+				{ name: '2010 - 2020' },
+				{ name: `2020 - ${new Date().getFullYear()}` },
+			],
+		},
+		{
+			name: 'Оценка',
+			subitems: [{ name: '< 5' }, { name: '5 - 7' }, { name: '7 +' }],
+		},
+		{
+			name: 'Возрастной рейтинг',
+			subitems: [
+				{ name: '0+' },
+				{ name: '12+' },
+				{ name: '16+' },
+				{ name: '18+' },
+			],
+		},
+	];
+
+	const [isFilterItemOpen, setIsFilterItemOpen] = useState(false);
+	const [currentfilterItem, setCurrentFilterItem] = useState(null);
+
+	// Запрос популярных фильмов из TMDB
+	const [popularMovies, setPopularMovies] = useState([]);
 
 	const fetchPopularMovies = async () => {
 		const data = await fetch(
@@ -31,6 +68,11 @@ const Movies: NextPage = () => {
 
 		setPopularMovies(movies.results);
 	};
+
+	useEffect(() => {
+		fetchPopularMovies();
+	}, []);
+
 	return (
 		<div className="container">
 			<Head>
@@ -55,42 +97,56 @@ const Movies: NextPage = () => {
 							<input type="text" placeholder="Поиск..." />
 						</div>
 						<div className={styles.filter}>
-							<button>
-								<Image
-									src="/svg/arrow.svg"
-									width={16}
-									height={16}
-									alt="svg"
-								></Image>
-								Жанры
-							</button>
-							<button>
-								<Image
-									src="/svg/arrow.svg"
-									width={16}
-									height={16}
-									alt="svg"
-								></Image>
-								Год выпуска
-							</button>
-							<button>
-								<Image
-									src="/svg/arrow.svg"
-									width={16}
-									height={16}
-									alt="svg"
-								></Image>
-								Оценка
-							</button>
-							<button>
-								<Image
-									src="/svg/arrow.svg"
-									width={16}
-									height={16}
-									alt="svg"
-								></Image>
-								Возрастной рейтинг
-							</button>
+							{filterItem.map((item, id) => {
+								return (
+									<div className={styles.button__wrap}>
+										<button
+											key={id}
+											onClick={() => {
+												setIsFilterItemOpen(!isFilterItemOpen);
+												currentfilterItem === id
+													? setCurrentFilterItem(null)
+													: setCurrentFilterItem(id);
+											}}
+										>
+											{currentfilterItem === id ? (
+												<Image
+													src="/svg/arrow.svg"
+													width={16}
+													height={16}
+													alt="svg"
+													style={{ transform: 'rotate(90deg)' }}
+												></Image>
+											) : (
+												<Image
+													src="/svg/arrow.svg"
+													width={16}
+													height={16}
+													alt="svg"
+												></Image>
+											)}
+											{item.name}
+										</button>
+
+										<div
+											className={
+												currentfilterItem === id
+													? styles.subitems__active
+													: styles.subitems
+											}
+										>
+											{item.subitems.map((subitem, id) => {
+												return (
+													<label key={id}>
+														<input type="checkbox" id={subitem.name} />
+														{subitem.name}
+													</label>
+												);
+											})}
+										</div>
+									</div>
+								);
+							})}
 						</div>
 					</div>
 					<div className={styles.cards__wrap}>
