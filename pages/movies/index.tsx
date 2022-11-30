@@ -10,8 +10,8 @@ import Footer from 'components/footer/footer';
 
 import { motion } from 'framer-motion';
 
-import { usePopularMovies } from './hooks/usePopularMovies';
-import { useFilterList } from './hooks/useFilterList';
+import { usePopularMovies } from 'hooks/movies/usePopularMovies';
+import { useFilterList } from 'hooks/movies/useFilterList';
 
 import styles from './movies.module.scss';
 
@@ -57,7 +57,7 @@ const Movies: NextPage = () => {
 							{filterList.map((item, id) => {
 								return (
 									<div className={styles.button__wrap} key={id}>
-										<button										
+										<button
 											onClick={() => {
 												setIsFilterListOpen(!isFilterListOpen);
 												currentfilterItem === id
@@ -96,11 +96,13 @@ const Movies: NextPage = () => {
 													<label key={id}>
 														<span className={styles.checkbox}>
 															<input type="checkbox" id={subitem.name} />
-													
-																<Image src="/svg/check/check.svg" width={16} height={16} alt="svg">
 
-																</Image>
-															
+															<Image
+																src="/svg/check/check.svg"
+																width={16}
+																height={16}
+																alt="svg"
+															></Image>
 														</span>
 														{subitem.name}
 													</label>

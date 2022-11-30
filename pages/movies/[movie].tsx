@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
 
-import { usePopularMovies } from './hooks/usePopularMovies';
+import { usePopularMovies } from 'hooks/movies/usePopularMovies';
 
 import styles from './movie.module.scss';
 
