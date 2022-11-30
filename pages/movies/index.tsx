@@ -56,9 +56,8 @@ const Movies: NextPage = () => {
 						<div className={styles.filter}>
 							{filterList.map((item, id) => {
 								return (
-									<div className={styles.button__wrap}>
-										<button
-											key={id}
+									<div className={styles.button__wrap} key={id}>
+										<button										
 											onClick={() => {
 												setIsFilterListOpen(!isFilterListOpen);
 												currentfilterItem === id
