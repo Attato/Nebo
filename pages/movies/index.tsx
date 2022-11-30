@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import type { NextPage } from 'next';
 import Head from 'next/head';
@@ -10,68 +10,25 @@ import Footer from 'components/footer/footer';
 
 import { motion } from 'framer-motion';
 
+import { usePopularMovies } from './hooks/usePopularMovies';
+import { useFilterList } from './hooks/useFilterList';
+
 import styles from './movies.module.scss';
 
 const Movies: NextPage = () => {
-	// Поиск фильмов
+	// Запрос популярных фильмов
+	const { popularMovies } = usePopularMovies();
+
 	const [search, setSearch] = useState('');
 
-	// Выпадающий список
-
-	const filterItem = [
-		{
-			name: 'Cортировка',
-			subitems: [{ name: 'по популярности' }, { name: 'по рейтингу' }],
-		},
-		{
-			name: 'Жанры',
-			subitems: [{ name: 'Драма' }, { name: 'Ногть' }, { name: 'Верёвка' }],
-		},
-		{
-			name: 'Год выпуска',
-			subitems: [
-				{ name: '< 2000' },
-				{ name: '2000 - 2010' },
-				{ name: '2010 - 2020' },
-				{ name: '2010 - 2020' },
-				{ name: `2020 - ${new Date().getFullYear()}` },
-			],
-		},
-		{
-			name: 'Оценка',
-			subitems: [{ name: '< 5' }, { name: '5 - 7' }, { name: '7 +' }],
-		},
-		{
-			name: 'Возрастной рейтинг',
-			subitems: [
-				{ name: '0+' },
-				{ name: '12+' },
-				{ name: '16+' },
-				{ name: '18+' },
-			],
-		},
-	];
-
-	const [isFilterItemOpen, setIsFilterItemOpen] = useState(false);
-	const [currentfilterItem, setCurrentFilterItem] = useState(null);
-
-	// Запрос популярных фильмов из TMDB
-	const [popularMovies, setPopularMovies] = useState([]);
-
-	const fetchPopularMovies = async () => {
-		const data = await fetch(
-			'https://api.themoviedb.org/3/movie/popular?api_key=4506fc01a7d9f8d5b35ff79dc50bf10c&language=en-US&page=1'
-		);
-
-		const movies = await data.json();
-		console.log(movies.results);
-
-		setPopularMovies(movies.results);
-	};
-
-	useEffect(() => {
-		fetchPopularMovies();
-	}, []);
+	// Фильтры
+	const {
+		filterList,
+		isFilterListOpen,
+		setIsFilterListOpen,
+		currentfilterItem,
+		setCurrentFilterItem,
+	} = useFilterList();
 
 	return (
 		<div className="container">
@@ -97,13 +54,13 @@ const Movies: NextPage = () => {
 							<input type="text" placeholder="Поиск..." />
 						</div>
 						<div className={styles.filter}>
-							{filterItem.map((item, id) => {
+							{filterList.map((item, id) => {
 								return (
 									<div className={styles.button__wrap}>
 										<button
 											key={id}
 											onClick={() => {
-												setIsFilterItemOpen(!isFilterItemOpen);
+												setIsFilterListOpen(!isFilterListOpen);
 												currentfilterItem === id
 													? setCurrentFilterItem(null)
 													: setCurrentFilterItem(id);
