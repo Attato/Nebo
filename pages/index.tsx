@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
 
-import styles from 'styles/index.module.scss';
+import styles from './index.module.scss';
 
 const Home: NextPage = () => {
 	return (

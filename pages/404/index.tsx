@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 import { NextPage } from 'next';
 
-import styles from 'styles/404.module.scss';
+import styles from './404.module.scss';
 
 const errorPage: NextPage = () => {
 	return (
