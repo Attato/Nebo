@@ -94,7 +94,14 @@ const Movies: NextPage = () => {
 											{item.subitems.map((subitem, id) => {
 												return (
 													<label key={id}>
-														<input type="checkbox" id={subitem.name} />
+														<span className={styles.checkbox}>
+															<input type="checkbox" id={subitem.name} />
+													
+																<Image src="/svg/check/check.svg" width={16} height={16} alt="svg">
+
+																</Image>
+															
+														</span>
 														{subitem.name}
 													</label>
 												);
