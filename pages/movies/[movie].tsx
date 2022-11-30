@@ -6,9 +6,9 @@ import Image from 'next/image';
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
 
-import styles from './movie.module.scss';
+import { usePopularMovies } from './hooks/usePopularMovies';
 
-import movies from 'json/movies.json';
+import styles from './movie.module.scss';
 
 // import prisma from 'plugins/prisma';
 
@@ -40,12 +40,12 @@ import movies from 'json/movies.json';
 // const Movie = ({ movies }) => {
 const Movie = () => {
 	const { movie } = useRouter().query;
-
+	const { popularMovies } = usePopularMovies();
 	return (
 		<div className="container">
 			<Head>
 				<title>
-					{movies
+					{popularMovies
 						.filter((movies) => movies.slug === movie)
 						.map((movie) => {
 							return movie.title;
@@ -57,7 +57,7 @@ const Movie = () => {
 
 			<Header />
 			<main className="main">
-				{movies
+				{popularMovies
 					.filter((movies) => movies.slug === movie)
 					.map((movie, id) => {
 						return (
