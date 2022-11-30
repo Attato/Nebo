@@ -49,7 +49,7 @@ const Header = () => {
 										height={24}
 										alt="svg"
 									/>
-								) : (	
+								) : (
 									<Image
 										src="/svg/movies/movies.svg"
 										width={24}
@@ -67,7 +67,7 @@ const Header = () => {
 										height={24}
 										alt="svg"
 									/>
-								) : (	
+								) : (
 									<Image
 										src="/svg/subscription/subscription.svg"
 										width={24}
@@ -140,7 +140,7 @@ const Header = () => {
 				</div>
 
 				<div className={styles.left__side}>
-					<Link href="/signIn">Войти</Link>
+					<Link href="/signin">Войти</Link>
 				</div>
 			</div>
 		</header>
