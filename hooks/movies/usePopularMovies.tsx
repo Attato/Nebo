@@ -5,7 +5,7 @@ export const usePopularMovies = () => {
 
 	const fetchPopularMovies = async () => {
 		const data = await fetch(
-			'https://api.themoviedb.org/3/movie/popular?api_key=4506fc01a7d9f8d5b35ff79dc50bf10c&language=en-US&page=1'
+			'https://api.themoviedb.org/3/movie/popular?api_key=4506fc01a7d9f8d5b35ff79dc50bf10c&language=ru-RU'
 		);
 
 		const movies = await data.json();
