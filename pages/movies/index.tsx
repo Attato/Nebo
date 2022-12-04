@@ -8,10 +8,10 @@ import Image from 'next/image';
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
 import MovieCategory from 'components/movies/index/movieCategory';
+import Filter from 'components/movies/index/filter';
 
 import { useRatedMovies } from 'hooks/movies/useRatedMovies';
 import { usePopularMovies } from 'hooks/movies/usePopularMovies';
-import { useFilterList } from 'hooks/movies/useFilterList';
 
 import styles from './movies.module.scss';
 
@@ -23,15 +23,6 @@ const Movies: NextPage = () => {
 	const { popularMovies } = usePopularMovies();
 
 	const [search, setSearch] = useState('');
-
-	// Фильтры
-	const {
-		filterList,
-		isFilterListOpen,
-		setIsFilterListOpen,
-		currentfilterItem,
-		setCurrentFilterItem,
-	} = useFilterList();
 
 	return (
 		<div className="container">
@@ -56,66 +47,7 @@ const Movies: NextPage = () => {
 							></Image>
 							<input type="text" placeholder="Поиск..." />
 						</div>
-						<div className={styles.filter}>
-							{filterList.map((item, id) => {
-								return (
-									<div className={styles.button__wrap} key={id}>
-										<button
-											onClick={() => {
-												setIsFilterListOpen(!isFilterListOpen);
-												currentfilterItem === id
-													? setCurrentFilterItem(null)
-													: setCurrentFilterItem(id);
-											}}
-										>
-											{currentfilterItem === id ? (
-												<Image
-													src="/svg/arrow.svg"
-													width={16}
-													height={16}
-													alt="svg"
-													style={{ transform: 'rotate(90deg)' }}
-												></Image>
-											) : (
-												<Image
-													src="/svg/arrow.svg"
-													width={16}
-													height={16}
-													alt="svg"
-												></Image>
-											)}
-											{item.name}
-										</button>
-
-										<div
-											className={
-												currentfilterItem === id
-													? styles.subitems__active
-													: styles.subitems
-											}
-										>
-											{item.subitems.map((subitem, id) => {
-												return (
-													<label key={id}>
-														<span className={styles.checkbox}>
-															<input type="checkbox" id={subitem.name} />
-
-															<Image
-																src="/svg/check/check.svg"
-																width={16}
-																height={16}
-																alt="svg"
-															></Image>
-														</span>
-														{subitem.name}
-													</label>
-												);
-											})}
-										</div>
-									</div>
-								);
-							})}
-						</div>
+						<Filter />
 					</div>
 					<div className={styles.movies_wrap}>
 						<h2>Лучшие фильмы</h2>

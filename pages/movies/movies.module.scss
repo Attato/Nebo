@@ -91,17 +91,23 @@
 
 							&:hover {
 								background-color: #212121;
+
+								.checkbox,
+								.checkbox__checked {
+									border-color: white;
+								}
 							}
 
-							.checkbox {
+							.checkbox,
+							.checkbox__checked {
 								display: flex;
 								width: 14px;
 								height: 14px;
 								position: relative;
 								align-items: center;
 								justify-content: center;
-								background-color: #fff;
 								border-radius: 2px;
+								border: 1px solid #888;
 
 								input {
 									position: absolute;
@@ -119,6 +125,16 @@
 									position: absolute;
 									top: -1px;
 									left: -1px;
+									display: none;
+								}
+							}
+
+							.checkbox__checked {
+								background-color: #fff;
+								border: 0;
+
+								img {
+									display: block;
 								}
 							}
 						}
