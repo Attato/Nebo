@@ -7,8 +7,7 @@ import Image from 'next/image';
 
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
-
-import { motion } from 'framer-motion';
+import MovieCategory from 'components/movies/index/movieCategory';
 
 import { useRatedMovies } from 'hooks/movies/useRatedMovies';
 import { usePopularMovies } from 'hooks/movies/usePopularMovies';
@@ -64,9 +63,7 @@ const Movies: NextPage = () => {
 										<button
 											onClick={() => {
 												setIsFilterListOpen(!isFilterListOpen);
-												currentfilterItem === id
-													? setCurrentFilterItem(null)
-													: setCurrentFilterItem(id);
+												setCurrentFilterItem(id);
 											}}
 										>
 											{currentfilterItem === id ? (
@@ -121,74 +118,14 @@ const Movies: NextPage = () => {
 					<div className={styles.movies_wrap}>
 						<h2>Лучшие фильмы</h2>
 						<div className={styles.cards__wrap}>
-							{ratedMovies.map((movie) => {
-								return (
-									movie.original_language === 'en' && (
-										<motion.div
-											className={styles.card}
-											key={movie.id}
-											layout
-											animate={{ opacity: 1 }}
-											initial={{ opacity: 0 }}
-											exit={{ opacity: 0 }}
-										>
-											<Link
-												href={`/movies/${movie.original_title.replace(
-													/\s/g,
-													''
-												)}`}
-											>
-												<img
-													src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
-													width={220}
-													height={180}
-													alt="image"
-													draggable="false"
-												/>
-												<h3>
-													{movie.vote_average.toFixed(1)} &nbsp; {movie.title}
-												</h3>
-												<p>{movie.overview}</p>
-											</Link>
-										</motion.div>
-									)
-								);
+							{ratedMovies.map((movie, id) => {
+								return <MovieCategory movie={movie} key={id} />;
 							})}
 						</div>
 						<h2>Популярные фильмы</h2>
 						<div className={styles.cards__wrap}>
-							{popularMovies.map((movie) => {
-								return (
-									movie.original_language === 'en' && (
-										<motion.div
-											className={styles.card}
-											key={movie.id}
-											layout
-											animate={{ opacity: 1 }}
-											initial={{ opacity: 0 }}
-											exit={{ opacity: 0 }}
-										>
-											<Link
-												href={`/movies/${movie.original_title.replace(
-													/\s/g,
-													''
-												)}`}
-											>
-												<img
-													src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
-													width={220}
-													height={180}
-													alt="image"
-													draggable="false"
-												/>
-												<h3>
-													{movie.vote_average.toFixed(1)} &nbsp; {movie.title}
-												</h3>
-												<p>{movie.overview}</p>
-											</Link>
-										</motion.div>
-									)
-								);
+							{popularMovies.map((movie, id) => {
+								return <MovieCategory movie={movie} key={id} />;
 							})}
 						</div>
 					</div>

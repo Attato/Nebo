@@ -67,13 +67,11 @@
 					.subitems {
 						overflow: hidden;
 						max-height: 0;
-						transition: all 0.5s ease-out;
 					}
 
 					.subitems__active {
 						overflow: visible;
 						max-height: 100vh;
-						transition: all 0.5s ease-in;
 					}
 
 					.subitems,
@@ -132,6 +130,7 @@
 		.movies_wrap {
 			display: flex;
 			flex-direction: column;
+			width: 100%;
 
 			h2 {
 				margin: 48px 0 24px;
