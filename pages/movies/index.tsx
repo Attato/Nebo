@@ -63,7 +63,9 @@ const Movies: NextPage = () => {
 										<button
 											onClick={() => {
 												setIsFilterListOpen(!isFilterListOpen);
-												setCurrentFilterItem(id);
+												currentfilterItem === id
+													? setCurrentFilterItem(null)
+													: setCurrentFilterItem(id);
 											}}
 										>
 											{currentfilterItem === id ? (
