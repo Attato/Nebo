@@ -137,7 +137,9 @@ const Header = () => {
 							<p>Подписка</p>
 						</Link>
 
-						<Link href="/user">user</Link>
+						<Link href={{ pathname: '/user', query: { tab: 'Профиль' } }}>
+							user
+						</Link>
 					</div>
 				</div>
 

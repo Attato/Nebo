@@ -1,40 +1,35 @@
-import { useState } from 'react';
-
 import Link from 'next/link';
 import Image from 'next/image';
 
 import styles from 'pages/user/user.module.scss';
 
 const Profile = (
-    <div>
-        Профиль
-    </div>
-)
+	<div key={Date.now()}>
+		<h3>Профиль - тут пока ничего нет</h3>
+	</div>
+);
 
 const Friends = (
-    <div>
-        Друзья
-    </div>
-)
+	<div key={Date.now()}>
+		<h3>Друзья - тут пока ничего нет</h3>
+	</div>
+);
 
-const Subscription = (
-    <div>
-        Подписка
-    </div>
-)
-
+const Messages = (
+	<div key={Date.now()}>
+		<h3>Сообщения - тут пока ничего нет</h3>
+	</div>
+);
 
 const Settings = (
-    <div>
-        Настройки
-    </div>
-)
-
+	<div key={Date.now()}>
+		<h3>Настройки - тут пока ничего нет</h3>
+	</div>
+);
 
 export const tabs = [
-	{ wrap:[Profile], tab: 'Профиль', name: 'profile' },
-	{ wrap:[Friends], tab: 'Друзья', name: 'friends' },
-    { wrap:[Subscription], tab: 'Подписка', name: 'subscription' },
-    { wrap:[Settings], tab: 'Настройки', name: 'settings' }
+	{ wrap: [Profile], tab: 'Профиль', name: 'profile' },
+	{ wrap: [Friends], tab: 'Друзья', name: 'friends' },
+	{ wrap: [Messages], tab: 'Сообщения', name: 'messages' },
+	{ wrap: [Settings], tab: 'Настройки', name: 'settings' },
 ];
-
