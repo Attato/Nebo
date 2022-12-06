@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import type { NextPage } from 'next';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -8,9 +9,14 @@ import Image from 'next/image';
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
 
+import { tabs } from 'pages/api/userTabs'
 import styles from './user.module.scss';
 
 const User: NextPage = () => {
+	const [currentTab, setCurrentTab] = useState(0)
+
+	const router = useRouter();
+	
 	return (
 		<div className="container">
 			<Head>
@@ -38,7 +44,7 @@ const User: NextPage = () => {
 									Хаха, кря кря, я утка, я утка, кря кря, хаха
 								</span>
 								<div className={styles.row}>
-									<Image src="/svg/friends.svg" width={16} height={16} alt="" />
+									<Image src="/svg/user/friends.svg" width={16} height={16} alt="" />
 									<span>171 подписчик</span>
 								</div>
 								<div className={styles.row}>
@@ -53,28 +59,39 @@ const User: NextPage = () => {
 							</div>
 						</div>
 					</div>
-					<div className={styles.profile__tabs}>
-						<Link href="/user" className={styles.active__tab}>
-							<Image src="/svg/user.svg" width={18} height={18} alt="" />
-							Профиль
-						</Link>
-						<Link href="/user" className={styles.tab}>
-							<Image src="/svg/friends.svg" width={18} height={18} alt="" />
-							Друзья
-						</Link>
-						<Link href="/user" className={styles.tab}>
-							<Image
-								src="/svg/subscription/subscription.svg"
-								width={18}
-								height={18}
-								alt=""
-							/>
-							Подписка
-						</Link>
-						<Link href="/user" className={styles.tab}>
-							<Image src="/svg/settings.svg" width={18} height={18} alt="" />
-							Настройки
-						</Link>
+					<div className={styles.main__content}>
+						<div className={styles.tabs} >
+							{
+								tabs.map((tab, id) => {		
+									return(						
+										<Link
+											href={`/user/#${tab.name}`}
+											key={id} 
+											className={currentTab === id ? styles.active__tab : styles.tab} 
+											onClick={() => {setCurrentTab(id);}}
+											id={`${tab.name}`}
+											>
+												<Image src={`/svg/user/${tab.name}.svg`} width={18} height={18} alt="" />
+												{tab.tab}
+											
+										</Link>																		
+									)
+								})							
+							}
+						</div>
+						<div className={styles.content}>				
+							{
+								tabs.map((tab, id) => {
+									return(				
+										router.pathname === `/user/#${tab.name}` && (
+											<div className={styles.tab} key={id}>
+												{tab.tab}
+											</div>																		
+										)
+									)
+								})							
+							}						
+						</div>
 					</div>
 				</div>
 			</main>

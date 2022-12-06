@@ -1,78 +1,88 @@
 .profile {
-	display: flex;
-	gap: 48px;
+    display: flex;
+    gap: 48px;
 
-	.profile__title__wrapper {
-		display: flex;
-		flex-direction: column;
+    .profile__title__wrapper {
+        display: flex;
+        flex-direction: column;
 
-		.profile__title {
-			display: flex;
-			flex-direction: column;
-			align-items: flex-start;
-			gap: 16px;
-			margin-top: 16px;
+        .profile__title {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+            margin-top: 16px;
 
-			.avatar {
-				border-radius: 50%;
-				border: 3px solid #191919;
-			}
+            .avatar {
+                border-radius: 50%;
+                border: 3px solid #191919;
+            }
 
-			.user__title {
-				display: flex;
-				flex-direction: column;
-				gap: 6px;
+            .user__title {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
 
-				p {
-					color: #aaa;
-				}
+                p {
+                    color: #aaa;
+                }
 
-				.status {
-					display: flex;
-					align-items: center;
-					gap: 5px;
-					margin: 16px 0;
-				}
+                .status {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    margin: 16px 0;
+                }
 
-				.row {
-					display: flex;
-					align-items: center;
-					gap: 5px;
+                .row {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
 
-					span {
-						margin: 0;
-						color: white;
-					}
-				}
-			}
-		}
-	}
+                    span {
+                        margin: 0;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
 
-	.profile__tabs {
-		display: flex;
-		gap: 10px;
-		margin-top: 16px;
-		height: fit-content;
+    .main__content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
 
-		.tab,
-		.active__tab {
-			display: flex;
-			align-items: center;
-			gap: 5px;
-			background-color: transparent;
-			border: 0;
-			padding: 4px 10px;
-			border-radius: 6px;
-			font-size: 16px;
-			cursor: pointer;
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+            height: fit-content;
 
-			&:hover {
-				background-color: #191919;
-			}
-		}
+            .tab,
+            .active__tab {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                background-color: transparent;
+                border: 0;
+                padding: 4px 10px;
+                border-radius: 6px;
+                font-size: 16px;
+                cursor: pointer;
 
-		.active__tab {
-			background-color: #191919;
-		}
-	}
+                &:hover {
+                    background-color: #191919;
+                }
+            }
+
+            .active__tab {
+                background-color: #191919;
+            }
+
+            .content {
+                display: flex;
+            }
+        }
+    }
 }
