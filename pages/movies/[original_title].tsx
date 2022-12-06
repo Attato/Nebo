@@ -4,8 +4,8 @@ import Head from 'next/head';
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
 
-import { useRatedMovies } from 'hooks/movies/useRatedMovies';
-import { usePopularMovies } from 'hooks/movies/usePopularMovies';
+import { useRatedMovies } from 'pages/api/hooks/movies/useRatedMovies';
+import { usePopularMovies } from 'pages/api/hooks/movies/usePopularMovies';
 
 import styles from 'pages/movies/movie.module.scss';
 

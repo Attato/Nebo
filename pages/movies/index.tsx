@@ -10,8 +10,8 @@ import Footer from 'components/footer/footer';
 import MovieCategory from 'components/movies/index/movieCategory';
 import Filter from 'components/movies/index/filter';
 
-import { useRatedMovies } from 'hooks/movies/useRatedMovies';
-import { usePopularMovies } from 'hooks/movies/usePopularMovies';
+import { useRatedMovies } from 'pages/api/hooks/movies/useRatedMovies';
+import { usePopularMovies } from 'pages/api/hooks/movies/usePopularMovies';
 
 import styles from './movies.module.scss';
 
