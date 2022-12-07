@@ -14,7 +14,7 @@ const MovieCategory = ({ movie }) => {
 			>
 				<Link href={`/movies/${movie.original_title.replace(/\s/g, '')}`}>
 					<img
-						src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
+						src={movie.backdrop_path}
 						width={220}
 						height={180}
 						alt="image"
