@@ -49,7 +49,7 @@ const Home: NextPage = () => {
 										<p>view</p>
 
 										<Image
-											src="/svg/refresh.svg"
+											src="/svg/subscribe/refresh.svg"
 											width={12}
 											height={12}
 											alt="svg"
