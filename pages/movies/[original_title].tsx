@@ -15,7 +15,7 @@ const Movie = () => {
 				<title>
 					{movies
 						.filter(
-							(movies) => movies.original_title.replace(/\s/g, '') === movie
+							(movies) => movies.original_title.replace(/\s/g, '') === movies
 						)
 						.map((movie) => {
 							return movie.original_title;
@@ -29,7 +29,7 @@ const Movie = () => {
 			<main className="main">
 				{movies
 					.filter(
-						(movies) => movies.original_title.replace(/\s/g, '') === movie
+						(movies) => movies.original_title.replace(/\s/g, '') === movies
 					)
 					.map((movie, id) => {
 						return (
