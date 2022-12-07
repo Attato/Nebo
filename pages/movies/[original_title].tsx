@@ -4,18 +4,11 @@ import Head from 'next/head';
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
 
-import { useRatedMovies } from 'pages/api/hooks/movies/useRatedMovies';
-import { usePopularMovies } from 'pages/api/hooks/movies/usePopularMovies';
+import movies from 'pages/api/json/movies.json';
 
 import styles from 'pages/movies/movie.module.scss';
 
 const Movie = () => {
-	const movie = useRouter().query.original_title;
-	const { popularMovies } = usePopularMovies();
-	const { ratedMovies } = useRatedMovies();
-
-	const movies = [...popularMovies, ...ratedMovies];
-
 	return (
 		<div className="container">
 			<Head>

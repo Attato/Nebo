@@ -10,18 +10,11 @@ import Footer from 'components/footer/footer';
 import MovieCategory from 'components/movies/index/movieCategory';
 import Filter from 'components/movies/index/filter';
 
-import { useRatedMovies } from 'pages/api/hooks/movies/useRatedMovies';
-import { usePopularMovies } from 'pages/api/hooks/movies/usePopularMovies';
+import movies from 'pages/api/json/movies.json';
 
 import styles from './movies.module.scss';
 
 const Movies: NextPage = () => {
-	// Запрос лучших фильмов
-	const { ratedMovies } = useRatedMovies();
-
-	// Запрос популярных фильмов
-	const { popularMovies } = usePopularMovies();
-
 	const [search, setSearch] = useState('');
 
 	return (
@@ -40,7 +33,7 @@ const Movies: NextPage = () => {
 						<h4>Шаблоны фильтров</h4>
 						<div className={styles.input}>
 							<Image
-								src="/svg/search.svg"
+								src="/svg/movies/search.svg"
 								width={16}
 								height={16}
 								alt="svg"
@@ -50,15 +43,8 @@ const Movies: NextPage = () => {
 						<Filter />
 					</div>
 					<div className={styles.movies_wrap}>
-						<h2>Лучшие фильмы</h2>
 						<div className={styles.cards__wrap}>
-							{ratedMovies.map((movie, id) => {
-								return <MovieCategory movie={movie} key={id} />;
-							})}
-						</div>
-						<h2>Популярные фильмы</h2>
-						<div className={styles.cards__wrap}>
-							{popularMovies.map((movie, id) => {
+							{movies.map((movie, id) => {
 								return <MovieCategory movie={movie} key={id} />;
 							})}
 						</div>
