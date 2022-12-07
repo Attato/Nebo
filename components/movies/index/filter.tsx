@@ -62,7 +62,7 @@ const Filter = () => {
 						>
 							{currentFilterListItem === id ? (
 								<Image
-									src="/svg/arrow.svg"
+									src="/svg/movies/arrow.svg"
 									width={16}
 									height={16}
 									alt="svg"
@@ -70,7 +70,7 @@ const Filter = () => {
 								></Image>
 							) : (
 								<Image
-									src="/svg/arrow.svg"
+									src="/svg/movies/arrow.svg"
 									width={16}
 									height={16}
 									alt="svg"

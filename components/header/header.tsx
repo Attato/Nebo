@@ -26,32 +26,31 @@ const Header = () => {
 							<Link href="/" onClick={() => setIsOpen(!isOpen)}>
 								{pathname === '/' ? (
 									<Image
-										src="/svg/home/home_active.svg"
+										src="/svg/header/home/home_active.svg"
 										width={24}
 										height={24}
 										alt="svg"
 									/>
 								) : (
 									<Image
-										src="/svg/home/home.svg"
+										src="/svg/header/home/home.svg"
 										width={24}
 										height={24}
 										alt="svg"
 									/>
 								)}
-								<p>Главная</p>
 							</Link>
 							<Link href="/movies" onClick={() => setIsOpen(!isOpen)}>
 								{pathname === '/movies' ? (
 									<Image
-										src="/svg/movies/movies_active.svg"
+										src="/svg/header/movies/movies_active.svg"
 										width={24}
 										height={24}
 										alt="svg"
 									/>
 								) : (
 									<Image
-										src="/svg/movies/movies.svg"
+										src="/svg/header/movies/movies.svg"
 										width={24}
 										height={24}
 										alt="svg"
@@ -62,14 +61,14 @@ const Header = () => {
 							<Link href="/subscription" onClick={() => setIsOpen(!isOpen)}>
 								{pathname === '/subscription' ? (
 									<Image
-										src="/svg/subscription/subscription_active.svg"
+										src="/svg/header/subscription/subscription_active.svg"
 										width={24}
 										height={24}
 										alt="svg"
 									/>
 								) : (
 									<Image
-										src="/svg/subscription/subscription.svg"
+										src="/svg/header/subscription/subscription.svg"
 										width={24}
 										height={24}
 										alt="svg"
@@ -83,14 +82,14 @@ const Header = () => {
 						<Link href="/">
 							{pathname === '/' ? (
 								<Image
-									src="/svg/home/home_active.svg"
+									src="/svg/header/home/home_active.svg"
 									width={24}
 									height={24}
 									alt="svg"
 								/>
 							) : (
 								<Image
-									src="/svg/home/home.svg"
+									src="/svg/header/home/home.svg"
 									width={24}
 									height={24}
 									alt="svg"
@@ -102,7 +101,7 @@ const Header = () => {
 						<Link href="/movies">
 							{pathname === '/movies' ? (
 								<Image
-									src="/svg/movies/movies_active.svg"
+									src="/svg/header/movies/movies_active.svg"
 									width={24}
 									height={24}
 									alt="svg"
@@ -110,7 +109,7 @@ const Header = () => {
 								/>
 							) : (
 								<Image
-									src="/svg/movies/movies.svg"
+									src="/svg/header/movies/movies.svg"
 									width={24}
 									height={24}
 									alt="svg"
@@ -118,17 +117,17 @@ const Header = () => {
 							)}
 							<p>Фильмы</p>
 						</Link>
-						<Link href="/subscription">
-							{pathname === '/subscription' ? (
+						<Link href="/subscribe">
+							{pathname === '/subscribe' ? (
 								<Image
-									src="/svg/subscription/subscription_active.svg"
+									src="/svg/header/subscribe/subscribe_active.svg"
 									width={24}
 									height={24}
 									alt="svg"
 								/>
 							) : (
 								<Image
-									src="/svg/subscription/subscription.svg"
+									src="/svg/header/subscribe/subscribe.svg"
 									width={24}
 									height={24}
 									alt="svg"

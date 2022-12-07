@@ -53,7 +53,7 @@ const User: NextPage = () => {
 								</div>
 								<div className={styles.row}>
 									<Image
-										src="/svg/location.svg"
+										src="/svg/user/location.svg"
 										width={16}
 										height={16}
 										alt=""
