@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
-import { NextPage, GetServerSideProps } from 'next';
+import { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
-
-import prisma from 'plugins/prisma';
 
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
