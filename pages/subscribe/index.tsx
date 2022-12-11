@@ -1,19 +1,21 @@
 import { useState } from 'react';
 import type { NextPage } from 'next';
+
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
+
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
+
+import Demo from 'components/ui/demo/demo';
+
 import styles from './subscribe.module.scss';
 import subscribe from './subscribe.json';
 
 const Ticket: NextPage = () => {
-	const [option, setOption] = useState(3);
-	const [duration, setDuration] = useState('1 месяц');
-	const [price, setPrice] = useState(249);
-	const [fullPrice, setFullPrice] = useState(249);
-	const [percent, setPercent] = useState('0%');
+	const router = useRouter();
 
 	return (
 		<div className="container">
@@ -36,20 +38,18 @@ const Ticket: NextPage = () => {
 							<span>Премиальная подписка на наш сервис</span>
 							{subscribe.map((subscribe, id) => {
 								return (
-									<div
+									<Link
+										href={{
+											pathname: '/subscribe',
+											query: { product: `${id}` },
+										}}
+										scroll={false}
 										key={id}
 										className={
-											option === id
+											router.query.product === `${id}`
 												? styles.product__option__active
 												: styles.product__option
 										}
-										onClick={() => {
-											setDuration(subscribe.duration);
-											setPrice(subscribe.price);
-											setFullPrice(subscribe.full_price);
-											setPercent(subscribe.percent);
-											setOption(id);
-										}}
 									>
 										<p>Подписка на {subscribe.duration}</p>
 										<div className={styles.price}>
@@ -57,26 +57,34 @@ const Ticket: NextPage = () => {
 											<h2>{subscribe.monthly} / мес.</h2>
 										</div>
 										<p>Экономия {subscribe.economy} ₽ / г.</p>
-									</div>
+									</Link>
 								);
 							})}
-							<div className={styles.price__wrap}>
-								<div className={styles.price}>
-									<div className={styles.price}>
-										<h2>{price} RUB</h2>
-										{fullPrice != 249 ? <p>{fullPrice} RUB</p> : null}
-									</div>
-									{percent != '0%' ? (
-										<div className={styles.percent}>
-											<p>{percent}</p>
+
+							{subscribe
+								.filter((title) => `${title.id}` === router.query.product)
+								.map((price) => {
+									return (
+										<div className={styles.price__wrap} key={price.id}>
+											<div className={styles.price}>
+												<h2>{price.price} RUB</h2>
+												{price.full_price != 249 ? (
+													<p>{price.full_price} RUB</p>
+												) : null}
+												{price.percent != '0%' ? (
+													<div className={styles.percent}>
+														<p>{price.percent}</p>
+													</div>
+												) : null}
+											</div>
+											<p>
+												Cписание средств раз в {price.duration}. Вы можете в
+												любой момент отменить подписку на сайте.
+											</p>
 										</div>
-									) : null}
-								</div>
-								<p>
-									Cписание средств раз в {duration}. Вы можете в любой момент
-									отменить подписку на сайте.
-								</p>
-							</div>
+									);
+								})}
+
 							<Link href="/">Оформить подписку</Link>
 						</div>
 					</div>
@@ -85,118 +93,53 @@ const Ticket: NextPage = () => {
 				<div className={styles.privileges__list}>
 					<div className={styles.left__side}>
 						<div className={styles.demonstration__blocks}>
-							<div className={styles.demonstration__block}>
-								<div className={styles.header}>
-									<div className={styles.window__traffic}>
-										<span className={styles.close}></span>
-										<span className={styles.minimize}></span>
-										<span className={styles.fullscreen}></span>
+							<Demo url="view">
+								<div className={styles.page__wrap}>
+									<div className={styles.input} />
+									<div className={styles.movie__wrap}>
+										<div className={styles.movie} />
+										<div className={styles.movie} />
+										<div className={styles.movie} />
+										<div className={styles.movie} />
+										<div className={styles.movie} />
+										<div className={styles.movie} />
+										<div className={styles.movie} />
 									</div>
-									<div className={styles.browser__input}>
-										<p>view/movies</p>
+								</div>
+							</Demo>
 
-										<Image
-											src="/svg/refresh.svg"
-											width={12}
-											height={12}
-											alt="svg"
-										></Image>
-									</div>
-									<div className={styles.space}></div>
-								</div>
-								<div className={styles.content}>
-									<div className={styles.main}>
-										<div className={styles.page__wrap}>
-											<div className={styles.input} />
-											<div className={styles.movie__wrap}>
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-											</div>
-										</div>
+							<Demo url="view">
+								<div className={styles.page__wrap}>
+									<div className={styles.input} />
+									<div className={styles.movie__wrap}>
+										<div className={styles.movie} />
+										<div className={styles.movie} />
+										<div className={styles.movie} />
+										<div className={styles.movie} />
+										<div className={styles.movie} />
+										<div className={styles.movie} />
+										<div className={styles.movie} />
 									</div>
 								</div>
-							</div>
+							</Demo>
 
-							<div className={styles.demonstration__block}>
-								<div className={styles.header}>
-									<div className={styles.window__traffic}>
-										<span className={styles.close}></span>
-										<span className={styles.minimize}></span>
-										<span className={styles.fullscreen}></span>
-									</div>
-									<div className={styles.browser__input}>
-										<p>view/user</p>
-
-										<Image
-											src="/svg/refresh.svg"
-											width={12}
-											height={12}
-											alt="svg"
-										></Image>
-									</div>
-									<div className={styles.space}></div>
-								</div>
-								<div className={styles.content}>
-									<div className={styles.main}>
-										<div className={styles.page__wrap}>
-											<div className={styles.input} />
-											<div className={styles.movie__wrap}>
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-											</div>
-										</div>
+							<Demo url="view">
+								<div className={styles.page__wrap}>
+									<div className={styles.input} />
+									<div className={styles.movie__wrap}>
+										<div className={styles.movie} />
+										<div className={styles.movie} />
+										<div className={styles.movie} />
+										<div className={styles.movie} />
+										<div className={styles.movie} />
+										<div className={styles.movie} />
+										<div className={styles.movie} />
 									</div>
 								</div>
-							</div>
-
-							<div className={styles.demonstration__block}>
-								<div className={styles.header}>
-									<div className={styles.window__traffic}>
-										<span className={styles.close}></span>
-										<span className={styles.minimize}></span>
-										<span className={styles.fullscreen}></span>
-									</div>
-									<div className={styles.browser__input}>
-										<p>view</p>
-
-										<Image
-											src="/svg/refresh.svg"
-											width={12}
-											height={12}
-											alt="svg"
-										></Image>
-									</div>
-									<div className={styles.space}></div>
-								</div>
-								<div className={styles.content}>
-									<div className={styles.main}>
-										<div className={styles.page__wrap}>
-											<div className={styles.input} />
-											<div className={styles.movie__wrap}>
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+							</Demo>
 						</div>
 					</div>
+
 					<div className={styles.lines}>
 						<span className={styles.gradient__line} />
 						<span className={styles.circle} />
