@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
-
+import Demo from 'components/ui/demo/demo';
 import styles from './index.module.scss';
 
 const Home: NextPage = () => {
@@ -37,44 +37,9 @@ const Home: NextPage = () => {
 							</div>
 						</div>
 
-						<div className={styles.demonstration__blocks}>
-							<div className={styles.demonstration__block}>
-								<div className={styles.header}>
-									<div className={styles.window__traffic}>
-										<span className={styles.close}></span>
-										<span className={styles.minimize}></span>
-										<span className={styles.fullscreen}></span>
-									</div>
-									<div className={styles.browser__input}>
-										<p>view</p>
-
-										<Image
-											src="/svg/subscribe/refresh.svg"
-											width={12}
-											height={12}
-											alt="svg"
-										></Image>
-									</div>
-									<div className={styles.space}></div>
-								</div>
-								<div className={styles.content}>
-									<div className={styles.main}>
-										<div className={styles.page__wrap}>
-											<div className={styles.input} />
-											<div className={styles.movie__wrap}>
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-												<div className={styles.movie} />
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+						<Demo url="view">
+							<div className={styles.demo_content}></div>
+						</Demo>
 					</div>
 				</div>
 			</main>
