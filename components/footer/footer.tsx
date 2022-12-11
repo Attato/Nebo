@@ -10,7 +10,7 @@ const Footer = () => {
 				{new Date().getFullYear() === 2022
 					? new Date().getFullYear()
 					: '2022 - ' + new Date().getFullYear()}
-				&nbsp;View. Все права защищены
+				&nbsp;Небо. Все права защищены
 			</p>
 		</footer>
 	);
