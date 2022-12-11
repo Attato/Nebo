@@ -1,0 +1,72 @@
+.demo {
+	max-width: 430px;
+	width: 100%;
+
+	.header {
+		height: 40px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		justify-content: space-between;
+		border-bottom: 1px solid #2e2e2f;
+		background: #2e2e2f;
+		border-radius: 6px 6px 0 0;
+
+		.window__traffic {
+			display: flex;
+			gap: 8px;
+			margin-left: 12px;
+			width: calc(100% / 3);
+
+			.close {
+				background-color: #ff5f56;
+				width: 12px;
+				height: 12px;
+				border-radius: 50%;
+			}
+
+			.minimize {
+				background-color: #ffbd2e;
+				width: 12px;
+				height: 12px;
+				border-radius: 50%;
+			}
+
+			.fullscreen {
+				background-color: #27c93f;
+				width: 12px;
+				height: 12px;
+				border-radius: 50%;
+			}
+		}
+
+		.browser__input {
+			max-width: 220px;
+			width: 100%;
+			height: 70%;
+			background-color: #3e3e3f;
+			border-radius: 3px;
+			font-size: 12px;
+			padding: 0 12px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 10px;
+		}
+
+		.space {
+			width: calc(100% / 3);
+		}
+	}
+
+	.content {
+		padding: 24px;
+		background: #222;
+		border-radius: 0 0 6px 6px;
+
+		.main {
+			display: flex;
+			gap: 20px;
+		}
+	}
+}
