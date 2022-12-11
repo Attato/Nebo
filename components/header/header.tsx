@@ -23,74 +23,17 @@ const Header = () => {
 							<div className={styles.blur} onClick={() => setIsOpen(false)} />
 						)}
 						<div className={styles.menu__content}>
-							<Link href="/" onClick={() => setIsOpen(!isOpen)}>
-								{pathname === '/' ? (
-									<Image
-										src="/svg/header/home/home_active.svg"
-										width={24}
-										height={24}
-										alt="svg"
-									/>
-								) : (
-									<Image
-										src="/svg/header/home/home.svg"
-										width={24}
-										height={24}
-										alt="svg"
-									/>
-								)}
-							</Link>
-							<Link href="/movies" onClick={() => setIsOpen(!isOpen)}>
-								{pathname === '/movies' ? (
-									<Image
-										src="/svg/header/movies/movies_active.svg"
-										width={24}
-										height={24}
-										alt="svg"
-									/>
-								) : (
-									<Image
-										src="/svg/header/movies/movies.svg"
-										width={24}
-										height={24}
-										alt="svg"
-									/>
-								)}
-								<p>Фильмы</p>
-							</Link>
-							<Link href="/subscription" onClick={() => setIsOpen(!isOpen)}>
-								{pathname === '/subscription' ? (
-									<Image
-										src="/svg/header/subscription/subscription_active.svg"
-										width={24}
-										height={24}
-										alt="svg"
-									/>
-								) : (
-									<Image
-										src="/svg/header/subscription/subscription.svg"
-										width={24}
-										height={24}
-										alt="svg"
-									/>
-								)}
-								<p>Подписка</p>
-							</Link>
+							<Link href="/">Главная</Link>
+							<Link href="/movies">Фильмы</Link>
+							<Link href="/subscribe?product=3">Подписка</Link>
 						</div>
 					</div>
 					<div className={styles.right__side__content}>
-						<Link href="/">
-							<p>Главная</p>
-						</Link>
-						<Link href="/movies">
-							<p>Фильмы</p>
-						</Link>
-						<Link href="/subscribe">
-							<p>Подписка</p>
-						</Link>
-
+						<Link href="/">Главная</Link>
+						<Link href="/movies">Фильмы</Link>
+						<Link href="/subscribe?product=3">Подписка</Link>
 						<Link href={{ pathname: '/user', query: { tab: 'Профиль' } }}>
-							user
+							test user
 						</Link>
 					</div>
 				</div>
@@ -99,6 +42,7 @@ const Header = () => {
 					<Link href="/signin">Войти</Link>
 				</div>
 			</div>
+			<div className={styles.offline_mode}>Автономный режим</div>
 		</header>
 	);
 };
