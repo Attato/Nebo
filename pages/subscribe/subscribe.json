@@ -1,5 +1,6 @@
 [
     {
+        "id": 0,
         "duration": "12 месяцев",
         "price": 2388,
         "full_price": 2988,
@@ -8,6 +9,7 @@
         "monthly": 199
     },
     {
+        "id": 1,
         "duration": "6  месяцев",
         "price": 1194,
         "full_price": 1494,
@@ -16,6 +18,7 @@
         "monthly": 199
     },
     {
+        "id": 2,
         "duration": "3 месяца",
         "price": 687,
         "full_price": 747,
@@ -24,6 +27,7 @@
         "monthly": 229
     },
     {
+        "id": 3,
         "duration": "1 месяц",
         "price": 249,
         "full_price": 249,
