@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import Image from 'next/image';
+import Link from 'next/link';
 
 import styles from 'pages/movies/movies.module.scss';
 
@@ -8,11 +9,19 @@ const Filter = () => {
 	const filterList = [
 		{
 			name: 'Cортировка',
-			subitems: [{ name: 'по популярности' }, { name: 'по рейтингу' }],
+			subitems: [
+				{ sorting: 'rated', name: 'по популярности' },
+				{ sorting: 'popularity', name: 'по рейтингу' },
+			],
 		},
 		{
 			name: 'Жанры',
-			subitems: [{ name: 'Драма' }, { name: 'Ногть' }, { name: 'Верёвка' }],
+			subitems: [
+				{ name: 'Драма' },
+				{ name: 'Боевик' },
+				{ name: 'Криминал' },
+				{ name: 'Триллер' },
+			],
 		},
 		{
 			name: 'Год выпуска',
@@ -86,9 +95,13 @@ const Filter = () => {
 									: styles.subitems
 							}
 						>
-							{item.subitems.map((subitem, id) => {
+							{item.subitems.map((subitem, id, sorting) => {
 								return (
-									<label
+									<Link
+										href={{
+											pathname: '/movies',
+											query: { sorting: `${subitem.name}` },
+										}}
 										key={id}
 										onClick={() => {
 											setIsCheckBoxChecked(!isCheckBoxChecked);
@@ -105,14 +118,14 @@ const Filter = () => {
 											<input type="checkbox" id={subitem.name} />
 
 											<Image
-												src="/svg/check/check.svg"
+												src="/svg/movies/check.svg"
 												width={16}
 												height={16}
 												alt="svg"
 											></Image>
 										</span>
 										{subitem.name}
-									</label>
+									</Link>
 								);
 							})}
 						</div>
