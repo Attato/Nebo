@@ -1,0 +1,22 @@
+[
+    {
+        "page": "Главная",
+        "link": "/",
+        "query": ""
+    },
+    {
+        "page": "Фильмы",
+        "link": "/movies",
+        "query": ""
+    },
+    {
+        "page": "Подписка",
+        "link": "/subscribe",
+        "query": ""
+    },
+    {
+        "page": "test user",
+        "link": "/user",
+        "query": "?tab=Профиль"
+    }
+]

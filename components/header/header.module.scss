@@ -27,11 +27,12 @@
 				align-items: center;
 				gap: 5px;
 
-				a {
+				link,
+				.link__active {
 					display: flex;
 					align-items: center;
 					gap: 5px;
-					padding: 4px 10px;
+					padding: 7px 15px;
 					border-radius: 6px;
 
 					&:hover {
@@ -42,6 +43,14 @@
 						width: 24px !important;
 						height: auto;
 					}
+				}
+
+				.link {
+					padding: 7px 15px;
+				}
+
+				.link__active {
+					background-color: #191919;
 				}
 			}
 
@@ -193,7 +202,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background-color: #891313;
+		background: linear-gradient(45deg, #00d2ff, #ff91dd, #ff7663);
 		width: 100%;
 		padding: 8px 0;
 		box-shadow: 0px 0px 8px 4px rgb(34 60 80 / 25%) inset;
