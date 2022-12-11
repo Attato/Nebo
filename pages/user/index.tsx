@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
@@ -7,7 +5,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import Header from 'components/header/header';
-import Footer from 'components/footer/footer';
 
 import { tabs } from 'pages/api/userTabs';
 import styles from './user.module.scss';

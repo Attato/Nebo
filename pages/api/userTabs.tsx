@@ -1,8 +1,3 @@
-import Link from 'next/link';
-import Image from 'next/image';
-
-import styles from 'pages/user/user.module.scss';
-
 const Profile = (
 	<div key={Date.now()}>
 		<h3>Профиль - тут пока ничего нет</h3>
