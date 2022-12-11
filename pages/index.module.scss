@@ -1,107 +1,162 @@
 .masthead {
 	display: flex;
 	flex-direction: column;
-	align-items: baseline;
-	max-height: 1080px;
-	height: calc(100vh - 60px);
+	gap: 20px;
+	text-align: center;
+	max-width: 700px;
+	margin: 94px auto;
 
-	.row__wrap {
+	h1 {
+		font-size: 72px;
+		background: linear-gradient(45deg, #00d2ff, #ff91dd, #ff7663);
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+		line-height: 82px;
+	}
+
+	p {
+		font-size: 16px;
+		color: #acacac;
+		margin-bottom: 20px;
+	}
+
+	.buttons {
 		display: flex;
-		justify-content: space-between;
-		margin: 80px 0;
-		width: 100%;
+		justify-content: center;
+		gap: 20px;
 
-		.masthead__content {
+		a {
 			display: flex;
-			flex-direction: column;
-			gap: 15px;
+			align-items: center;
+			justify-content: center;
+			max-width: 240px;
+			width: 100%;
+			height: 45px;
+			border-radius: 6px;
+			transition: all 0.2s ease;
 
-			h1 {
-				font-weight: 500;
-				font-size: 60px;
-				line-height: 80px;
-				width: 100%;
+			&:first-child {
+				background-color: white;
+				color: black;
+
+				&:hover {
+					border: 1px solid white;
+					box-shadow: 0 1px 7px 0 #ffffff80;
+				}
 			}
 
-			p {
-				font-weight: 400;
-				max-width: 475px;
-				font-size: 18px;
-				margin-bottom: 12px;
-				color: #ebebeb;
-			}
+			&:last-child {
+				box-shadow: 0 1px 8px rgb(0 0 0 / 25%);
+				background-color: #191919;
 
-			.masthead__button__wrap {
-				display: flex;
-				align-items: center;
-				gap: 15px;
-
-				a {
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					padding: 8px 14px;
-					border-radius: 6px;
-					font-size: 14px;
-					background-color: #5b61eb;
-					width: fit-content;
-					cursor: pointer;
-
-					&:last-child {
-						background-color: transparent;
-						border: 1px solid #333;
-
-						&:hover {
-							transition: all 0.2s;
-							border-color: #444;
-						}
-					}
-
-					&:hover {
-						transition: all 0.2s;
-						filter: brightness(1.1);
-					}
+				&:hover {
+					background-color: #212121;
+					box-shadow: 0 1px 8px rgb(0 0 0 / 45%);
 				}
 			}
 		}
 	}
 }
 
-@media screen and (max-width: 768px) {
-	.masthead {
+.cards {
+	display: flex;
+	justify-content: center;
+	gap: 16px;
+	margin-bottom: 94px;
+
+	.primary__card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		max-width: 465px;
+		width: 100%;
+		height: 700px;
+		border: 1px solid #2e2e2f;
+		border-radius: 6px;
+		padding: 24px;
+		background-color: #0d0d0d;
+		text-align: center;
+		transition: all 0.2s ease;
+
+		&:hover {
+			border-color: #3e3e3f;
+		}
+
 		h1 {
-			font-size: 48px !important;
-			line-height: normal !important;
+			font-size: 64px;
+			background: linear-gradient(180deg, #000, #fff, #000);
+			background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+
+		span {
+			font-size: 14px;
+			color: #acacac;
+			margin-bottom: 24px;
+
+			a {
+				z-index: 2;
+			}
 		}
 
 		p {
-			font-size: 20px;
+			font-size: 18px;
+			color: #acacac;
+			margin-bottom: 24px;
+		}
+
+		button {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 10px;
+			padding: 0 20px;
+			background-color: #191919;
+			border-radius: 20px;
+			height: 44px;
+			border: 0;
+			cursor: pointer;
 		}
 	}
-}
 
-@media screen and (max-width: 425px) {
-	.masthead {
-		h1 {
-			font-size: 36px !important;
-		}
+	.secondary__cards {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		max-width: 345px;
+		width: 100%;
 
-		p {
-			font-size: 16px;
-		}
-	}
-}
+		.card {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			max-width: 465px;
+			width: 100%;
+			height: calc((700px / 2) - 8px);
+			border: 1px solid #2e2e2f;
+			border-radius: 6px;
+			padding: 24px;
+			background-color: #0d0d0d;
+			text-align: center;
+			transition: all 0.2s ease;
 
-@media screen and (max-width: 375px) {
-	.masthead {
-		gap: 20px;
+			&:hover {
+				border-color: #3e3e3f;
+			}
 
-		h1 {
-			font-size: 26px !important;
-		}
+			h1 {
+				font-size: 48px;
+				background: linear-gradient(180deg, #000, #fff, #000);
+				background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
 
-		a {
-			padding: 5px 15px;
+			p {
+				font-size: 16px;
+				color: #acacac;
+			}
 		}
 	}
 }
