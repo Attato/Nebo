@@ -1,4 +1,7 @@
 import { useRouter } from 'next/router';
+
+import type { NextPage } from 'next';
+
 import Head from 'next/head';
 
 import Header from 'components/header/header';
@@ -8,7 +11,7 @@ import movies from 'pages/api/json/movies.json';
 
 import styles from 'pages/movies/movie.module.scss';
 
-const Movie = () => {
+const Movie: NextPage = () => {
 	const { movie } = useRouter().query;
 
 	return (
