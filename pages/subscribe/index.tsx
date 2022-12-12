@@ -28,65 +28,77 @@ const Ticket: NextPage = () => {
 			<Header />
 			<main className="main">
 				<div className={styles.masthead}>
-					<h1>Получите полный доступ ко всем нашим фильмам.</h1>
+					<h1>Полный доступ</h1>
+					<p>
+						Небо Плюс — премиум-сервис с ежемесячной подпиской. Он поcтавляется
+						со множеством возможностей, к тому же подписчики получают
+						дополнительные награды за просмотр любимых фильмов.
+					</p>
 				</div>
 
-				<div className={styles.widget}>
-					<div className={styles.subscription}>
-						<div className={styles.subscription__title}>
-							<h1>View +</h1>
-							<span>Премиальная подписка на наш сервис</span>
-							{subscribe.map((subscribe, id) => {
+				<div className={styles.subscription}>
+					<div className={styles.subscription__title}>
+						<h1>Небо +</h1>
+						<span>Премиальная подписка на наш сервис</span>
+						{subscribe.map((subscribe, id) => {
+							return (
+								<Link
+									href={{
+										pathname: '/subscribe',
+										query: { product: `${id}` },
+									}}
+									scroll={false}
+									key={id}
+									className={
+										router.query.product === `${id}`
+											? styles.product__option__active
+											: styles.product__option
+									}
+								>
+									<p>Подписка на {subscribe.duration}</p>
+									<div className={styles.price}>
+										<span>₽</span>
+										<h2>{subscribe.monthly} / мес.</h2>
+									</div>
+									<p>Экономия {subscribe.economy} ₽ / г.</p>
+								</Link>
+							);
+						})}
+
+						{subscribe
+							.filter((title) => `${title.id}` === router.query.product)
+							.map((price) => {
 								return (
-									<Link
-										href={{
-											pathname: '/subscribe',
-											query: { product: `${id}` },
-										}}
-										scroll={false}
-										key={id}
-										className={
-											router.query.product === `${id}`
-												? styles.product__option__active
-												: styles.product__option
-										}
-									>
-										<p>Подписка на {subscribe.duration}</p>
+									<div className={styles.price__wrap} key={price.id}>
 										<div className={styles.price}>
-											<span>₽</span>
-											<h2>{subscribe.monthly} / мес.</h2>
+											<h2>{price.price} RUB</h2>
+											{price.full_price != 249 ? (
+												<p>{price.full_price} RUB</p>
+											) : null}
+											{price.percent != '0%' ? (
+												<div className={styles.percent}>
+													<p>{price.percent}</p>
+												</div>
+											) : null}
 										</div>
-										<p>Экономия {subscribe.economy} ₽ / г.</p>
-									</Link>
+										<p>
+											Cписание средств раз в {price.duration}. Вы можете в любой
+											момент отменить подписку на сайте.
+										</p>
+									</div>
 								);
 							})}
 
-							{subscribe
-								.filter((title) => `${title.id}` === router.query.product)
-								.map((price) => {
-									return (
-										<div className={styles.price__wrap} key={price.id}>
-											<div className={styles.price}>
-												<h2>{price.price} RUB</h2>
-												{price.full_price != 249 ? (
-													<p>{price.full_price} RUB</p>
-												) : null}
-												{price.percent != '0%' ? (
-													<div className={styles.percent}>
-														<p>{price.percent}</p>
-													</div>
-												) : null}
-											</div>
-											<p>
-												Cписание средств раз в {price.duration}. Вы можете в
-												любой момент отменить подписку на сайте.
-											</p>
-										</div>
-									);
-								})}
-
-							<Link href="/">Оформить подписку</Link>
-						</div>
+						<Link href="/" className={styles.subscribe}>
+							Оформить подписку
+							<Image
+								src="/svg/home/link.svg"
+								width={16}
+								height={16}
+								alt="svg"
+								draggable={false}
+							/>
+						</Link>
 					</div>
 				</div>
 
@@ -148,50 +160,21 @@ const Ticket: NextPage = () => {
 						<span className={styles.line} />
 						<span className={styles.circle} />
 						<span className={styles.gradient__line__last} />
-						<span className={styles.circle__last}>
-							{' '}
-							<Image
-								src="/svg/finish.svg"
-								width={16}
-								height={16}
-								alt="svg"
-							></Image>
-						</span>
+						<span className={styles.circle__last}></span>
 					</div>
 					<div className={styles.right__side}>
 						<div className={styles.right__side__item}>
-							<div className={styles.icon}>
-								<Image
-									src="/svg/infinite.svg"
-									width={24}
-									height={24}
-									alt="svg"
-								></Image>
-							</div>
+							<div className={styles.icon}></div>
 							<h5>Безграничность в использовании</h5>
 							<p>Смотрите все фильмы сервиса без ограничений</p>
 						</div>
 						<div className={styles.right__side__item}>
-							<div className={styles.icon}>
-								<Image
-									src="/svg/star.svg"
-									width={20}
-									height={20}
-									alt="svg"
-								></Image>
-							</div>
+							<div className={styles.icon}></div>
 							<h5>Выделяйтесь</h5>
 							<p>Особая галочка аккаунта, которая выделит вас из толпы</p>
 						</div>
 						<div className={styles.right__side__item}>
-							<div className={styles.icon}>
-								<Image
-									src="/svg/star.svg"
-									width={20}
-									height={20}
-									alt="svg"
-								></Image>
-							</div>
+							<div className={styles.icon}></div>
 							<h5>Текст</h5>
 							<p>Тут в скором времени будет текст</p>
 						</div>
