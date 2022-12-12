@@ -12,7 +12,7 @@
     {
         "page": "Подписка",
         "link": "/subscribe",
-        "query": ""
+        "query": "?product=3"
     },
     {
         "page": "test user",
