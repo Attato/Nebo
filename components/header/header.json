@@ -17,6 +17,6 @@
     {
         "page": "test user",
         "link": "/user",
-        "query": "?tab=Профиль"
+        "query": "?tab=profile"
     }
 ]
