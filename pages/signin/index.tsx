@@ -75,7 +75,7 @@ const SignIn: NextPage = ({ user }: User) => {
 	};
 
 	const handleGithubSignIn = async () => {
-		signIn('guthub', { callbackUrl: 'http://localhost:3000/user' });
+		signIn('guthub', { callbackUrl: 'http://localhost:3000/user?tab=profile' });
 	};
 
 	return (
