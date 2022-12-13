@@ -23,8 +23,8 @@ const Settings = (
 );
 
 export const tabs = [
-	{ wrap: [Profile], tab: 'Профиль', name: 'profile' },
-	{ wrap: [Friends], tab: 'Друзья', name: 'friends' },
-	{ wrap: [Messages], tab: 'Сообщения', name: 'messages' },
-	{ wrap: [Settings], tab: 'Настройки', name: 'settings' },
+	{ wrap: [Profile], title: "Профиль", name: 'profile' },
+	{ wrap: [Friends], title: "Друзья", name: 'friends' },
+	{ wrap: [Messages], title: "Сообщения", name: 'messages' },
+	{ wrap: [Settings], title: "Настройки", name: 'settings' },
 ];
