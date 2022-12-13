@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import type { NextPage } from 'next';
 
 import { useRouter } from 'next/router';
@@ -14,9 +13,10 @@ import Demo from 'components/ui/demo/demo';
 import styles from './subscribe.module.scss';
 import subscribe from './subscribe.json';
 
-const Ticket: NextPage = () => {
+const Subscribe: NextPage = () => {
 	const router = useRouter();
-
+	console.log(router);
+	
 	return (
 		<div className="container">
 			<Head>
@@ -89,7 +89,7 @@ const Ticket: NextPage = () => {
 								);
 							})}
 
-						<Link href="/" className={styles.subscribe}>
+						<Link href={"/subscribe/payment" + `?product=${router.query.product}`} className={styles.subscribe}>
 							Оформить подписку
 							<Image
 								src="/svg/home/link.svg"
@@ -186,4 +186,4 @@ const Ticket: NextPage = () => {
 	);
 };
 
-export default Ticket;
+export default Subscribe;
