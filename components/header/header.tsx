@@ -3,16 +3,15 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
-
+import { useSession, signOut } from 'next-auth/react';
 import pages from './header.json';
-
 import styles from './header.module.scss';
 
 const Header = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const router = useRouter();
-
-	console.log(router.route);
+	const { data: session } = useSession();
+	console.log(session);
 
 	return (
 		<header className={styles.header}>
@@ -54,7 +53,20 @@ const Header = () => {
 				</div>
 
 				<div className={styles.left__side}>
-					<Link href="/signin">Войти</Link>
+					{session != null ? (
+						<div className={styles.left__side__content}>
+							<Image
+								src={`${session.user.image}`}
+								width={28}
+								height={28}
+								alt="img"
+							></Image>
+							<span>{session.user.name}</span>
+							<button onClick={() => signOut()}>Выйти</button>
+						</div>
+					) : (
+						<Link href="/signin">Войти</Link>
+					)}
 				</div>
 			</div>
 			<div className={styles.offline_mode}>Автономный режим</div>

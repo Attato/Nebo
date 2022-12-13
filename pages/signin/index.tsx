@@ -2,19 +2,11 @@ import { useState, useEffect } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
-
+import { signIn, signOut } from 'next-auth/react';
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
 
 import styles from './signin.module.scss';
-
-// export const getServerSideProps: GetServerSideProps = async () => {
-// 	const user = await prisma.user.findMany();
-
-// 	return {
-// 		props: { user },
-// 	};
-// };
 
 interface User {
 	user: {
@@ -82,7 +74,9 @@ const SignIn: NextPage = ({ user }: User) => {
 		}
 	};
 
-	const signIn = () => {};
+	const handleGithubSignIn = async () => {
+		signIn('guthub', { callbackUrl: 'http://localhost:3000/user' });
+	};
 
 	return (
 		<div className="container">
@@ -121,7 +115,11 @@ const SignIn: NextPage = ({ user }: User) => {
 						/>
 						{invalidPassword && passwordError && <p>{passwordError}</p>}
 					</div>
-					<button onClick={signIn} disabled={!formValid} type="submit">
+					<button
+						onClick={handleGithubSignIn}
+						disabled={!formValid}
+						type="submit"
+					>
 						Авторизация
 					</button>
 					<div className={styles.sign__up}>
@@ -135,7 +133,12 @@ const SignIn: NextPage = ({ user }: User) => {
 					</div>
 					<div className={styles.social__buttons}>
 						<button className={styles.social__button}>Gmail</button>
-						<button className={styles.social__button}>Github</button>
+						<button
+							className={styles.social__button}
+							onClick={handleGithubSignIn}
+						>
+							Github
+						</button>
 					</div>
 				</div>
 			</main>

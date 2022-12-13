@@ -1,5 +1,8 @@
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
+
+import { useSession } from 'next-auth/react';
+
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -11,6 +14,7 @@ import styles from './user.module.scss';
 
 const User: NextPage = () => {
 	const router = useRouter();
+	const { data: session } = useSession();
 
 	return (
 		<div className="container">
@@ -26,7 +30,11 @@ const User: NextPage = () => {
 					<div className={styles.profile__title__wrapper}>
 						<div className={styles.profile__title}>
 							<Image
-								src="/images/user/avatar.png"
+								src={
+									session != null
+										? session.user.image
+										: '/images/user/avatar.png'
+								}
 								width={175}
 								height={175}
 								alt=""
@@ -34,7 +42,7 @@ const User: NextPage = () => {
 								priority
 							/>
 							<div className={styles.user__title}>
-								<h2>Username</h2>
+								{session != null ? <h2>{session.user.name}</h2> : <h2>User</h2>}
 								<p>@username</p>
 								<span className={styles.status}>
 									Хаха, кря кря, я утка, я утка, кря кря, хаха
