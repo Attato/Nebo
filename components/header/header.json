@@ -13,10 +13,5 @@
         "page": "Подписка",
         "link": "/subscribe",
         "query": "?product=3"
-    },
-    {
-        "page": "test user",
-        "link": "/user",
-        "query": "?tab=profile"
     }
 ]

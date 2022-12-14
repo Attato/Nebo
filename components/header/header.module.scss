@@ -148,7 +148,6 @@
 					padding: 38px 30px 38px;
 					gap: 15px;
 					position: absolute;
-					transition: all 0.2s;
 					-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
 					a {
@@ -185,8 +184,67 @@
 		.left__side {
 			.left__side__content {
 				display: flex;
-				gap: 10px;
 				align-items: center;
+				gap: 10px;
+
+				.user__dropdown__active {
+					background-color: #191919 !important;
+				}
+
+				.user__dropdown,
+				.user__dropdown__active {
+					display: flex;
+					align-items: center;
+					gap: 10px;
+					background-color: transparent;
+					border: 0;
+					cursor: pointer;
+					padding: 5px 10px;
+					border-radius: 6px;
+					position: relative;
+
+					&:hover {
+						background-color: #191919;
+					}
+
+					.dropdown__content {
+						display: flex;
+						flex-direction: column;
+						gap: 5px;
+						position: absolute;
+						top: 40px;
+						right: 0;
+						background-color: #191919;
+						border-radius: 6px;
+						padding: 15px;
+
+						a {
+							display: flex;
+							align-items: center;
+							gap: 5px;
+							border: 0;
+
+							&:hover {
+								background-color: #212121;
+								color: white;
+							}
+						}
+
+						button {
+							background-color: #212121;
+							border: 0;
+							font-size: 16px;
+							padding: 5px 20px;
+							cursor: pointer;
+							border-radius: 6px;
+
+							&:hover {
+								background-color: #232323;
+								color: white;
+							}
+						}
+					}
+				}
 			}
 
 			a {
@@ -198,7 +256,6 @@
 				&:hover {
 					background-color: white;
 					color: #060606;
-					transition: all ease-in-out 0.3s;
 				}
 			}
 		}
