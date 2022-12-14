@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+
 import { useRouter } from 'next/router';
 
 import Head from 'next/head';
@@ -8,6 +9,7 @@ import Image from 'next/image';
 import Header from 'components/header/header';
 
 import subscribe from 'pages/subscribe/subscribe.json';
+
 import styles from './accepted.module.scss';
 
 const Accepted: NextPage = () => {

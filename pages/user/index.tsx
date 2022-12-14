@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
-import { useRouter } from 'next/router';
 
+import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
 
 import Head from 'next/head';
@@ -10,6 +10,7 @@ import Image from 'next/image';
 import Header from 'components/header/header';
 
 import { tabs } from 'pages/user/tabs';
+
 import styles from './user.module.scss';
 
 const User: NextPage = () => {

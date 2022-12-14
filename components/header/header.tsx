@@ -1,10 +1,14 @@
 import { useState } from 'react';
 
 import { useRouter } from 'next/router';
+
 import Link from 'next/link';
 import Image from 'next/image';
+
 import { useSession, signOut } from 'next-auth/react';
+
 import pages from './header.json';
+
 import styles from './header.module.scss';
 
 const Header = () => {

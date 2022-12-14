@@ -52,7 +52,6 @@ const Filter = () => {
 	const [currentFilterListItem, setCurrentFilterListItem] = useState(null);
 
 	const [isCheckBoxChecked, setIsCheckBoxChecked] = useState(false);
-	const [currentCheckBoxItem, setCurrentCheckBoxItem] = useState([]);
 
 	return (
 		<div className={styles.filter}>

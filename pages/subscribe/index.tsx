@@ -1,16 +1,17 @@
 import type { NextPage } from 'next';
 
 import { useRouter } from 'next/router';
+
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
-
 import Demo from 'components/ui/demo/demo';
 
 import styles from './subscribe.module.scss';
+
 import subscribe from './subscribe.json';
 
 const Subscribe: NextPage = () => {
