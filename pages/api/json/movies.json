@@ -1,7 +1,7 @@
 [
     {
         "adult": 16, 
-        "vote_average": 8.7,
+        "vote_average": 9.1,
         "release_date": 1972, 
         "title": "Побег из Шоушенка", 
         "original_title": "The Shawshank Redemption", 
@@ -31,7 +31,7 @@
     },
     {
         "adult": 12, 
-        "vote_average": 8.7,
+        "vote_average": 8.5,
         "release_date": 1972, 
         "title": "Тёмный рыцарь", 
         "original_title": "The Dark Knight", 
@@ -46,7 +46,7 @@
     },
     {
         "adult": 18, 
-        "vote_average": 8.7,
+        "vote_average": 8.5,
         "release_date": 1972, 
         "title": "Крёстный отец 2", 
         "original_title": "The Godfather Part II", 
