@@ -9,7 +9,7 @@ import Image from 'next/image';
 
 import Header from 'components/header/header';
 
-import { tabs } from 'pages/user/tabs';
+import { tabs } from 'pages/api/user/tabs';
 
 import styles from './user.module.scss';
 
