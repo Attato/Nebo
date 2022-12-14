@@ -67,7 +67,7 @@ const Home: NextPage = () => {
 								<br /> подписки.
 							</p>
 						</Link>
-						<Link href="/user?tab=Профиль" className={styles.card}>
+						<Link href="/user?tab=profile" className={styles.card}>
 							<h1>Вместе</h1>
 							<p>
 								Общайтесь с друзьями прямо во время просмотра любимых фильмов.
