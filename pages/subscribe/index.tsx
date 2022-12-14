@@ -15,8 +15,7 @@ import subscribe from './subscribe.json';
 
 const Subscribe: NextPage = () => {
 	const router = useRouter();
-	console.log(router);
-	
+
 	return (
 		<div className="container">
 			<Head>
@@ -89,7 +88,10 @@ const Subscribe: NextPage = () => {
 								);
 							})}
 
-						<Link href={"/subscribe/payment" + `?product=${router.query.product}`} className={styles.subscribe}>
+						<Link
+							href={'/subscribe/payment' + `?product=${router.query.product}`}
+							className={styles.subscribe}
+						>
 							Оформить подписку
 							<Image
 								src="/svg/home/link.svg"

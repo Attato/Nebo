@@ -11,7 +11,6 @@ const Header = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const router = useRouter();
 	const { data: session } = useSession();
-	console.log(session);
 
 	return (
 		<header className={styles.header}>

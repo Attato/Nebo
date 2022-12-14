@@ -30,8 +30,6 @@ const SignIn: NextPage = ({ user }: User) => {
 	const [formValid, setFormValid] = useState(false);
 	const [signInStatus, setSignInStatus] = useState(false);
 
-	console.log(user);
-
 	useEffect(() => {
 		if (usernameError || passwordError) {
 			setFormValid(false);
