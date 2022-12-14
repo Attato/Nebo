@@ -223,6 +223,8 @@
 							align-items: center;
 							gap: 5px;
 							border: 0;
+							font-size: 14px;
+							padding: 5px 10px;
 
 							&:hover {
 								background-color: #212121;
@@ -233,8 +235,8 @@
 						button {
 							background-color: #212121;
 							border: 0;
-							font-size: 16px;
-							padding: 5px 20px;
+							font-size: 14px;
+							padding: 5px 10px;
 							cursor: pointer;
 							border-radius: 6px;
 
