@@ -150,6 +150,7 @@ const Header = () => {
 					)}
 				</div>
 			</div>
+
 			<div className={styles.offline_mode}>Автономный режим</div>
 		</header>
 	);

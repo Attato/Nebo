@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import type { NextPage } from 'next';
 
@@ -10,12 +10,24 @@ import Footer from 'components/footer/footer';
 import MovieCategory from 'components/movies/index/movieCategory';
 import Filter from 'components/movies/index/filter';
 
-import movies from 'pages/api/json/movies.json';
+import movies from './movies.json';
 
 import styles from './movies.module.scss';
 
 const Movies: NextPage = () => {
 	const [search, setSearch] = useState('');
+	const [dataResponse, setDataResponse] = useState([]);
+
+	useEffect(() => {
+		const getMovies = async () => {
+			const apiUrlEndpoint = `http://localhost:3000/api/getData`;
+			const response = await fetch(apiUrlEndpoint);
+			const res = await response.json();
+			console.log(res.movies);
+			setDataResponse(res.movies);
+		};
+		getMovies();
+	}, []);
 
 	return (
 		<div className="container">
@@ -44,9 +56,13 @@ const Movies: NextPage = () => {
 					</div>
 					<div className={styles.movies_wrap}>
 						<div className={styles.cards__wrap}>
-							{movies.map((movie, id) => {
-								return <MovieCategory movie={movie} key={id} />;
-							})}
+							{dataResponse.length != 0
+								? dataResponse.map((movie, id) => {
+										return <MovieCategory movie={movie} key={id} />;
+								  })
+								: movies.map((movie, id) => {
+										return <MovieCategory movie={movie} key={id} />;
+								  })}
 						</div>
 					</div>
 				</div>

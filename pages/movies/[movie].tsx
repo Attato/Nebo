@@ -1,5 +1,6 @@
-import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
 
+import { useRouter } from 'next/router';
 import type { NextPage } from 'next';
 
 import Head from 'next/head';
@@ -7,12 +8,24 @@ import Head from 'next/head';
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
 
-import movies from 'pages/api/json/movies.json';
+import movies from './movies.json';
 
 import styles from 'pages/movies/movie.module.scss';
 
 const Movie: NextPage = () => {
 	const { movie } = useRouter().query;
+	const [dataResponse, setDataResponse] = useState([]);
+
+	useEffect(() => {
+		const getMovies = async () => {
+			const apiUrlEndpoint = `http://localhost:3000/api/getData`;
+			const response = await fetch(apiUrlEndpoint);
+			const res = await response.json();
+			console.log(res.movies);
+			setDataResponse(res.movies);
+		};
+		getMovies();
+	}, []);
 
 	return (
 		<div className="container">
