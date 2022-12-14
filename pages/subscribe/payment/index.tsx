@@ -1,12 +1,16 @@
 import type { NextPage } from 'next';
 
 import { useRouter } from 'next/router';
+
 import Head from 'next/head';
+import Link from 'next/link';
 
 import subscribe from 'pages/subscribe/subscribe.json';
 
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
+
+import styles from './payment.module.scss';
 
 const Payment: NextPage = () => {
 	const router = useRouter();
@@ -21,19 +25,54 @@ const Payment: NextPage = () => {
 
 			<Header />
 			<main className="main">
-				<div>
-					{
-						subscribe
-						.filter((title) => title.id === +router.query.product)
-						.map(product => {
-							return(
-								<div key={product.id}>
-									<h1>{product.price}</h1>
+				{subscribe
+					.filter((title) => title.id === +router.query.product)
+					.map((product) => {
+						return (
+							<div key={product.id} className={styles.payment__wrap}>
+								<div className={styles.payment__content}>
+									<h1>Небо +</h1>
+									<div className={styles.subscribe__options}>
+										<h2>Параметры подписки:</h2>
+										<p>
+											подписка на {product.duration} — {product.monthly}{' '}
+											RUB/мес.
+											<sub>
+												С вашего счета будет списываться {product.price} RUB раз
+												в 12 мес. <br /> Вы экономите: {product.economy} RUB
+												/год.
+											</sub>
+										</p>
+									</div>
+									<div className={styles.subscribe}>
+										<h1>{product.price} RUB</h1>
+										<p>
+											Период оплаты: раз в {product.duration}. Вы можете в любой
+											момент отменить подписку на сайте.
+										</p>
+										<span>
+											Нажимая кнопку «Оплатить», вы подтверждаете, что являетесь
+											правомочным пользователем указанного способа оплаты, а
+											также соглашаетесь на немедленное выполнение вашего
+											заказа. Как только выполнение заказа начинается, вы
+											теряете право отменить его.
+										</span>
+									</div>
+									<div className={styles.buttons}>
+										<Link
+											href={
+												'/subscribe/payment/accepted' +
+												`?product=${router.query.product}`
+											}
+										>
+											Далее: подтвердите оплату
+										</Link>
+										<Link href="/subscribe?product=3">Отмена</Link>
+									</div>
 								</div>
-							)
-						})
-					}
-				</div>
+							</div>
+						);
+					})}
 				<Footer />
 			</main>
 		</div>
