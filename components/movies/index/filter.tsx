@@ -5,49 +5,7 @@ import Link from 'next/link';
 
 import styles from 'pages/movies/movies.module.scss';
 
-const Filter = () => {
-	const filterList = [
-		{
-			name: 'Cортировка',
-			subitems: [
-				{ sorting: 'rated', name: 'по популярности' },
-				{ sorting: 'popularity', name: 'по рейтингу' },
-			],
-		},
-		{
-			name: 'Жанры',
-			subitems: [
-				{ name: 'Драма' },
-				{ name: 'Боевик' },
-				{ name: 'Криминал' },
-				{ name: 'Триллер' },
-			],
-		},
-		{
-			name: 'Год выпуска',
-			subitems: [
-				{ name: '< 2000' },
-				{ name: '2000 - 2010' },
-				{ name: '2010 - 2020' },
-				{ name: '2010 - 2020' },
-				{ name: `2020 - ${new Date().getFullYear()}` },
-			],
-		},
-		{
-			name: 'Оценка',
-			subitems: [{ name: '< 5' }, { name: '5 - 7' }, { name: '7 +' }],
-		},
-		{
-			name: 'Возрастной рейтинг',
-			subitems: [
-				{ name: '0+' },
-				{ name: '12+' },
-				{ name: '16+' },
-				{ name: '18+' },
-			],
-		},
-	];
-
+const Filter = ({ content }) => {
 	const [isFilterListOpen, setIsFilterListOpen] = useState(false);
 	const [currentFilterListItem, setCurrentFilterListItem] = useState(null);
 
@@ -55,7 +13,7 @@ const Filter = () => {
 
 	return (
 		<div className={styles.filter}>
-			{filterList.map((item, id) => {
+			{content.map((item, id) => {
 				return (
 					<div className={styles.button__wrap} key={id}>
 						<button
